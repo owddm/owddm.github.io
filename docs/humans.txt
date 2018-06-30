@@ -1,0 +1,10 @@
+# humanstxt.org/
+
+# THANKS
+
+
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    HTML5 Boilerplate
