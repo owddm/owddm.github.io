@@ -13,10 +13,3 @@ https://www.google.co.uk/search?q=osaka+umeda+skyline&hl=en&source=lnms&tbm=isch
 
 Review Meetup:
 https://www.meetup.com/Osaka-Web-Designers-and-Developers-Meetup/about/comments/?op=all
-
-## TODO
-
-* Work offline with UpUp JS
-* Add to Bing Webmaster Tools
-* Add to Google Analytics
-* Add to Google Search Console
