@@ -37,9 +37,15 @@ footer a {
 }
 
 a:hover,
- {
-  opacity: 1.0 !important;
-  color: white;
+a:active,
+a:focus {
+  opacity: 1 !important;
+}
+
+footer a:hover,
+footer a:active,
+footer a:focus {
+  color: #fff;
   text-decoration: none !important;
 }
 
