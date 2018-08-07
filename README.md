@@ -16,11 +16,11 @@ https://www.meetup.com/Osaka-Web-Designers-and-Developers-Meetup/about/comments/
 
 ## Testing and Audits
 
-| Resource               | Link                                                                                   |
-| ---------------------- | -------------------------------------------------------------------------------------- |
-| OpenGraph Test         | http://opengraphcheck.com/                                                             |
-|                        | https://developers.facebook.com/tools/debug/                                           |
-| Twitter Card Validator | https://cards-dev.twitter.com/validator                                                |
-| Speed Test             | https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fowddm.com%2F |
-| More Testing Tools     | https://github.com/coliff/web-testing-tools                                            |
-| Validation             | http://owddm.com.websiteoutlook.com/                                                   |
+| Resource               | Link                                                                          |
+| ---------------------- | ----------------------------------------------------------------------------- |
+| OpenGraph Test         | http://opengraphcheck.com/                                                    |
+|                        | https://developers.facebook.com/tools/debug/                                  |
+| Twitter Card Validator | https://cards-dev.twitter.com/validator                                       |
+| Speed Test             | https://developers.google.com/speed/pagespeed/insights/?url=https://owddm.com |
+| More Testing Tools     | https://github.com/coliff/web-testing-tools                                   |
+| Validation             | http://owddm.com.websiteoutlook.com/                                          |
