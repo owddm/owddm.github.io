@@ -1,25 +1,66 @@
-body{font-family:roboto,Arial,Helvetica,sans-serif!important}
-.page__hero{min-height:106px}
-.masthead{position:absolute!important;border-bottom:0!important}
-.greedy-nav{background:transparent}
-.greedy-nav a{text-shadow:1px 1px 2px #111}
-.sidebar.sticky{overflow-y:none!important;min-height:41px}
-#site-nav > .search__toggle{display:none}
-.page__date{opacity:.8}
-.site-title{display:none!important}
-.page__title{display:none!important}
-.page__footer-copyright{opacity:.8}
-.page__footer-copyright span{opacity:.4}
-.page__meta{opacity:.4}
-.fa-meetup{color:#e0393e}
+body {
+  font-family: roboto, Arial, Helvetica, sans-serif !important;
+}
+.page__hero {
+  min-height: 106px;
+}
+.masthead {
+  position: absolute !important;
+  border-bottom: 0 !important;
+}
+.greedy-nav {
+  background: transparent;
+}
+.greedy-nav a {
+  text-shadow: 1px 1px 2px #111;
+}
+.sidebar.sticky {
+  overflow-y: none !important;
+  min-height: 41px;
+}
+#site-nav > .search__toggle {
+  display: none;
+}
+.page__date {
+  opacity: 0.8;
+}
+.site-title {
+  display: none !important;
+}
+.page__title {
+  display: none !important;
+}
+.page__footer-copyright {
+  opacity: 0.8;
+}
+.page__footer-copyright span {
+  opacity: 0.4;
+}
+.page__meta {
+  opacity: 0.4;
+}
+.fa-meetup {
+  color: #e0393e;
+}
 
-.page__footer-follow li + li:before {content:none}
-.author__urls-wrapper{display:none!important}
+.page__footer-follow li + li:before {
+  content: none;
+}
+.author__urls-wrapper {
+  display: none !important;
+}
 
 .archive__item-teaser img {
   width: 150px;
   height: 170px;
-  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,7 +69,14 @@ body{font-family:roboto,Arial,Helvetica,sans-serif!important}
 .avatar {
   width: 150px;
   height: 170px;
-  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   background-size: cover;
   background-repeat: no-repeat;
