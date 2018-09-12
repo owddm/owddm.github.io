@@ -26,3 +26,5 @@ https://www.meetup.com/Osaka-Web-Designers-and-Developers-Meetup/about/comments/
 | Speed Test             | https://developers.google.com/speed/pagespeed/insights/?url=https://owddm.com |
 | More Testing Tools     | https://github.com/coliff/web-testing-tools                                   |
 | Validation             | http://owddm.com.websiteoutlook.com/                                          |
+| Website Grader         | https://website.grader.com/results/owddm.com                                  |
+| SEO, Social & More     | https://www.seoptimer.com/owddm.com                                           |
