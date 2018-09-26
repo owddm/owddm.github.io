@@ -20,11 +20,11 @@ https://www.meetup.com/Osaka-Web-Designers-and-Developers-Meetup/about/comments/
 
 | Resource               | Link                                                                          |
 | ---------------------- | ----------------------------------------------------------------------------- |
-| OpenGraph Test         | http://opengraphcheck.com/                                                    |
+| OpenGraph Test         | https://opengraphcheck.com/result.php?url=https%3A%2F%2Fowddm.com             |
 |                        | https://developers.facebook.com/tools/debug/                                  |
 | Twitter Card Validator | https://cards-dev.twitter.com/validator                                       |
-| Speed Test             | https://developers.google.com/speed/pagespeed/insights/?url=https://owddm.com |
-| More Testing Tools     | https://github.com/coliff/web-testing-tools                                   |
+| Page Speed Test        | https://developers.google.com/speed/pagespeed/insights/?url=https://owddm.com |
 | Validation             | http://owddm.com.websiteoutlook.com/                                          |
 | Website Grader         | https://website.grader.com/results/owddm.com                                  |
 | SEO, Social & More     | https://www.seoptimer.com/owddm.com                                           |
+| More Testing Tools     | https://github.com/coliff/awesome-website-testing-tools/                      |
