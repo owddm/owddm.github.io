@@ -27,5 +27,6 @@ https://www.meetup.com/Osaka-Web-Designers-and-Developers-Meetup/about/comments/
 | Validation             | http://owddm.com.websiteoutlook.com/                                          |
 | Website Grader         | https://website.grader.com/results/owddm.com                                  |
 | SEO, Social & More     | https://www.seoptimer.com/owddm.com                                           |
+| Rich Links Preview     | https://richpreview.com/?url=https://owddm.com                                |
 | Security               | https://observatory.mozilla.org/analyze/owddm.com                             |
 | More Testing Tools     | https://github.com/coliff/awesome-website-testing-tools/                      |
