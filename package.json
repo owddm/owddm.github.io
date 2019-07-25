@@ -6,7 +6,7 @@
   "private": true,
   "author": "C.Oliff",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-imagemin": "^6.0.0"
   },
   "license": "N/A"
