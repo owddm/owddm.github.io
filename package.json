@@ -1,10 +1,10 @@
 {
-  "name": "optimise-all-images-in-folder",
-  "description": "optimise-all-images-in-folder",
+  "name": "owddm",
+  "description": "",
   "url": "https://owddm.com/",
-  "version": "2018.05.27",
+  "version": "1.0.0",
   "private": true,
-  "author": "C.Oliff",
+  "author": "owddm",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-imagemin": "^7.0.0"
