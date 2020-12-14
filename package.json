@@ -16,7 +16,7 @@
     "test": "npm run htmlhint && npm run css-lint"
   },
   "devDependencies": {
-    "autoprefixer": "10.0.4",
+    "autoprefixer": "10.1.0",
     "bootstrap": "^5.0.0-alpha3",
     "bootstrap-ie11": "^5.0.0-alpha3",
     "cspell": "^4.1.0",
