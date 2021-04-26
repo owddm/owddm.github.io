@@ -28,7 +28,7 @@
     "prettier": "^2.1.2",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^21.0.0",
+    "stylelint-config-standard": "^22.0.0",
     "svgo": "^2.1.0"
   },
   "license": "N/A"
