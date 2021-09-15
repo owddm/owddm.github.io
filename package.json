@@ -8,28 +8,27 @@
   "scripts": {
     "build": "npx hugo",
     "css-lint": "stylelint \"docs/scss/*.scss\"",
-    "htmlhint": "htmlhint docs/_site/**/index.html",
+    "htmlhint": "htmlhint docs/_site/**/*.html",
     "serve": "npx hugo serve",
     "spellcheck": "cspell \"content/**/*.md\"",
     "svgo": "npm-run-all --parallel \"svgo:base -- --folder=docs/img/header\"",
-    "svgo:base": "svgo --config=_svgo.yml --recursive",
+    "svgo:base": "npx svgo --config=_svgo.yml --recursive",
     "test": "npm run htmlhint && npm run css-lint"
   },
   "devDependencies": {
-    "autoprefixer": "10.3.3",
-    "bootstrap": "^5.0.0-beta3",
-    "bootstrap-ie11": "^5.0.0-beta3",
+    "autoprefixer": "10.3.4",
+    "bootstrap": "^5.1.1",
+    "bootstrap-ie11": "^5.1.1",
     "cspell": "^5.0.8",
     "htmlhint": "^0.15.1",
     "hugo-bin": "^0.76.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.1.7",
     "postcss-cli": "8.3.1",
-    "prettier": "^2.1.2",
+    "prettier": "^2.4.0",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^22.0.0",
-    "svgo": "^2.1.0"
+    "stylelint-config-standard": "^22.0.0"
   },
   "license": "N/A"
 }
