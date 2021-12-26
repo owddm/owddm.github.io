@@ -1,0 +1,49 @@
+@import "bootstrap";
+@import "ie11";
+@import "mobile";
+@import "navbar";
+@import "mailchimp-sign-up-slim";
+
+body {
+  font-family: "Roboto", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+  "Arial", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: #A0CEE8;
+  background-image: url("/img/un.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+header.container-fluid,
+header.container-fluid .container-fluid {
+  background-position: center;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #333;
+}
+
+header h1,
+header h2 {
+  transform: rotate(4deg);
+  text-shadow: 1px -2px 22px rgba(0, 0, 0, 0.9);
+}
+
+.bg-angle-white {
+  background: linear-gradient(
+    184deg,
+    rgba(0, 0, 0, 0) 64%,
+    white 64.4%,
+    white 100%
+  );
+  min-height: 28vh;
+}
+
+article {
+  z-index: 2000;
+}

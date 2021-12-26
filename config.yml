@@ -1,0 +1,83 @@
+baseurl: https://owddm.com
+title: owddm
+languageCode: en
+locale: en-US
+
+defaultContentLanguageInSubdir: true
+enableInlineShortcodes: true
+pluralizeListTitles: false
+googleAnalytics: "disabled"
+
+params:
+  title: owddm
+  author: "owddm"
+  twitterID: "owddm"
+
+disableKinds: ["taxonomy", "taxonomyTerm", "sitemap", "RSS"]
+
+outputs:
+  home: ["HTML", "JSON"]
+
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+    respectDoNotTrack: true
+  twitter:
+    enableDNT: true
+  youtube:
+    privacyEnhanced: true
+
+menu:
+  main:
+    - name: Events
+      url: "/events/"
+      weight: 1
+    - name: Contact
+      url: "/contact/"
+      weight: 4
+
+module:
+  mounts:
+    - source: static
+      target: static
+    - source: node_modules/bootstrap-ie11/css/bootstrap-ie11.min.css
+      target: static/css/bootstrap-ie11.min.css
+    - source: node_modules/bootstrap-ie11/css/bootstrap-ie11.min.css.map
+      target: static/css/bootstrap-ie11.min.css.map
+    - source: node_modules/bootstrap/dist/js/bootstrap.bundle.min.js
+      target: static/js/bootstrap.bundle.min.js
+    - source: node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map
+      target: static/js/bootstrap.bundle.min.js.map
+
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute: true
+      autoHeadingID: true
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    codeFences: true
+
+# https://gohugo.io/getting-started/configuration/#configure-minify
+minify:
+  minifyOutput: true
+  tdewolff:
+    html:
+      keepWhitespace: true
+      keepDefaultAttrVals: false
+      keepDocumentTags: false
+      keepEndTags: false
+    js:
+      keepVarNames: true
+    xml:
+      keepWhitespace: true

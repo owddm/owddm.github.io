@@ -1,0 +1,11 @@
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .navbar {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbar .flex-md-row {
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

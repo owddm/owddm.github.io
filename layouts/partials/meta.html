@@ -1,0 +1,34 @@
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }} {{- end -}}</title>
+
+{{ $sassOptions := (dict "enableSourceMap" true) }}
+{{ $styles := resources.Get "css/style.scss" | toCSS $sassOptions | postCSS | minify }}
+<!--  | resources.Fingerprint "md5" -->
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}?v12">
+
+<meta name="description"
+  content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{- end -}}{{- end -}}">
+{{ template "_internal/opengraph.html" . }}
+
+{{- if .Site.Params.twitterID -}}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{{ .Site.Params.twitterID -}}">
+<!-- no need to define additional Twitter card meta tags as fallback to OpenGraph -->
+<!-- https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#twitter-cards-and-open-graph -->
+{{- end -}}
+
+<meta name="theme-color" content="#005f9e">
+
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Internet Explorer 11 polyfills -->
+<script nomodule crossorigin="anonymous"
+  src="https://polyfill.io/v3/polyfill.min.js?features=default,Array.prototype.includes,Array.prototype.find,Number.parseFloat%2CNumber.parse"></script>
+<script
+  nomodule>window.MSInputMethodContext && document.documentMode && document.write('<link rel="stylesheet" href="/css/bootstrap-ie11.min.css"><script src="https://cdn.jsdelivr.net/gh/nuxodin/ie11CustomProperties@4.1.0/ie11CustomProperties.min.js"><\/script>');</script>
+
+{{ if .IsHome }}
+{{ hugo.Generator }}
+{{- end -}}

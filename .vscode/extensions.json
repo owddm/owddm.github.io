@@ -1,9 +1,9 @@
 {
   "recommendations": [
     "EditorConfig.EditorConfig",
-    "mkaufman.HTMLHint",
     "esbenp.prettier-vscode",
-    "shinnn.stylelint",
+    "mkaufman.HTMLHint",
+    "stylelint.vscode-stylelint",
     "streetsidesoftware.code-spell-checker"
   ]
 }
