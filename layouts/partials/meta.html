@@ -3,7 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }} {{- end -}}</title>
 
-{{ $styles := resources.Get "css/style.scss" | toCSS | minify }}
+{{ $sassOptions := (dict "enableSourceMap" true) }}
+{{ $styles := resources.Get "css/style.scss" | toCSS $sassOptions | postCSS | minify }}
 <!--  | resources.Fingerprint "md5" -->
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}?v{{ now.Format "2006-01-02"}}">
 
