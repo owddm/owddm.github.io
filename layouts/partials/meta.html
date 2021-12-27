@@ -3,8 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }} {{- end -}}</title>
 
-{{ $sassOptions := (dict "enableSourceMap" true) }}
-{{ $styles := resources.Get "css/style.scss" | toCSS $sassOptions | postCSS | minify }}
+{{ $styles := resources.Get "css/style.scss" | toCSS | minify }}
 <!--  | resources.Fingerprint "md5" -->
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}?v{{ now.Format "2006-01-02"}}">
 
@@ -23,8 +22,8 @@
 
 <link rel="canonical" href="{{ .Permalink }}">
 
-<meta name=geo.placename content="Osaka, jp">
-<meta name=geo.region content="jp">
+<meta name="geo.placename" content="Osaka, jp">
+<meta name="geo.region" content="jp">
 
 <!-- Internet Explorer 11 polyfills -->
 <script nomodule crossorigin="anonymous"

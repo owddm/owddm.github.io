@@ -15,9 +15,6 @@ params:
 
 disableKinds: ["taxonomy", "taxonomyTerm", "sitemap", "RSS"]
 
-outputs:
-  home: ["HTML", "JSON"]
-
 privacy:
   googleAnalytics:
     anonymizeIP: true

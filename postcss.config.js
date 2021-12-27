@@ -5,6 +5,8 @@ module.exports = {
       safelist: [
         "align-items-center",
         "arrow",
+        "bg-light",
+        "bg-white",
         "border",
         "border-0",
         "bs-tooltip-auto",
@@ -36,6 +38,7 @@ module.exports = {
         "dropdown-menu",
         "fade",
         "flex-shrink-0",
+        "img-fluid",
         "mc_embed_signup",
         "modal",
         "modal-backdrop",
