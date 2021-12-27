@@ -1,7 +1,7 @@
 @import "bootstrap";
 @import "ie11";
 @import "mobile";
-@import "navbar";
+// @import "navbar";
 @import "mailchimp-sign-up-slim";
 
 body {
@@ -14,18 +14,13 @@ body {
   background-size: cover;
 }
 
-header.container-fluid,
-header.container-fluid .container-fluid {
+header {
   background-position: center;
   background-size: cover;
 }
 
 a {
   text-decoration: none;
-}
-
-header {
-  background-color: #333;
 }
 
 header h1,
