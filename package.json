@@ -1,9 +1,17 @@
 {
   "name": "owddm",
-  "description": "",
-  "url": "https://owddm.com/",
   "version": "1.0.0",
   "private": true,
+  "description": "",
+  "homepage": "https://owddm.com/",
+  "bugs": {
+    "url": "https://github.com/owddm/owddm.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owddm/owddm.com.git"
+  },
+  "license": "N/A",
   "author": "owddm",
   "scripts": {
     "build": "npx hugo",
@@ -31,6 +39,5 @@
     "stylelint": "^14.2.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^24.0.0"
-  },
-  "license": "N/A"
+  }
 }

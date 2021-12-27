@@ -6,7 +6,7 @@
 {{ $sassOptions := (dict "enableSourceMap" true) }}
 {{ $styles := resources.Get "css/style.scss" | toCSS $sassOptions | postCSS | minify }}
 <!--  | resources.Fingerprint "md5" -->
-<link rel="stylesheet" href="{{ $styles.RelPermalink }}?v12">
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}?v{{ now.Format "2006-01-02"}}">
 
 <meta name="description"
   content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{- end -}}{{- end -}}">
