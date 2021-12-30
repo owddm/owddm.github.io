@@ -1,5 +1,5 @@
-<footer class="footer bg-dark mt-auto">
-  <div class="container-xl text-white py-2">
+<footer class="container-fluid footer bg-dark mt-auto opacity-75">
+  <div class="container text-white py-2">
     <div class="row">
       <div class="col-12 col-sm-8 small text-center text-sm-start py-2 notranslate">
         Copyright &copy; {{ now.Format "2006" }}, Osaka Web Developers & Designers Meetup.
@@ -8,6 +8,14 @@
         <a href="https://twitter.com/{{ .Site.Params.twitterID -}}" rel="me" target="_blank"
           title="Follow on Twitter" class="px-2" data-bs-toggle="tooltip" data-bs-placement="top">
           {{ partial "icons/fa/brands/twitter-square.svg" (dict "class" "text-light pe-none" "width" "28" "height" "28") }}
+        </a>
+        <a href="https://meetup.com/Osaka-Web-Designers-and-Developers-Meetup/" rel="me" target="_blank"
+          title="Follow on Meetup" class="px-2" data-bs-toggle="tooltip" data-bs-placement="top">
+          {{ partial "icons/simple-icons/meetup.svg" (dict "class" "text-light pe-none" "width" "28" "height" "28") }}
+        </a>
+        <a href="https://github.com/owddm" rel="me" target="_blank"
+          title="Follow on github" class="px-2" data-bs-toggle="tooltip" data-bs-placement="top">
+          {{ partial "icons/simple-icons/github.svg" (dict "class" "text-light pe-none" "width" "28" "height" "28") }}
         </a>
       </div>
     </div>

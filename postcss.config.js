@@ -6,6 +6,7 @@ module.exports = {
         "align-items-center",
         "arrow",
         "bg-light",
+        "bg-secondary",
         "bg-white",
         "border",
         "border-0",
