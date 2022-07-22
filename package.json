@@ -2,7 +2,7 @@
   "name": "owddm",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "static website built with Hugo",
   "homepage": "https://owddm.com/",
   "bugs": {
     "url": "https://github.com/owddm/owddm.com/issues"
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/owddm/owddm.com.git"
   },
-  "license": "N/A",
+  "license": "MIT",
   "author": "owddm",
   "scripts": {
     "build": "npm run htmlhint && npx hugo",
@@ -26,18 +26,17 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "autoprefixer": "10.4.7",
-    "bootstrap": "^5.1.3",
-    "bootstrap-ie11": "^5.1.3",
+    "bootstrap": "^5.2.0",
+    "bootstrap-ie11": "^5.2.0",
     "htmlhint": "^1.1.4",
     "hugo-bin": "^0.89.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
     "postcss-cli": "10.0.0",
     "prettier": "^2.7.1",
-    "purgecss": "^4.1.3",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^25.0.0"
+    "stylelint-config-standard": "^26.0.0"
   },
   "hugo-bin": {
     "buildTags": "extended"
