@@ -1,15 +1,24 @@
-# Folders to ignore
-node_modules/*
-resources/*
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# OS or Editor folders
-._*
-.cache
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-
-# Files
-package-lock.json
-Gemfile.lock
-docs/.sass-cache/*
-.hugo_build.lock
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

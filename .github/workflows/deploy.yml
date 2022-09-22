@@ -14,21 +14,16 @@ jobs:
           submodules: recursive
           fetch-depth: 0         # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2.5.0
-        with:
-          hugo-version: 'latest'
-          extended: true
-
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
       - run: npm i
-      - run: hugo --minify
+      - run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
+          publish_dir: ./dist
           github_token: ${{ secrets.GITHUB_TOKEN }}

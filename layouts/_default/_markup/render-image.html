@@ -1,3 +1,0 @@
-<img src="{{ .Destination | safeURL }}" class="img-fluid" alt="{{ .Text }}" loading="lazy" decoding="async"
-{{ if strings.HasPrefix .Destination "http" }}{{else}} {{ with imageConfig ( printf "static/%s" .Destination ) }}
-  width={{ .Width }} height="{{ .Height }}" {{ end }}{{ end }}>
