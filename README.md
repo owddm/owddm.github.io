@@ -1,31 +1,44 @@
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+# OWDDM Site
 
-# owddm
+This site uses Vue 3 with TypeScript for the frontend and Vite as the bundler. As the site is not very big, all styles are kept in `src/assets/style.css`.
 
-The site is hosted on [GitHub Pages](https://pages.github.com/)
+## Customize configuration
 
-The domain was registered by [Christian Oliff](https://github.com/coliff/) at [GoDaddy](https://goddady.com/)
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-The SSL/CDN is provided by [Cloudflare](https://cloudflare.com/).
+## Project Setup
 
-## Notes
+```sh
+npm install
+```
 
-Osaka city skyline photos:
-https://www.google.co.uk/search?q=osaka+umeda+skyline&hl=en&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjemdbFxZ3aAhUFH5QKHZc_CsQQ_AUICigB&biw=2560&bih=1326
+### Compile and Hot-Reload for Development
 
-Review Meetup:
-https://www.meetup.com/Osaka-Web-Designers-and-Developers-Meetup/about/comments/?op=all
+```sh
+npm run dev
+```
 
-## Testing and Audits
+### Type-Check, Compile and Minify for Production
 
-| Resource               | Link                                                                          |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| OpenGraph Test         | https://opengraphcheck.com/result.php?url=https%3A%2F%2Fowddm.com             |
-|                        | https://developers.facebook.com/tools/debug/                                  |
-| Twitter Card Validator | https://cards-dev.twitter.com/validator                                       |
-| Page Speed Test        | https://developers.google.com/speed/pagespeed/insights/?url=https://owddm.com |
-| Validation             | http://owddm.com.websiteoutlook.com/                                          |
-| Website Grader         | https://website.grader.com/results/owddm.com                                  |
-| SEO, Social & More     | https://www.seoptimer.com/owddm.com                                           |
-| Security               | https://observatory.mozilla.org/analyze/owddm.com                             |
-| More Testing Tools     | https://github.com/coliff/awesome-website-testing-tools/                      |
+```sh
+npm run build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
+
+```sh
+npm run build
+npm run test:e2e # or `npm run test:e2e:ci` for headless testing
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
