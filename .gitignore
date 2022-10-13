@@ -13,3 +13,4 @@ package-lock.json
 Gemfile.lock
 docs/.sass-cache/*
 .hugo_build.lock
+public/*
