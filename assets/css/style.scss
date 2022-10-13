@@ -4,8 +4,8 @@
 @import "mailchimp-sign-up-slim";
 
 body {
-  font-family: "Roboto", BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
-  "Arial", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  font-family: Roboto, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+  Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
   "Segoe UI Symbol", "Noto Color Emoji";
   background-color: #A0CEE8;
   background-image: url("/img/umeda.webp");
@@ -24,5 +24,5 @@ a {
 header h1,
 header h2 {
   transform: rotate(4deg);
-  text-shadow: 1px -2px 22px rgba(0, 0, 0, 0.9);
+  text-shadow: 1px -2px 22px rgb(0 0 0 / 90%);
 }

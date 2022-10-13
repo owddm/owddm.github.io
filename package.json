@@ -14,8 +14,8 @@
   "license": "MIT",
   "author": "owddm",
   "scripts": {
-    "build": "npm run htmlhint && npx hugo",
-    "css-lint": "stylelint \"docs/scss/*.scss\"",
+    "build": "npm run css-lint && npm run htmlhint && npx hugo",
+    "css-lint": "stylelint assets/css/*.scss --custom-syntax postcss-scss",
     "htmlhint": "htmlhint docs/_site/**/*.html",
     "serve": "npx hugo serve",
     "spellcheck": "npx cspell \"content/**/*.md\"",
@@ -34,11 +34,14 @@
     "postcss": "^8.4.16",
     "postcss-cli": "10.0.0",
     "prettier": "^2.7.1",
-    "stylelint": "^14.11.0",
+    "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^26.0.0"
   },
   "hugo-bin": {
     "buildTags": "extended"
+  },
+  "dependencies": {
+    "postcss-scss": "^4.0.5"
   }
 }
