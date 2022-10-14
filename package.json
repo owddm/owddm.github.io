@@ -1,6 +1,19 @@
 {
   "name": "owddm",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OWDDM and KWDDM site",
+  "homepage": "https://owddm.com/",
+  "bugs": {
+    "url": "https://github.com/owddm/owddm.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owddm/owddm.com.git"
+  },
+  "license": "MIT",
+  "author": "owddm",
+
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -10,7 +23,11 @@
     "test:e2e:ci": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "css-lint": "stylelint \"docs/scss/*.scss\"",
+    "htmlhint": "htmlhint docs/_site/**/*.html",
+    "spellcheck": "npx cspell \"content/**/*.md\"",
+    "svgo": "npm-run-all --parallel \"svgo:base -- --folder=docs/img/header\""
   },
   "dependencies": {
     "vue": "^3.2.38",
