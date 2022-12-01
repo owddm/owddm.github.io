@@ -26,7 +26,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "autoprefixer": "10.4.12",
-    "bootstrap": "^5.2.2",
+    "bootstrap": "^5.2.3",
     "bootstrap-ie11": "^5.2.2",
     "htmlhint": "^1.1.4",
     "hugo-bin": "^0.92.3",
