@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink } from "vue-router";
 </script>
 
 <template>
@@ -8,13 +8,13 @@ import { RouterLink } from 'vue-router'
     <nav role="navigation">
       <ul class="list-reset">
         <li>
-          <RouterLink to="/">Home</RouterLink>
+          <a href="/">Home</a>
         </li>
         <li>
-          <RouterLink to="/photos">Photos</RouterLink>
+          <a href="/photos">Photos</a>
         </li>
         <li>
-          <RouterLink to="/contact">Contact</RouterLink>
+          <a href="/contact">Contact</a>
         </li>
       </ul>
     </nav>

@@ -1,44 +1,42 @@
-# OWDDM Site
+# Nuxt 3 Minimal Starter
 
-This site uses Vue 3 with TypeScript for the frontend and Vite as the bundler. As the site is not very big, all styles are kept in `src/assets/style.css`.
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Customize configuration
+## Setup
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Make sure to install the dependencies:
 
-## Project Setup
+```bash
+# yarn
+yarn install
 
-```sh
+# npm
 npm install
+
+# pnpm
+pnpm install --shamefully-hoist
 ```
 
-### Compile and Hot-Reload for Development
+## Development Server
 
-```sh
+Start the development server on http://localhost:3000
+
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## Production
 
-```sh
+Build the application for production:
+
+```bash
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Locally preview production build:
 
-```sh
-npm run test:unit
+```bash
+npm run preview
 ```
 
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

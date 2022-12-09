@@ -361,9 +361,10 @@ main {
 	position: absolute;
 	inset: 0;
 }
- footer {
+
+/* footer {
 	margin-top: 87px;
-}
+} */
 
 .inactive {
 	opacity: 0.5;

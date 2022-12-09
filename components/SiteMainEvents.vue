@@ -65,7 +65,7 @@ const toggleKyoto = () => {
           :data="{
             region: Region.OSAKA,
             title: 'Hiding from the heat (Login UX & Live Coding)',
-            imageURL: '../../../public/meetupimg.png',
+            imageURL: 'images/meetupimg.png',
             eventLink: {
               text: 'Osaka Web Designers and Developers Meetup',
               url: '#',
@@ -79,7 +79,7 @@ const toggleKyoto = () => {
           :data="{
             region: Region.KYOTO,
             title: 'Hiding from the heat (Login UX & Live Coding)',
-            imageURL: '../../../public/meetupimg.png',
+            imageURL: 'images/meetupimg.png',
             eventLink: {
               text: 'Osaka Web Designers and Developers Meetup',
               url: '#',
@@ -93,7 +93,7 @@ const toggleKyoto = () => {
           :data="{
             region: Region.KYOTO,
             title: 'Hiding from the heat (Login UX & Live Coding)',
-            imageURL: '../../../public/meetupimg.png',
+            imageURL: 'images/meetupimg.png',
             eventLink: {
               text: 'Osaka Web Designers and Developers Meetup',
               url: '#',
@@ -107,7 +107,7 @@ const toggleKyoto = () => {
           :data="{
             region: Region.KYOTO,
             title: 'Hiding from the heat (Login UX & Live Coding)',
-            imageURL: '../../../public/meetupimg.png',
+            imageURL: 'images/meetupimg.png',
             eventLink: {
               text: 'Osaka Web Designers and Developers Meetup',
               url: '#',
@@ -121,7 +121,7 @@ const toggleKyoto = () => {
           :data="{
             region: Region.KYOTO,
             title: 'Hiding from the heat (Login UX & Live Coding)',
-            imageURL: '../../../public/meetupimg.png',
+            imageURL: 'images/meetupimg.png',
             eventLink: {
               text: 'Osaka Web Designers and Developers Meetup',
               url: '#',

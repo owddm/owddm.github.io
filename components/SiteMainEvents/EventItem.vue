@@ -29,7 +29,7 @@ enum Status {
 
 <script setup lang="ts">
 withDefaults(defineProps<Props>(), {
-  imageURL: "../../../public/meetupimg.png",
+  imageURL: "images/meetupimg.png",
   region: Region.OSAKA,
   eventTime: "Insert Event Time",
   title: "Insert Event Title",
