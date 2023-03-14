@@ -6,6 +6,7 @@ declare global {
   const clearError: typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['clearError']
   const clearNuxtData: typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['clearNuxtData']
   const computed: typeof import('vue')['computed']
+  const convertPhotoToSmall: typeof import('../../utils/utils')['convertPhotoToSmall']
   const createError: typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['createError']
   const customRef: typeof import('vue')['customRef']
   const defineAppConfig: typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['defineAppConfig']
@@ -18,6 +19,7 @@ declare global {
   const definePageMeta: typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/pages/runtime/composables')['definePageMeta']
   const effect: typeof import('vue')['effect']
   const effectScope: typeof import('vue')['effectScope']
+  const formatDate: typeof import('../../utils/utils')['formatDate']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const h: typeof import('vue')['h']
@@ -112,6 +114,7 @@ declare module 'vue' {
     readonly clearError: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['clearError']>
     readonly clearNuxtData: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['clearNuxtData']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
+    readonly convertPhotoToSmall: UnwrapRef<typeof import('../../utils/utils')['convertPhotoToSmall']>
     readonly createError: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['createError']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
     readonly defineAppConfig: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/app')['defineAppConfig']>
@@ -124,6 +127,7 @@ declare module 'vue' {
     readonly definePageMeta: UnwrapRef<typeof import('../../node_modules/.pnpm/nuxt@3.0.0/node_modules/nuxt/dist/pages/runtime/composables')['definePageMeta']>
     readonly effect: UnwrapRef<typeof import('vue')['effect']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly formatDate: UnwrapRef<typeof import('../../utils/utils')['formatDate']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly h: UnwrapRef<typeof import('vue')['h']>

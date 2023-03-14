@@ -17,9 +17,9 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: 3rem;
 }
 .footer {
-  margin-top: auto;
-  padding-bottom: 1rem;
+  margin-top: 3rem;
 }
 </style>
