@@ -1,6 +1,11 @@
 <template>
   <div v-for="(_item, index) in photoPayload">
-    <ImageGallery galleryID="item" :imagesData="photoPayload[index].images" :title="formatDate(groups[index].timestamp)" />
+    <div v-if="groups[index].content">
+      <ImageGallery galleryID="item" :imagesData="photoPayload[index].images" :title="formatDate(groups[index].timestamp) + ': ' + groups[index].content" />
+    </div>
+    <div v-else>
+      <ImageGallery galleryID="item" :imagesData="photoPayload[index].images" :title="formatDate(groups[index].timestamp)" />
+    </div>
   </div>
 </template>
 
@@ -14,6 +19,7 @@ interface Photo {
 }
 
 interface Event {
+  content?: string;
   event: string;
   photos: Photo[];
   timestamp: Date;
