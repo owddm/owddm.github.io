@@ -26,3 +26,8 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# https://nuxt.com/docs/guide/directory-structure/gitignore
+.nuxt
+.output
+*.log
