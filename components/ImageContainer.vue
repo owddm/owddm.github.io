@@ -151,17 +151,21 @@ div {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin: 0 var(--space);
 }
 
 .img-container {
   width: 10rem;
   height: 10rem;
 }
+.gallery-container a {
+  line-height: 0;
+}
 
 img {
   margin-top: auto;
   margin-bottom: auto;
-  border-radius: 5%;
+  border-radius: var(--radius);
 }
 
 img:hover {

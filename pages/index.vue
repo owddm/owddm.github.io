@@ -1,5 +1,3 @@
 <template>
-  <div>
-    <SiteMain />
-  </div>
+  <SiteMain />
 </template>
