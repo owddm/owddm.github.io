@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
-import { Group, PhotoTransform } from '~~/utils/utils';
+import { Group, PhotoTransform } from '~~/utils/photos';
 import { SlideData } from 'photoswipe/dist/types/slide/zoom-level';
 
 const props = defineProps<{
