@@ -186,6 +186,11 @@ main {
 	padding: 0;
 	margin: 0;
 }
+
+.menu-container {
+  margin-left: 2rem;
+}
+
 .sr-only {
 	position: absolute;
 	width: 1px;
