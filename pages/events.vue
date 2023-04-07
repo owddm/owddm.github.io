@@ -4,26 +4,17 @@
     <MeetupEventItem title="OK" :date="dayjs(1681019000000)" url="some url" :group="Object.keys({ owddm })[0]" />
     <MeetupEventItem title="OK" :date="dayjs(1683019000000)" url="some url" :group="Object.keys({ owddm })[0]" />
     <MeetupEventItem title="OK" :date="dayjs(1687019000000)" url="some url" :group="Object.keys({ owddm })[0]" />
-    <MeetupEventItem title="OK" :date="dayjs(1683019000000)" url="some url" :group="Object.keys({ kwddm })[0]" />
-    <MeetupEventItem title="OK" :date="dayjs(1687019000000)" url="some url" :group="Object.keys({ kwddm })[0]" />
-    <MeetupEventItem title="OK" :date="dayjs(1680019000000)" url="some url" :group="Object.keys({ kwddm })[0]" />
   </div>
 </template>
 
 <script setup lang="ts">
 import MeetupEventItem from "~~/components/SiteMainEvents/MeetupEventItem.vue";
-import { MeetupEventRaw, MeetupEvent, useEvents, getUniqueItems, getYearFromMeetupEvents, getTimeDiffInDays } from "~~/utils/utils";
+import { useEvents } from "~~/utils/events";
 // * Must import esm version or will cause an error in Vite
 import dayjs from "dayjs/esm";
-const owddm = await useEvents("15632202");
-// const kwddm = await useEvents("36450361");
-console.log({ owddm });
-// console.log({ kwddm });
+const { data } = await useEvents();
 
-enum Group {
-  owddm = "owddm",
-  kwddm = "kwddm",
-}
+console.log(data.value);
 
 // TODO:
 /*
@@ -35,13 +26,6 @@ enum Group {
 - Upcoming events will basically be events, that appear later the client's current date.
 - Clicking on an event should jump to the event page.
 */
-
-// let uniqueYears: number[] = getUniqueItems(getYearFromMeetupEvents(owddm)).reverse();
-
-// let date1 = dayjs(1680318000000);
-// let date2 = dayjs();
-
-// console.log(getTimeDiffInDays(date1, date2));
 </script>
 
 <style scoped>
