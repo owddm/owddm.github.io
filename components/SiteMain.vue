@@ -2,7 +2,7 @@
   <Map class="main-map" :key="update" :markers="markers" />
 </template>
 <script setup type="ts">
-import Map from './map';
+import Map from '~~/components/Map.vue';
 import { useEvents, getLatestEvents } from '~~/utils/events';
 
 const { data: events } = await useEvents()
