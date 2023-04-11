@@ -1,4 +1,5 @@
 import dayjs, { Dayjs } from "dayjs/esm";
+import { Event } from "./events";
 
 const base = "https://owddm.github.io/public";
 
@@ -6,6 +7,12 @@ export function getSitePath(path: string): string {
   return `${base}${path}`;
 }
 
+/**
+ * Formats a timestamp into a valid Date string
+ *
+ * @param timestamp
+ * @returns Date string
+ */
 export function formatDate(timestamp: Date) {
   let date = new Date(timestamp);
   return date.toDateString();
@@ -28,7 +35,7 @@ export const getUniqueItems = <T>(items: T[]) => {
  * @param MeetupEvent
  * @returns array of years
  */
-export const getYearFromMeetupEvents = (MeetupEvent: MeetupEvent[] | undefined) => {
+export const getYearFromMeetupEvents = (MeetupEvent: Event[] | undefined) => {
   let years: number[] = [];
   MeetupEvent?.map((event) => {
     years = [...years, new Date(event.time).getFullYear()];
@@ -46,4 +53,15 @@ export const getYearFromMeetupEvents = (MeetupEvent: MeetupEvent[] | undefined) 
 export const getTimeDiffInDays = (olderDate: Dayjs, newerDate: Dayjs = dayjs()): number => {
   let timeDiff = dayjs(olderDate).diff(newerDate, "days");
   return timeDiff;
+};
+
+/**
+ * Does a diff on the passed date and the current date.
+ *
+ * @param date
+ * @returns true if the date is a date in the future.
+ */
+export const isUpcoming = (date: Dayjs): boolean => {
+  let timeDifferenceInDays = getTimeDiffInDays(date, dayjs());
+  return timeDifferenceInDays > 0;
 };

@@ -12,7 +12,8 @@
     "@types/marked": "^4.0.8",
     "dayjs": "^1.11.7",
     "nuxt": "^3.3.3",
-    "typedoc": "^0.23.28"
+    "typedoc": "^0.23.28",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "leaflet": "^1.9.3",

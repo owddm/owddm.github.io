@@ -15,7 +15,7 @@ interface FeeSettings {
     policies: string[];
   };
 }
-interface EventRaw {
+export interface EventRaw {
   title: string;
   description: string;
   time: number;
@@ -83,6 +83,11 @@ export enum GroupType {
   owddm = "owddm",
   kwddm = "kwddm",
   unknown = "unknown",
+}
+
+export enum GroupIDFromGroupType {
+  owddm = "15632202",
+  kwddm = "36450361",
 }
 
 export function isInFuture(event: Event, time?: number) {

@@ -1,20 +1,55 @@
 <template>
-  <div>
-    <MeetupEventItem title="OK" :date="dayjs(1680919000000)" url="some url" :group="Object.keys({ owddm })[0]" />
-    <MeetupEventItem title="OK" :date="dayjs(1681019000000)" url="some url" :group="Object.keys({ owddm })[0]" />
-    <MeetupEventItem title="OK" :date="dayjs(1683019000000)" url="some url" :group="Object.keys({ owddm })[0]" />
-    <MeetupEventItem title="OK" :date="dayjs(1687019000000)" url="some url" :group="Object.keys({ owddm })[0]" />
+  <div class="events-container">
+    <div v-if="pending">Loading ...</div>
+    <div class="events-group-container" v-else>
+      <div>
+        <MeetupEventList :events="owddm" :years="owddm_year" />
+      </div>
+    </div>
+    <div v-if="pending">Loading ...</div>
+    <div class="events-group-container" v-else>
+      <div>
+        <MeetupEventList :events="kwddm" :years="kwddm_year" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import MeetupEventItem from "~~/components/SiteMainEvents/MeetupEventItem.vue";
-import { useEvents } from "~~/utils/events";
-// * Must import esm version or will cause an error in Vite
-import dayjs from "dayjs/esm";
-const { data } = await useEvents();
+import MeetupEventList from "~~/components/SiteMainEvents/MeetupEventList.vue";
+import { useEvents, GroupIDFromGroupType, Event } from "~~/utils/events";
+import { getYearFromMeetupEvents, getUniqueItems } from "~~/utils/utils";
 
-console.log(data.value);
+let events: Event[];
+let owddm: Event[];
+let owddm_year: number[];
+let kwddm: Event[];
+let kwddm_year: number[];
+
+const { pending, data } = await useEvents();
+
+watchEffect(() => {
+  if (!data.value) return;
+
+  events = Array.from(data.value.events);
+
+  owddm = events?.filter((event) => {
+    return event.group.id == GroupIDFromGroupType.owddm;
+  });
+
+  kwddm = events?.filter((event) => {
+    return event.group.id == GroupIDFromGroupType.kwddm;
+  });
+
+  // * Additional chronological sort on the frontend just to make sure events are in the correct order.
+  owddm = owddm?.sort(function (event_a, event_b) {
+    return event_b.time - event_a.time;
+  });
+
+  // * Pass an array of unique years to MeetupEventList
+  owddm_year = getUniqueItems(getYearFromMeetupEvents(owddm));
+  kwddm_year = getUniqueItems(getYearFromMeetupEvents(kwddm));
+});
 
 // TODO:
 /*
@@ -29,6 +64,17 @@ console.log(data.value);
 </script>
 
 <style scoped>
+div {
+  max-width: 100%;
+}
+
+.events-container {
+  display: flex;
+}
+.events-group-container {
+  padding: 0.5rem;
+}
+/*
 img {
   display: block;
   margin-left: auto;
@@ -68,5 +114,5 @@ img {
   margin-left: auto;
   margin-right: auto;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
+} */
 </style>

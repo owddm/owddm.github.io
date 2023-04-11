@@ -9,9 +9,7 @@ interface Props {
 
 <script setup lang="ts">
 import dayjs, { Dayjs } from "dayjs/esm";
-import { getTimeDiffInDays } from "~~/utils/utils";
-
-let currentDate: dayjs.Dayjs = dayjs();
+import { getTimeDiffInDays, isUpcoming } from "~~/utils/utils";
 
 withDefaults(defineProps<Props>(), {
   title: "Insert Event Title",
@@ -21,12 +19,6 @@ withDefaults(defineProps<Props>(), {
   url: "Insert event page URL",
   group: "owddm",
 });
-
-const isUpcomingEvent = (date: Dayjs): boolean => {
-  let currentDate: dayjs.Dayjs = dayjs();
-  let timeDifferenceInDays = getTimeDiffInDays(date, currentDate);
-  return timeDifferenceInDays > 0;
-};
 </script>
 
 <template>
@@ -34,7 +26,7 @@ const isUpcomingEvent = (date: Dayjs): boolean => {
     <div
       class="event-item-container"
       :class="{
-        'container-upcoming': isUpcomingEvent(dayjs(date)),
+        'container-upcoming': isUpcoming(dayjs(date)),
         'container-owddm': group == 'owddm' ? true : false,
         'container-kwddm': group == 'kwddm' ? true : false,
       }">
@@ -43,11 +35,11 @@ const isUpcomingEvent = (date: Dayjs): boolean => {
           {{ title }}
         </a>
       </div>
-      <div v-if="isUpcomingEvent(dayjs(date))">
-        <span v-if="getTimeDiffInDays(dayjs(date), currentDate) == 1" class="date-timer">In {{ getTimeDiffInDays(dayjs(date), currentDate) }} - day! </span>
-        <span v-else-if="getTimeDiffInDays(dayjs(date), currentDate) <= 7" class="date-timer">In {{ getTimeDiffInDays(dayjs(date), currentDate) }} - days! </span>
-        <span v-else-if="getTimeDiffInDays(dayjs(date), currentDate) > 7 && getTimeDiffInDays(dayjs(date), currentDate) < 28" class="date-timer">In {{ Math.floor(getTimeDiffInDays(dayjs(date), currentDate) / 7) }} - weeks! </span>
-        <span v-else-if="getTimeDiffInDays(dayjs(date), currentDate) >= 28" class="date-timer">In {{ Math.floor(getTimeDiffInDays(dayjs(date), currentDate) / 28) }} - months! </span>
+      <div v-if="isUpcoming(dayjs(date))">
+        <span v-if="getTimeDiffInDays(dayjs(date), dayjs()) == 1" class="date-timer">In {{ getTimeDiffInDays(dayjs(date), dayjs()) }} - day! </span>
+        <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) <= 7" class="date-timer">In {{ getTimeDiffInDays(dayjs(date), dayjs()) }} - days! </span>
+        <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) > 7 && getTimeDiffInDays(dayjs(date), dayjs()) < 28" class="date-timer">In {{ Math.floor(getTimeDiffInDays(dayjs(date), dayjs()) / 7) }} - weeks! </span>
+        <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) >= 28" class="date-timer">In {{ Math.floor(getTimeDiffInDays(dayjs(date), dayjs()) / 28) }} - months! </span>
         <span class="date">{{ dayjs(date).format("ddd. MMMM D YYYY [at] H:mm") }}</span>
       </div>
       <div v-else>
@@ -66,6 +58,7 @@ const isUpcomingEvent = (date: Dayjs): boolean => {
 .event-item-container {
   border-left-style: solid;
   margin-top: 0.1rem;
+  max-width: 100%;
 }
 
 .container-owddm {
