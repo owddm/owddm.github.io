@@ -1,5 +1,16 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
+/**
+ * Checks whether the current route (path) matches the selected menu item
+ *
+ * @param menuItem
+ * @returns boolean
+ */
+const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
+  let currentRoute = useRoute().fullPath;
+
+  let currentRouteTokens = currentRoute.split("/");
+  return currentRouteTokens.includes(menuItem);
+};
 </script>
 
 <template>
@@ -20,19 +31,19 @@ import { RouterLink } from "vue-router";
     <nav role="navigation">
       <ul class="list-reset menu-container">
         <li>
-          <a href="/">Home</a>
+          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('') && useRoute().fullPath.length == 1 }" href="/">Home</a>
         </li>
         <li>
-          <a href="/about">About</a>
+          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('about') }" href="/about">About</a>
         </li>
         <li>
-          <a href="/events">Events</a>
+          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('events') }" href="/events">Events</a>
         </li>
         <li>
-          <a href="/photos">Photos</a>
+          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('photos') }" href="/photos">Photos</a>
         </li>
         <li>
-          <a href="survey">Survey</a>
+          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('survey') }" href="survey">Survey</a>
         </li>
       </ul>
     </nav>
@@ -40,5 +51,10 @@ import { RouterLink } from "vue-router";
 </template>
 
 <style scoped>
-/* Styles are imported from the global CSS file 'style.css' */
+.active-menu {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(0.25turn, red, purple);
+  border-image-slice: 1;
+  width: 100%;
+}
 </style>
