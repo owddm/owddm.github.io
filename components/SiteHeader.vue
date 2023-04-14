@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import SocialMedia from "./HeaderComponents/SocialMedia.vue";
+
 /**
  * Checks whether the current route (path) matches the selected menu item
  *
@@ -47,14 +49,44 @@ const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
         </li>
       </ul>
     </nav>
+    <div class="join-button-container">
+      <button class="join-button">→ Join</button>
+    </div>
+    <div class="menu-space"></div>
+    <div>
+      <SocialMedia />
+    </div>
   </header>
 </template>
 
 <style scoped>
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .active-menu {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(0.25turn, red, purple);
   border-image-slice: 1;
   width: 100%;
+}
+
+.menu-space {
+  flex-grow: 1;
+}
+
+.join-button-container {
+  margin-left: 1.2rem;
+}
+
+.join-button {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  min-width: 80px;
+}
+
+.join-button:hover {
+  background-color: red;
 }
 </style>
