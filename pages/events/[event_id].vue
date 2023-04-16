@@ -18,10 +18,23 @@
           <Marked :text="event!.description" />
         </div>
       </div>
-      <div>
-        <div>Date</div>
-        <div>RSVP</div>
-        <div>Join Discord</div>
+      <div class="event-details-date-rsvp-discord">
+        <div>
+          <EventDataDisplay :date="dayjs(event?.time)" />
+        </div>
+        <div>
+          <a v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
+            <button class="rsvp">→ RSVP</button>
+          </a>
+          <a v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
+            <button class="rsvp">→ RSVP</button>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.com/invite/k8xj8d75f6">
+            <button class="join-discord">→ Join Discord</button>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -29,6 +42,8 @@
 
 <script setup lang="ts">
 import Map from "~~/components/Map.vue";
+import EventDataDisplay from "~~/components/SiteMainEvents/EventDateDisplay";
+import dayjs from "dayjs/esm";
 import { useEvents, getLatestEvents, Event } from "~~/utils/events";
 
 const route = useRoute();
@@ -133,5 +148,31 @@ div {
 }
 
 .event-details-date-rsvp-discord {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rsvp {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 1rem;
+  padding: 0.8rem;
+}
+
+.rsvp:hover {
+  background-color: red;
+}
+
+.join-discord {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 1rem;
+  background-color: hsla(240, 100%, 80%, 1);
+  padding: 0.8rem;
+}
+
+.join-discord:hover {
+  background-color: red;
 }
 </style>
