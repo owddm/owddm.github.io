@@ -29,7 +29,7 @@ const bannerStyling = computed(() => ({
       <h2 class="year-heading">Upcoming</h2>
       <div class="event-list-container" v-for="event in events">
         <div v-if="isUpcoming(dayjs(event.time))">
-          <MeetupEventItem :title="event.title" :date="dayjs(event.time)" url="some url" :group="event.group.type" />
+          <MeetupEventItem :title="event.title" :date="dayjs(event.time)" :url="`events/${event.id}`" :group="event.group.type" />
         </div>
       </div>
       <div v-for="year in years">

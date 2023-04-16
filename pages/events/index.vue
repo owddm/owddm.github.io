@@ -28,6 +28,8 @@ let kwddm_year: number[];
 
 const { pending, data } = await useEvents();
 
+console.log(data);
+
 watchEffect(() => {
   if (!data.value) return;
 

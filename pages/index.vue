@@ -1,5 +1,5 @@
 <template>
-  <Map class="main-map" :key="update" :markers="markers" v-if="markers"/>
+  <Map class="main-map" :key="update" :markers="markers" v-if="markers" />
 </template>
 <script setup type="ts">
 import Map from '~~/components/Map.vue';

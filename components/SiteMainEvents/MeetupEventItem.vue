@@ -31,7 +31,7 @@ withDefaults(defineProps<Props>(), {
         'container-kwddm': group == 'kwddm' ? true : false,
       }">
       <div class="title">
-        <a href="{{ url }}">
+        <a :href="url">
           {{ title }}
         </a>
       </div>
