@@ -6,14 +6,14 @@
       <img v-else-if="event.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="KWDDM" />
     </div>
     <div class="event-image-map-container">
-      <div class="event-image-container">
-        <img class="event-image-detail" :src="event.image?.transforms.m.webp.file" alt="" />
+      <img class="event-image-detail" :src="event.image?.transforms.m.webp.file" alt="" />
+      <div class="event-map-detail">
+        <Map class="main-map" :key="update" :markers="markers" />
       </div>
-      <div class="event-map"><Map class="main-map" :key="update" :markers="markers" /></div>
     </div>
     <div class="event-details-container">
       <div class="event-details-description">
-        <h3>{{ event?.title }}</h3>
+        <h1 class="event-title">{{ event?.title }}</h1>
         <div class="event-description-container">
           <Marked :text="event!.description" />
         </div>
@@ -88,28 +88,34 @@ div {
 .event-group-banner {
   clip-path: inset(140px 0px 160px 0px);
   margin-top: -8rem;
-  margin-bottom: -8rem;
+  margin-bottom: -9rem;
 }
 
 .event-image-map-container {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
-.event-image-container {
-  flex-grow: 1;
-}
 .event-image-detail {
   border-radius: 10px;
+  width: 70%;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.event-map {
-  flex-grow: 2;
+.event-map-detail {
+  border: 1px solid black;
+  background-color: red;
+  max-width: 25%;
+}
+
+.event-title {
+  margin-left: 1rem;
 }
 
 .event-description-container {
-  padding: 1.4rem;
+  margin-left: 1rem;
+  margin-top: 2rem;
 }
 
 .event-details-container {
@@ -120,11 +126,12 @@ div {
 }
 
 .event-details-description {
-  flex-grow: 1;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  width: 75%;
 }
 
 .event-details-date-rsvp-discord {
-  flex-direction: column;
-  flex-grow: 1;
 }
 </style>
