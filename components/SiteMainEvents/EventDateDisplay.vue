@@ -41,8 +41,9 @@ withDefaults(defineProps<Props>(), {
   margin-top: 0.1rem;
   max-width: 100%;
   background-color: #e5e7eb; /* TailwindCSS Gray 200 */
-  padding: 1rem;
-  border-radius: 15px;
+  padding: 0.5rem;
+  border-radius: 10px;
+  letter-spacing: 0.05em;
 }
 
 .date {

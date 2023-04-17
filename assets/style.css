@@ -400,6 +400,8 @@ footer {
 	height: 40vh;
 }
 
+/* Map Styles */
+
 .marker.owddm .marker--hex {
 	fill: var(--color-osaka);
 }

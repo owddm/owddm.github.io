@@ -2,13 +2,22 @@
   <div v-if="pending">Loading ...</div>
   <div v-else>
     <div class="event-group-banner-container">
-      <img v-if="event.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
-      <img v-else-if="event.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="KWDDM" />
+      <img v-if="event!.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
+      <img v-else-if="event!.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="KWDDM" />
     </div>
     <div class="event-image-map-container">
-      <img class="event-image-detail" :src="event.image?.transforms.m.webp.file" alt="" />
+      <img class="event-image-detail" :src="event!.image?.transforms.m.webp.file" alt="" />
       <div class="event-map-detail">
-        <Map class="main-map" :key="update" :markers="markers" />
+        <div class="event-map">
+          <EventMap class="main-map" :key="update" :markers="markers" />
+        </div>
+        <div class="event-location-details">
+          <a :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
+            {{ event?.venue.name }}
+          </a>
+          <br />
+          <span>{{ event?.venue?.address }}</span>
+        </div>
       </div>
     </div>
     <div class="event-details-container">
@@ -41,8 +50,8 @@
 </template>
 
 <script setup lang="ts">
-import Map from "~~/components/Map.vue";
-import EventDataDisplay from "~~/components/SiteMainEvents/EventDateDisplay";
+import EventMap from "~~/components/EventMap.vue";
+import EventDataDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
 import dayjs from "dayjs/esm";
 import { useEvents, getLatestEvents, Event } from "~~/utils/events";
 
@@ -76,8 +85,6 @@ const markers = computed(() => {
     };
   });
 });
-
-console.log({ markers });
 </script>
 
 <style scoped>
@@ -113,15 +120,33 @@ div {
 
 .event-image-detail {
   border-radius: 10px;
-  width: 70%;
+  width: 75%;
   margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .event-map-detail {
-  border: 1px solid black;
-  background-color: red;
   max-width: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-map {
+  width: 100%;
+  height: 90%;
+  display: flex;
+}
+
+.event-location-details {
+  background-color: #e5e7eb; /* TailwindCSS Gray 200 */
+  height: 10%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-weight: 300;
+  font-size: 0.8rem;
+  padding: 0.3rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .event-title {
@@ -144,18 +169,22 @@ div {
   margin-top: 1.5rem;
   margin-bottom: 3rem;
   font-weight: 300;
-  width: 75%;
+  max-width: 75%;
+  margin-right: 0.5rem;
 }
 
 .event-details-date-rsvp-discord {
-  margin-left: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  align-self: start;
+  width: 25%;
+  margin-left: 1rem;
 }
 
 .rsvp {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 10px;
   margin-top: 1rem;
   padding: 0.8rem;
 }
@@ -166,7 +195,7 @@ div {
 
 .join-discord {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 10px;
   margin-top: 1rem;
   background-color: hsla(240, 100%, 80%, 1);
   padding: 0.8rem;
