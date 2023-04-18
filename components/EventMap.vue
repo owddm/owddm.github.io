@@ -27,7 +27,11 @@ onMounted(() => {
     if (!mounted) {
       return;
     }
-    lMap = L.map(map.value!).setView([34.95937, 136.07081], 9.4);
+    if (markers[0].type == "owddm") {
+      lMap = L.map(map.value!).setView([34.69937, 135.49081], 11);
+    } else if (markers[0].type == "kwddm") {
+      lMap = L.map(map.value!).setView([35.00005, 135.75581], 11);
+    }
     const gl = new MaplibreLayer({
       attribution: '\u003ca href="https://www.maptiler.com/copyright/" target="_blank"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href="https://www.openstreetmap.org/copyright" target="_blank"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e',
       style: `https://api.maptiler.com/maps/${mapId}/style.json?key=${key}`,
@@ -36,7 +40,7 @@ onMounted(() => {
     stop = watchEffect(() => {
       const lMarkers = markers.map((marker) => {
         let title = marker.title
-          ? `<div class="map-event--label"><div class="map-event--title">${marker.title}</div>${marker.subtitle ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div></div>` : ""}`
+          ? `<div class="map-single-event--label"><div class="map-single-event--title">${marker.title}</div>${marker.subtitle ? `<div class="map-single-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div></div>` : ""}`
           : "";
         const html = `<img src="/_nuxt/assets/map/marker/${marker.type}.svg" class="map-event--image">${title}`;
         return L.marker([marker.lat, marker.lng], {

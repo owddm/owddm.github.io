@@ -441,6 +441,13 @@ footer {
 	font-size: 16px;
 	font-weight: 400;
 }
+
+.map-single-event--title,
+.map-single-event--info,
+.map-single-event--label {
+	display: none;
+}
+
 .map--container, .map--container a {
 	font-size: 10px;
 }

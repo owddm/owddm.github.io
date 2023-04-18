@@ -74,14 +74,14 @@ watchEffect(() => {
 const update = ref(Date.now());
 const markers = computed(() => {
   update.value = Date.now();
-  if (!data.value) return null;
-  return getLatestEvents(data.value).map((event) => {
+  if (!event && Array(event).length != 1) return null;
+  return Array(event).map((event) => {
     return {
-      lat: event.venue!.lat,
-      lng: event.venue!.lng,
-      title: event.title,
-      subtitle: formatDate(event.time),
-      type: event.group.type,
+      lat: event?.venue!.lat,
+      lng: event?.venue!.lng,
+      title: event?.title,
+      subtitle: formatDate(event?.time),
+      type: event?.group.type,
     };
   });
 });
