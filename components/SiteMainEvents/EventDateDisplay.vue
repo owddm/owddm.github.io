@@ -22,7 +22,7 @@ withDefaults(defineProps<Props>(), {
   <Transition>
     <div class="event-item-container">
       <div v-if="isUpcoming(dayjs(date))">
-        <span class="date">&#128337; {{ dayjs(date).format("ddd. MMMM D YYYY") }}</span> <br />
+        <span class="date">&#128337; {{ dayjs(date).format("ddd. MMMM D, YYYY") }}</span> <br />
         <span class="date">&emsp; {{ dayjs(date).format("H:mm") }} - {{ dayjs(date).add(7200000).format("H:mm") }}</span> <br />
         <span v-if="getTimeDiffInDays(dayjs(date), dayjs()) == 1" class="date-timer">&emsp; That's in {{ getTimeDiffInDays(dayjs(date), dayjs()) }} - day! </span>
         <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) <= 7" class="date-timer">&emsp; That's in {{ getTimeDiffInDays(dayjs(date), dayjs()) }} - days! </span>
@@ -30,7 +30,7 @@ withDefaults(defineProps<Props>(), {
         <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) >= 28" class="date-timer">&emsp; That's in {{ Math.floor(getTimeDiffInDays(dayjs(date), dayjs()) / 28) }} - months! </span>
       </div>
       <div v-else>
-        <span class="date">&#128337; {{ dayjs(date).format("ddd. MMMM D YYYY") }}</span>
+        <span class="date">&#128337; {{ dayjs(date).format("ddd. MMMM D, YYYY") }}</span>
       </div>
     </div>
   </Transition>
@@ -43,7 +43,6 @@ withDefaults(defineProps<Props>(), {
   background-color: #e5e7eb; /* TailwindCSS Gray 200 */
   padding: 0.5rem;
   border-radius: 10px;
-  letter-spacing: 0.05em;
 }
 
 .date {

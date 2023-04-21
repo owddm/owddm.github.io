@@ -3,7 +3,7 @@
   <div v-else>
     <div class="event-group-banner-container">
       <img v-if="event!.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
-      <img v-else-if="event!.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="KWDDM" />
+      <img v-else-if="event!.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516520@l.webp" alt="KWDDM" />
     </div>
     <div class="event-image-map-container">
       <img class="event-image-detail" :src="event!.image?.transforms.m.webp.file" alt="" />
@@ -13,7 +13,7 @@
         </div>
         <div class="event-location-details">
           <a :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
-            {{ event?.venue.name }}
+            {{ event?.venue?.name }}
           </a>
           <br />
           <span>{{ event?.venue?.address }}</span>
@@ -53,7 +53,8 @@
 import EventMap from "~~/components/EventMap.vue";
 import EventDataDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
 import dayjs from "dayjs/esm";
-import { useEvents, getLatestEvents, Event } from "~~/utils/events";
+import { useEvents, Event } from "~~/utils/events";
+import { MapMarker } from "~/utils/map";
 
 const route = useRoute();
 
@@ -75,13 +76,13 @@ const update = ref(Date.now());
 const markers = computed(() => {
   update.value = Date.now();
   if (!event && Array(event).length != 1) return null;
-  return Array(event).map((event) => {
+  return Array(event).map((event): MapMarker => {
     return {
-      lat: event?.venue!.lat,
-      lng: event?.venue!.lng,
-      title: event?.title,
-      subtitle: formatDate(event?.time),
-      type: event?.group.type,
+      lat: event!.venue!.lat,
+      lng: event!.venue!.lng,
+      title: event!.title,
+      subtitle: formatDate(event!.time),
+      type: event!.group.type as "owddm" | "kwddm",
     };
   });
 });
@@ -98,13 +99,6 @@ div {
 
 .event-group-banner-container {
   width: 100%;
-  /* transform: scale(0.5, 0.5); */
-}
-.owddm-banner {
-  background-image: url("https://owddm.github.io/public/images/events/5/0/5/516122@l.webp");
-}
-.kwddm-banner {
-  background-image: url("https://owddm.github.io/public/images/events/5/0/5/516122@l.webp");
 }
 
 .event-group-banner {

@@ -12,7 +12,7 @@ import { MapMarker, loadMapLibreLayer } from "~~/utils/map";
 
 const map = ref<HTMLDivElement>();
 const { markers } = defineProps<{
-  markers: MapMarker[];
+  markers: MapMarker[] | null;
 }>();
 
 onMounted(() => {
@@ -27,9 +27,9 @@ onMounted(() => {
     if (!mounted) {
       return;
     }
-    if (markers[0].type == "owddm") {
+    if (markers![0].type == "owddm") {
       lMap = L.map(map.value!).setView([34.69937, 135.49081], 11);
-    } else if (markers[0].type == "kwddm") {
+    } else if (markers![0].type == "kwddm") {
       lMap = L.map(map.value!).setView([35.00005, 135.75581], 11);
     }
     const gl = new MaplibreLayer({
@@ -38,7 +38,7 @@ onMounted(() => {
     });
     gl.addTo(lMap);
     stop = watchEffect(() => {
-      const lMarkers = markers.map((marker) => {
+      const lMarkers = markers!.map((marker) => {
         let title = marker.title
           ? `<div class="map-single-event--label"><div class="map-single-event--title">${marker.title}</div>${marker.subtitle ? `<div class="map-single-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div></div>` : ""}`
           : "";

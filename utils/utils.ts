@@ -13,7 +13,7 @@ export function getSitePath(path: string): string {
  * @param timestamp
  * @returns Date string
  */
-export function formatDate(timestamp: Date) {
+export function formatDate(timestamp: Date | number) {
   let date = new Date(timestamp);
   return date.toDateString();
 }
