@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import SocialMedia from "./HeaderComponents/SocialMedia.vue";
 
+let isHamburgerMenuOpen = ref(false);
+const toggleHamburgerMenuVisibility = () => {
+  isHamburgerMenuOpen.value = !isHamburgerMenuOpen.value;
+};
 /**
  * Checks whether the current route (path) matches the selected menu item
  *
@@ -12,6 +16,24 @@ const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
 
   let currentRouteTokens = currentRoute.split("/");
   return currentRouteTokens.includes(menuItem);
+};
+
+/**
+ * Add the prevent-scrolling CSS class to the body
+ * this prevents the user from scrolling when the
+ * mobile screen menu is open.
+ *
+ * @param void
+ * @returns void
+ */
+const enableScreenScroll = () => {
+  const body = document.querySelector("body");
+  body?.setAttribute("class", "");
+};
+
+const disableScreenScroll = () => {
+  const body = document.querySelector("body");
+  body?.setAttribute("class", "prevent-scrolling");
 };
 </script>
 
@@ -31,7 +53,7 @@ const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
       </svg>
     </h1>
     <nav role="navigation">
-      <ul class="list-reset menu-container">
+      <ul class="list-reset menu-container lg-display">
         <li>
           <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('') && useRoute().fullPath.length == 1 }" href="/">Home</a>
         </li>
@@ -50,11 +72,60 @@ const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
       </ul>
     </nav>
     <div class="join-button-container">
-      <button class="join-button">→ Join</button>
+      <a href="join">
+        <button class="join-button">→ Join</button>
+      </a>
     </div>
     <div class="menu-space"></div>
-    <div>
+    <div class="lg-display">
       <SocialMedia />
+    </div>
+    <div class="hamburger-menu">
+      <div
+        @click="
+          toggleHamburgerMenuVisibility();
+          disableScreenScroll();
+        "
+        :class="{ 'display-none': isHamburgerMenuOpen }">
+        <svg viewBox="0 0 100 80" width="40" height="25">
+          <rect y="10" width="100" height="10"></rect>
+          <rect y="40" width="100" height="10"></rect>
+          <rect y="70" width="100" height="10"></rect>
+        </svg>
+      </div>
+      <div
+        @click="
+          toggleHamburgerMenuVisibility();
+          enableScreenScroll();
+        "
+        :class="{ 'display-none': !isHamburgerMenuOpen }">
+        <svg viewBox="0 0 100 100" width="40" height="25">
+          <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
+          <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
+        </svg>
+      </div>
+    </div>
+    <div class="mobile-menu-items" :class="{ 'display-none': !isHamburgerMenuOpen }">
+      <ul>
+        <li>
+          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('') && useRoute().fullPath.length == 1 }" href="/">Home</a>
+        </li>
+        <li>
+          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('about') }" href="/about">About</a>
+        </li>
+        <li>
+          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('events') }" href="/events">Events</a>
+        </li>
+        <li>
+          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('photos') }" href="/photos">Photos</a>
+        </li>
+        <li>
+          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('survey') }" href="survey">Survey</a>
+        </li>
+        <li>
+          <SocialMedia />
+        </li>
+      </ul>
     </div>
   </header>
 </template>
@@ -83,10 +154,111 @@ header {
 .join-button {
   margin-right: 1rem;
   margin-left: 1rem;
-  min-width: 80px;
+  min-width: 90px;
 }
 
 .join-button:hover {
   background-color: red;
+}
+
+/* Mobile*/
+
+.active-mobile-menu {
+  border-image: linear-gradient(0.5turn, red, purple);
+  border-image-slice: 1;
+  width: 100%;
+  box-sizing: content-box;
+}
+
+.hamburger-menu {
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+  position: relative;
+  display: none;
+  @media only screen and (max-width: 1280px) {
+    display: inline;
+  }
+}
+
+.hamburger-menu:hover {
+  cursor: pointer;
+}
+
+.mobile-menu-items {
+  margin-top: 3rem;
+  background-color: var(--color-bg-front);
+  font-size: 2rem;
+  height: 100%;
+  left: 50%;
+  max-width: 70rem;
+  min-height: 100vh;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 9999;
+  overflow-y: hidden;
+}
+
+.mobile-menu-items > ul {
+  list-style-type: none;
+  margin-left: -2.5rem;
+}
+
+.mobile-menu-items > ul > li:not(:first-child) {
+  padding-top: 1rem;
+}
+.mobile-menu-items > ul > li:last-child {
+  padding-left: 1.8rem;
+}
+.mobile-menu-items > ul > li > a {
+  padding-left: 1.5rem;
+  border-left: 8px solid transparent;
+}
+
+.mobile-menu-items a {
+  text-decoration: none;
+}
+
+.display-none {
+  display: none;
+}
+
+.mobile-logo-join {
+  display: flex;
+  flex-direction: row;
+  margin-left: -4px;
+  margin-top: -3px;
+}
+
+.mobile-logo {
+  padding: 1rem;
+}
+
+.join-button-mobile {
+  margin-top: 1rem;
+  font-size: 1rem;
+  min-width: 90px;
+}
+
+@media only screen and (max-width: 1280px) {
+  .lg-display {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: inline;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .join-button {
+    margin-left: 0.5rem;
+    min-width: 80px;
+  }
+
+  .mobile-menu-items {
+    margin-top: 6rem;
+  }
 }
 </style>
