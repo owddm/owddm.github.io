@@ -11,12 +11,53 @@
         <div class="event-map">
           <EventMap class="main-map" :key="update" :markers="markers" />
         </div>
-        <div class="event-location-details">
-          <a :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
-            {{ event?.venue?.name }}
+        <div class="event-location-details-container">
+          <div class="event-location-details">
+            <a :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
+              {{ event?.venue?.name }}
+            </a>
+            <br />
+            <span>{{ event?.venue?.address }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="event-image-date-container-mobile">
+      <img class="event-image-detail" :src="event!.image?.transforms.m.webp.file" alt="" />
+      <div class="event-date-container-mobile">
+        <EventDateDisplay :date="dayjs(event?.time)" />
+      </div>
+      <h1 class="event-title-mobile">{{ event?.title }}</h1>
+      <div class="event-description-container">
+        <Marked :text="event!.description" />
+      </div>
+      <div class="event-rsvp-discord-mobile">
+        <div>
+          <a v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
+            <button class="rsvp">→ RSVP</button>
           </a>
-          <br />
-          <span>{{ event?.venue?.address }}</span>
+          <a v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
+            <button class="rsvp">→ RSVP</button>
+          </a>
+        </div>
+        <div>
+          <a href="https://discord.com/invite/k8xj8d75f6">
+            <button class="join-discord">→ Join Discord</button>
+          </a>
+        </div>
+      </div>
+      <div class="event-map-detail">
+        <div class="event-map">
+          <EventMap class="main-map" :key="update" :markers="markers" />
+        </div>
+        <div class="event-location-details-container">
+          <div class="event-location-details">
+            <a :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
+              {{ event?.venue?.name }}
+            </a>
+            <br />
+            <span>{{ event?.venue?.address }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -29,7 +70,7 @@
       </div>
       <div class="event-details-date-rsvp-discord">
         <div>
-          <EventDataDisplay :date="dayjs(event?.time)" />
+          <EventDateDisplay :date="dayjs(event?.time)" />
         </div>
         <div>
           <a v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
@@ -51,7 +92,7 @@
 
 <script setup lang="ts">
 import EventMap from "~~/components/EventMap.vue";
-import EventDataDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
+import EventDateDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
 import dayjs from "dayjs/esm";
 import { useEvents, Event } from "~~/utils/events";
 import { MapMarker } from "~/utils/map";
@@ -112,6 +153,10 @@ div {
   flex-direction: row;
 }
 
+.event-image-date-container-mobile {
+  display: none;
+}
+
 .event-image-detail {
   border-radius: 10px;
   width: 75%;
@@ -131,20 +176,24 @@ div {
   display: flex;
 }
 
-.event-location-details {
+.event-location-details-container {
+  container-type: inline-size;
   background-color: #e5e7eb; /* TailwindCSS Gray 200 */
   height: 10%;
   margin-left: 1rem;
   margin-right: 1rem;
-  font-weight: 300;
-  font-size: 0.8rem;
-  padding: 0.3rem;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+.event-location-details {
+  font-weight: 300;
+  font-size: 0.7rem;
+  padding: 0.3rem;
 }
 
 .event-title {
   margin-left: 1rem;
+  line-height: normal;
 }
 
 .event-description-container {
@@ -197,5 +246,141 @@ div {
 
 .join-discord:hover {
   background-color: red;
+}
+
+@media only screen and (max-width: 768px) {
+  .event-group-banner {
+    margin-top: -5rem;
+    margin-bottom: -5rem;
+    clip-path: inset(100px 0px 100px 0px);
+  }
+
+  .event-image-detail {
+    border-radius: 10px;
+    width: 65%;
+    margin-left: 1rem;
+  }
+
+  .event-map-detail {
+    max-width: 35%;
+  }
+
+  .event-details-container {
+    margin-top: 1rem;
+  }
+
+  .event-details-description {
+    max-width: 65%;
+    margin-right: 0.5rem;
+  }
+
+  .event-details-date-rsvp-discord {
+    width: 35%;
+    margin-left: 2rem;
+  }
+
+  .event-rsvp-discord-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  .event-title {
+    margin-top: -2rem;
+    font-size: 1.6rem;
+  }
+
+  .event-title-mobile {
+    font-size: 1.6rem;
+    line-height: normal;
+    padding: 1rem;
+  }
+
+  .event-description-container {
+    margin-top: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .event-group-banner {
+    margin-top: -2rem;
+    margin-bottom: -1rem;
+    clip-path: inset(40px 0px 40px 0px);
+  }
+
+  .event-image-map-container {
+    display: none;
+  }
+
+  .event-image-date-container-mobile {
+    display: block;
+  }
+
+  .event-image-detail {
+    border-radius: 10px;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .event-date-container-mobile {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .event-details-container {
+    display: none;
+  }
+
+  .rsvp {
+    width: 11rem;
+    margin-left: 1rem;
+  }
+
+  .join-discord {
+    width: 11rem;
+    margin-right: 1rem;
+  }
+
+  .event-map-detail {
+    height: 16rem;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .event-map {
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .event-location-details-container {
+    margin-top: -0.2rem;
+    height: 14%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+@container (inline-size < 240px) {
+  .event-location-details {
+    font-size: 0.6rem;
+    padding: 0.2rem;
+  }
+}
+
+@container (inline-size < 180px) {
+  .event-location-details {
+    font-size: 0.5rem;
+    padding: 0.2rem;
+  }
 }
 </style>

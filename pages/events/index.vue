@@ -13,6 +13,14 @@
       </div>
     </div>
   </div>
+  <div class="events-mobile-container">
+    <div v-if="pending">Loading ...</div>
+    <div v-else>
+      <div>
+        <MeetupEventList :events="events" :years="events_year" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -21,6 +29,7 @@ import { useEvents, GroupIDFromGroupType, Event } from "~~/utils/events";
 import { getYearFromMeetupEvents, getUniqueItems } from "~~/utils/utils";
 
 let events: Event[];
+let events_year: number[];
 let owddm: Event[];
 let owddm_year: number[];
 let kwddm: Event[];
@@ -50,10 +59,14 @@ watchEffect(() => {
   kwddm = kwddm?.sort(function (event_a, event_b) {
     return event_b.time - event_a.time;
   });
+  events = events?.sort(function (event_a, event_b) {
+    return event_b.time - event_a.time;
+  });
 
   // * Pass an array of unique years to MeetupEventList
   owddm_year = getUniqueItems(getYearFromMeetupEvents(owddm));
   kwddm_year = getUniqueItems(getYearFromMeetupEvents(kwddm));
+  events_year = getUniqueItems(getYearFromMeetupEvents(events));
 });
 </script>
 
@@ -64,5 +77,18 @@ div {
 
 .events-container {
   display: flex;
+}
+
+.events-mobile-container {
+  display: none;
+}
+
+@media only screen and (max-width: 420px) {
+  .events-container {
+    display: none;
+  }
+  .events-mobile-container {
+    display: block;
+  }
 }
 </style>

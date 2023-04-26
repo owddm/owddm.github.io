@@ -23,7 +23,7 @@ const bannerStyling = computed(() => ({
 <template>
   <div class="event-list-container">
     <div class="event-list-container">
-      <div class="group-banner-container">
+      <div v-if="bannerURL" class="group-banner-container">
         <img :class="bannerStyling" class="group-banner group-banner-owddm" :src="bannerURL" :alt="events![0].group.type + ' banner'" />
       </div>
       <h2 class="year-heading">Upcoming</h2>
