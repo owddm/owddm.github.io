@@ -3,6 +3,7 @@ interface Props {
   events: Event[] | undefined;
   years: number[];
   bannerURL?: string;
+  showHeaders?: boolean;
 }
 </script>
 
@@ -12,7 +13,9 @@ import dayjs from "dayjs/esm";
 import { Event } from "~~/utils/events";
 import { isUpcoming } from "~~/utils/utils";
 
-const props = withDefaults(defineProps<Props>(), {});
+const props = withDefaults(defineProps<Props>(), {
+  showHeaders: true,
+});
 
 const bannerStyling = computed(() => ({
   "group-banner-owddm": props.events![0].group.type == "owddm",
@@ -26,14 +29,14 @@ const bannerStyling = computed(() => ({
       <div v-if="bannerURL" class="group-banner-container">
         <img :class="bannerStyling" class="group-banner group-banner-owddm" :src="bannerURL" :alt="events![0].group.type + ' banner'" />
       </div>
-      <h2 class="year-heading">Upcoming</h2>
+      <h2 v-if="showHeaders" class="year-heading">Upcoming</h2>
       <div class="event-list-container" v-for="event in events">
         <div v-if="isUpcoming(dayjs(event.time))">
           <MeetupEventItem :title="event.title" :date="dayjs(event.time)" :url="`events/${event.id}`" :group="event.group.type" />
         </div>
       </div>
       <div v-for="year in years">
-        <h2 class="year-heading">{{ year }}</h2>
+        <h2 v-if="showHeaders" class="year-heading">{{ year }}</h2>
         <div class="event-list-container" v-for="event in events">
           <div v-if="dayjs(event.time).get('year') == year && !isUpcoming(dayjs(event.time))">
             <MeetupEventItem :title="event.title" :date="dayjs(event.time)" :url="`events/${event.id}`" :group="event.group.type" />

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<svg width="800px" height="800px" viewBox="-4 0 34 34" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(1)">
+            <rect stroke="#474747" stroke-width="2" y="1" width="24" height="32" rx="1"/>
+            <g fill="#575757">
+                <path d="M7 12h12v1H7z"/>
+                <path d="M5 12h1v1H5z"/>
+                <path d="M5 15h1v1H5z"/>
+                <path d="M7 15h12v1H7z"/>
+                <path d="M5 18h1v1H5z"/>
+                <path d="M7 18h12v1H7z"/>
+                <path d="M5 21h1v1H5z"/>
+                <path d="M7 21h12v1H7z"/>
+            </g>
+        </g>
+    </g>
+</svg>
