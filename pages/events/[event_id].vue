@@ -1,12 +1,13 @@
 <template>
-  <div v-if="pending">Loading ...</div>
+  <div v-if="pending">Loading ...this is coming from the event slug.</div>
   <div v-else>
     <div class="event-group-banner-container">
-      <img v-if="event!.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
-      <img v-else-if="event!.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516520@l.webp" alt="KWDDM" />
+      <img v-if="event?.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
+      <img v-else-if="event?.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516520@l.webp" alt="KWDDM" />
+      <img v-else class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
     </div>
     <div class="event-image-map-container">
-      <img class="event-image-detail" :src="event!.image?.transforms.m.webp.file" alt="" />
+      <img class="event-image-detail" :src="event?.image?.transforms.m.webp.file" alt="" />
       <div class="event-map-detail">
         <div class="event-map">
           <EventMap class="main-map" :key="update" :markers="markers" />
@@ -23,7 +24,7 @@
       </div>
     </div>
     <div class="event-image-date-container-mobile">
-      <img class="event-image-detail" :src="event!.image?.transforms.m.webp.file" alt="" />
+      <img class="event-image-detail" :src="event?.image?.transforms.m.webp.file" alt="" />
       <div class="event-date-container-mobile">
         <EventDateDisplay :date="dayjs(event?.time)" />
       </div>
@@ -109,8 +110,6 @@ watchEffect(() => {
 
   events = Array.from(data.value.events);
   event = events.find((event) => event.id == route.params.event_id);
-
-  console.log(data.value);
 });
 
 const update = ref(Date.now());
@@ -121,9 +120,9 @@ const markers = computed(() => {
     return {
       lat: event!.venue!.lat,
       lng: event!.venue!.lng,
-      title: event!.title,
+      title: event?.title,
       subtitle: formatDate(event!.time),
-      type: event!.group.type as "owddm" | "kwddm",
+      type: event?.group.type as "owddm" | "kwddm",
     };
   });
 });
