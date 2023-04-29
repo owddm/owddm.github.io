@@ -1,12 +1,31 @@
 <script setup lang="ts">
 import SocialMedia from "./HeaderComponents/SocialMedia.vue";
 
-let isHamburgerMenuOpen = ref(false);
+const page_state = reactive({
+  address: "/",
+  isHamburgerMenuOpen: false,
+});
+
+watch: {
+  () => page_state.address;
+}
+
 const toggleHamburgerMenuVisibility = () => {
-  isHamburgerMenuOpen.value = !isHamburgerMenuOpen.value;
+  page_state.isHamburgerMenuOpen = !page_state.isHamburgerMenuOpen;
 };
+
+// let isHamburgerMenuOpen = ref(false);
+// const toggleHamburgerMenuVisibility = () => {
+//   isHamburgerMenuOpen.value = !isHamburgerMenuOpen.value;
+// };
+
+const updateAddress = (address: any) => {
+  page_state.address = address;
+  console.log(page_state.address);
+};
+
 /**
- * Checks whether the current route (path) matches the selected menu item
+ * Checks whether the current route (path) matches the selected menu item (not used)
  *
  * @param menuItem
  * @returns boolean
@@ -20,20 +39,19 @@ const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
 
 /**
  * Add the prevent-scrolling CSS class to the body
- * this prevents the user from scrolling when the
- * mobile screen menu is open.
+ * if the mobile menu us open. This prevents the user
+ * from scrolling when the mobile screen menu is open.
  *
  * @param void
  * @returns void
  */
-const enableScreenScroll = () => {
+const updateScreenScroll = () => {
   const body = document.querySelector("body");
-  body?.setAttribute("class", "");
-};
-
-const disableScreenScroll = () => {
-  const body = document.querySelector("body");
-  body?.setAttribute("class", "prevent-scrolling");
+  if (page_state.isHamburgerMenuOpen == true) {
+    body?.setAttribute("class", "prevent-scrolling");
+  } else {
+    body?.setAttribute("class", "");
+  }
 };
 </script>
 
@@ -55,26 +73,24 @@ const disableScreenScroll = () => {
     <nav role="navigation">
       <ul class="list-reset menu-container lg-display">
         <li>
-          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('') && useRoute().fullPath.length == 1 }" href="/">Home</a>
+          <NuxtLink @click="updateAddress('/')" :class="{ 'active-menu': page_state.address == '/' }" to="/">Home</NuxtLink>
         </li>
         <li>
-          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('about') }" href="/about">About</a>
+          <NuxtLink @click="updateAddress('about')" :class="{ 'active-menu': page_state.address == 'about' }" to="/about">About</NuxtLink>
         </li>
         <li>
-          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('events') }" href="/events">Events</a>
+          <NuxtLink @click="updateAddress('events')" :class="{ 'active-menu': page_state.address == 'events' }" to="/events">Events</NuxtLink>
         </li>
         <li>
-          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('photos') }" href="/photos">Photos</a>
+          <NuxtLink @click="updateAddress('photos')" :class="{ 'active-menu': page_state.address == 'photos' }" to="/photos">Photos</NuxtLink>
         </li>
         <li>
-          <a :class="{ 'active-menu': doesCurrentRouteMatchMenuItem('survey') }" href="survey">Survey</a>
+          <NuxtLink @click="updateAddress('survey')" :class="{ 'active-menu': page_state.address == 'survey' }" to="/survey">Survey</NuxtLink>
         </li>
       </ul>
     </nav>
     <div class="join-button-container">
-      <a href="join">
-        <button class="join-button">→ Join</button>
-      </a>
+      <NuxtLink to="/join"><button class="join-button">→ Join</button></NuxtLink>
     </div>
     <div class="menu-space"></div>
     <div class="lg-display">
@@ -84,9 +100,9 @@ const disableScreenScroll = () => {
       <div
         @click="
           toggleHamburgerMenuVisibility();
-          disableScreenScroll();
+          updateScreenScroll();
         "
-        :class="{ 'display-none': isHamburgerMenuOpen }">
+        :class="{ 'display-none': page_state.isHamburgerMenuOpen == true }">
         <svg viewBox="0 0 100 80" width="40" height="25">
           <rect y="10" width="100" height="10"></rect>
           <rect y="40" width="100" height="10"></rect>
@@ -96,31 +112,71 @@ const disableScreenScroll = () => {
       <div
         @click="
           toggleHamburgerMenuVisibility();
-          enableScreenScroll();
+          updateScreenScroll();
         "
-        :class="{ 'display-none': !isHamburgerMenuOpen }">
+        :class="{ 'display-none': !page_state.isHamburgerMenuOpen == true }">
         <svg viewBox="0 0 100 100" width="40" height="25">
           <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
           <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
         </svg>
       </div>
     </div>
-    <div class="mobile-menu-items" :class="{ 'display-none': !isHamburgerMenuOpen }">
+    <div class="mobile-menu-items" :class="{ 'display-none': !page_state.isHamburgerMenuOpen }">
       <ul>
         <li>
-          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('') && useRoute().fullPath.length == 1 }" href="/">Home</a>
+          <NuxtLink
+            @click="
+              updateAddress('/');
+              toggleHamburgerMenuVisibility();
+            "
+            :class="{ 'active-mobile-menu': page_state.address == '/' }"
+            to="/"
+            >Home</NuxtLink
+          >
         </li>
         <li>
-          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('about') }" href="/about">About</a>
+          <NuxtLink
+            @click="
+              updateAddress('about');
+              toggleHamburgerMenuVisibility();
+            "
+            :class="{ 'active-mobile-menu': page_state.address == 'about' }"
+            to="/about"
+            >About</NuxtLink
+          >
         </li>
         <li>
-          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('events') }" href="/events">Events</a>
+          <NuxtLink
+            @click="
+              updateAddress('events');
+              toggleHamburgerMenuVisibility();
+            "
+            :class="{ 'active-mobile-menu': page_state.address == 'events' }"
+            to="/events"
+            >Events</NuxtLink
+          >
         </li>
         <li>
-          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('photos') }" href="/photos">Photos</a>
+          <NuxtLink
+            @click="
+              updateAddress('photos');
+              toggleHamburgerMenuVisibility();
+            "
+            :class="{ 'active-mobile-menu': page_state.address == 'photos' }"
+            to="/photos"
+            >Photos</NuxtLink
+          >
         </li>
         <li>
-          <a :class="{ 'active-mobile-menu': doesCurrentRouteMatchMenuItem('survey') }" href="survey">Survey</a>
+          <NuxtLink
+            @click="
+              updateAddress('survey');
+              toggleHamburgerMenuVisibility();
+            "
+            :class="{ 'active-mobile-menu': page_state.address == 'survey' }"
+            to="/survey"
+            >Survey</NuxtLink
+          >
         </li>
         <li>
           <SocialMedia />
