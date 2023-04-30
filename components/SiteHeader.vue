@@ -4,7 +4,7 @@ import SocialMedia from "./HeaderComponents/SocialMedia.vue";
 const route = useRoute();
 
 const page_state = reactive({
-  address: "/",
+  address: "",
   isHamburgerMenuOpen: false,
 });
 
