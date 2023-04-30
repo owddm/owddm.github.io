@@ -1,18 +1,31 @@
 <script setup lang="ts">
 import SocialMedia from "./HeaderComponents/SocialMedia.vue";
 
+const route = useRoute();
+
 const page_state = reactive({
   address: "/",
   isHamburgerMenuOpen: false,
 });
 
-watch: {
-  () => page_state.address;
-}
-
-const toggleHamburgerMenuVisibility = () => {
-  page_state.isHamburgerMenuOpen = !page_state.isHamburgerMenuOpen;
+const toggleHamburgerMenuVisibilityOn = () => {
+  page_state.isHamburgerMenuOpen = true;
 };
+
+const toggleHamburgerMenuVisibilityOff = () => {
+  page_state.isHamburgerMenuOpen = false;
+};
+
+watch(
+  // Make sure the body is scrollable after navigation
+  // using the mobile menu.
+  route,
+  () => {
+    const body = document.querySelector("body");
+    body?.setAttribute("class", "");
+  },
+  { deep: false, immediate: false }
+);
 
 // let isHamburgerMenuOpen = ref(false);
 // const toggleHamburgerMenuVisibility = () => {
@@ -21,7 +34,6 @@ const toggleHamburgerMenuVisibility = () => {
 
 const updateAddress = (address: any) => {
   page_state.address = address;
-  console.log(page_state.address);
 };
 
 /**
@@ -46,6 +58,7 @@ const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
  * @returns void
  */
 const updateScreenScroll = () => {
+  console.log(page_state.isHamburgerMenuOpen);
   const body = document.querySelector("body");
   if (page_state.isHamburgerMenuOpen == true) {
     body?.setAttribute("class", "prevent-scrolling");
@@ -73,19 +86,59 @@ const updateScreenScroll = () => {
     <nav role="navigation">
       <ul class="list-reset menu-container lg-display">
         <li>
-          <NuxtLink @click="updateAddress('/')" :class="{ 'active-menu': page_state.address == '/' }" to="/">Home</NuxtLink>
+          <NuxtLink
+            @click="
+              updateAddress('/');
+              updateScreenScroll();
+            "
+            :class="{ 'active-menu': page_state.address == '/' }"
+            to="/"
+            >Home</NuxtLink
+          >
         </li>
         <li>
-          <NuxtLink @click="updateAddress('about')" :class="{ 'active-menu': page_state.address == 'about' }" to="/about">About</NuxtLink>
+          <NuxtLink
+            @click="
+              updateAddress('about');
+              updateScreenScroll();
+            "
+            :class="{ 'active-menu': page_state.address == 'about' }"
+            to="/about"
+            >About</NuxtLink
+          >
         </li>
         <li>
-          <NuxtLink @click="updateAddress('events')" :class="{ 'active-menu': page_state.address == 'events' }" to="/events">Events</NuxtLink>
+          <NuxtLink
+            @click="
+              updateAddress('events');
+              updateScreenScroll();
+            "
+            :class="{ 'active-menu': page_state.address == 'events' }"
+            to="/events"
+            >Events</NuxtLink
+          >
         </li>
         <li>
-          <NuxtLink @click="updateAddress('photos')" :class="{ 'active-menu': page_state.address == 'photos' }" to="/photos">Photos</NuxtLink>
+          <NuxtLink
+            @click="
+              updateAddress('photos');
+              updateScreenScroll();
+            "
+            :class="{ 'active-menu': page_state.address == 'photos' }"
+            to="/photos"
+            >Photos</NuxtLink
+          >
         </li>
         <li>
-          <NuxtLink @click="updateAddress('survey')" :class="{ 'active-menu': page_state.address == 'survey' }" to="/survey">Survey</NuxtLink>
+          <NuxtLink
+            @click="
+              updateAddress('survey');
+              updateScreenScroll();
+            "
+            :class="{ 'active-menu': page_state.address == 'survey' }"
+            to="/survey"
+            >Survey</NuxtLink
+          >
         </li>
       </ul>
     </nav>
@@ -99,7 +152,7 @@ const updateScreenScroll = () => {
     <div class="hamburger-menu">
       <div
         @click="
-          toggleHamburgerMenuVisibility();
+          toggleHamburgerMenuVisibilityOn();
           updateScreenScroll();
         "
         :class="{ 'display-none': page_state.isHamburgerMenuOpen == true }">
@@ -111,7 +164,7 @@ const updateScreenScroll = () => {
       </div>
       <div
         @click="
-          toggleHamburgerMenuVisibility();
+          toggleHamburgerMenuVisibilityOff();
           updateScreenScroll();
         "
         :class="{ 'display-none': !page_state.isHamburgerMenuOpen == true }">
@@ -126,8 +179,8 @@ const updateScreenScroll = () => {
         <li>
           <NuxtLink
             @click="
+              toggleHamburgerMenuVisibilityOff();
               updateAddress('/');
-              toggleHamburgerMenuVisibility();
             "
             :class="{ 'active-mobile-menu': page_state.address == '/' }"
             to="/"
@@ -138,7 +191,7 @@ const updateScreenScroll = () => {
           <NuxtLink
             @click="
               updateAddress('about');
-              toggleHamburgerMenuVisibility();
+              toggleHamburgerMenuVisibilityOff();
             "
             :class="{ 'active-mobile-menu': page_state.address == 'about' }"
             to="/about"
@@ -149,7 +202,7 @@ const updateScreenScroll = () => {
           <NuxtLink
             @click="
               updateAddress('events');
-              toggleHamburgerMenuVisibility();
+              toggleHamburgerMenuVisibilityOff();
             "
             :class="{ 'active-mobile-menu': page_state.address == 'events' }"
             to="/events"
@@ -159,8 +212,8 @@ const updateScreenScroll = () => {
         <li>
           <NuxtLink
             @click="
+              toggleHamburgerMenuVisibilityOff();
               updateAddress('photos');
-              toggleHamburgerMenuVisibility();
             "
             :class="{ 'active-mobile-menu': page_state.address == 'photos' }"
             to="/photos"
@@ -170,8 +223,8 @@ const updateScreenScroll = () => {
         <li>
           <NuxtLink
             @click="
+              toggleHamburgerMenuVisibilityOff();
               updateAddress('survey');
-              toggleHamburgerMenuVisibility();
             "
             :class="{ 'active-mobile-menu': page_state.address == 'survey' }"
             to="/survey"
