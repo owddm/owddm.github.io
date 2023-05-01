@@ -1,12 +1,12 @@
 <template>
   <div class="events-container">
-    <div v-if="pending">Loading ...</div>
+    <div class="ml-2" v-if="pending">Loading ...</div>
     <div v-else>
       <div>
         <MeetupEventList :events="owddm" :years="owddm_year" :bannerURL="'https://owddm.github.io/public/images/events/5/0/5/516122@l.webp'" />
       </div>
     </div>
-    <div v-if="pending">Loading ...</div>
+    <div class="ml-2" v-if="pending">Loading ...</div>
     <div v-else>
       <div>
         <MeetupEventList :events="kwddm" :years="kwddm_year" :bannerURL="'https://owddm.github.io/public/images/events/5/0/5/516520@l.webp'" />
@@ -71,6 +71,10 @@ watchEffect(() => {
 <style scoped>
 div {
   max-width: 100%;
+}
+
+.ml-2 {
+  margin-left: 2rem;
 }
 
 .events-container {

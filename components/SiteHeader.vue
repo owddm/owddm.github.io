@@ -27,11 +27,6 @@ watch(
   { deep: false, immediate: false }
 );
 
-// let isHamburgerMenuOpen = ref(false);
-// const toggleHamburgerMenuVisibility = () => {
-//   isHamburgerMenuOpen.value = !isHamburgerMenuOpen.value;
-// };
-
 const updateAddress = (address: any) => {
   page_state.address = address;
 };

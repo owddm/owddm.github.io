@@ -1,11 +1,13 @@
 <template>
   <div v-if="pending">Loading ...this is coming from the event slug.</div>
   <div v-else>
-    <div class="event-group-banner-container">
-      <img v-if="event?.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
-      <img v-else-if="event?.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516520@l.webp" alt="KWDDM" />
-      <img v-else class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
-    </div>
+    <NuxtLink to="/events">
+      <div class="event-group-banner-container">
+        <img v-if="event?.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
+        <img v-else-if="event?.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516520@l.webp" alt="KWDDM" />
+        <img v-else class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
+      </div>
+    </NuxtLink>
     <div class="event-image-map-container">
       <img class="event-image-detail" :src="event?.image?.transforms.m.webp.file" alt="" />
       <div class="event-map-detail">
