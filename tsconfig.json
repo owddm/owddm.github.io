@@ -4,6 +4,7 @@
   "compilerOptions": {
     "typeRoots": [
       "./node_modules/photoswipe/dist/types/"
-    ]
+    ],
+    "types": ["vitest/globals"]
   }
 }
