@@ -1,5 +1,5 @@
 <template>
-  <div v-if="pending">Loading ...this is coming from the event slug.</div>
+  <div class="error-container" v-if="pending"><EventPageError /></div>
   <div v-else>
     <NuxtLink to="/events">
       <div class="event-group-banner-container">
@@ -96,6 +96,7 @@
 <script setup lang="ts">
 import EventMap from "~~/components/EventMap.vue";
 import EventDateDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
+import EventPageError from "~/components/SiteMainEvents/EventPageError.vue";
 import dayjs from "dayjs/esm";
 import { useEvents, Event } from "~~/utils/events";
 import { MapMarker } from "~/utils/map";
@@ -383,5 +384,14 @@ div {
     font-size: 0.5rem;
     padding: 0.2rem;
   }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 1rem;
 }
 </style>

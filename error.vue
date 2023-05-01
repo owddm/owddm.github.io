@@ -17,7 +17,6 @@ const handleError = () => clearError({ redirect: "/" });
       <h4>{{ error.message }}</h4>
       <p v-if="error.statusCode === 404 || '404'">Sorry seems like that page is not available</p>
       <br />
-      <div><SiteMainBannerNoText /></div>
       <div>
         <button @click="handleError">Return to Home</button>
       </div>
