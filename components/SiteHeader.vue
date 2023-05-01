@@ -124,6 +124,7 @@ const updateScreenScroll = () => {
             >Photos</NuxtLink
           >
         </li>
+        <!--
         <li>
           <NuxtLink
             @click="
@@ -135,6 +136,7 @@ const updateScreenScroll = () => {
             >Survey</NuxtLink
           >
         </li>
+        -->
       </ul>
     </nav>
     <div class="join-button-container">
@@ -215,6 +217,7 @@ const updateScreenScroll = () => {
             >Photos</NuxtLink
           >
         </li>
+        <!--
         <li>
           <NuxtLink
             @click="
@@ -226,6 +229,7 @@ const updateScreenScroll = () => {
             >Survey</NuxtLink
           >
         </li>
+        -->
         <li>
           <SocialMedia />
         </li>

@@ -1,9 +1,6 @@
 <template>
   <footer>
-    <p>
-      <span class="capitalize">Copyright</span> © 2022 Osaka/Kyoto Web Designers
-      and web developers meetup
-    </p>
+    <p><span class="capitalize">Copyright</span> © {{ new Date().getFullYear() }} Osaka/Kyoto Web Designers and web developers meetup</p>
   </footer>
 </template>
 
