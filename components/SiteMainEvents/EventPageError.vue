@@ -25,8 +25,8 @@ withDefaults(defineProps<Props>(), {
       </g>
     </svg>
     <br />
-    <div>
-      <span class="error-title">
+    <div class="error-title">
+      <span>
         {{ title }}
       </span>
     </div>
@@ -54,6 +54,7 @@ withDefaults(defineProps<Props>(), {
 }
 
 .error-title {
+  text-align: center;
   font-size: 2rem;
 }
 

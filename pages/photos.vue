@@ -16,6 +16,10 @@ const groups = computed<Group[]>(() => {
 </script>
 
 <style scoped>
+.photos-container {
+  margin-top: 2rem;
+}
+
 @media screen and (orientation: landscape) {
   .photos-container {
     margin-left: env(safe-area-inset-left, 2rem);

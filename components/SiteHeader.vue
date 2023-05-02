@@ -366,6 +366,12 @@ header {
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .mobile-menu-items {
+    margin-top: 4rem;
+  }
+}
+
 @media only screen and (max-width: 420px) {
   .join-button {
     margin-left: 0.5rem;
@@ -388,6 +394,13 @@ header {
 
   .mobile-menu-items > ul {
     margin-left: 1rem;
+    margin-top: -0.1rem;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 1280px) {
+  .mobile-menu-items {
+    margin-top: 5.6rem;
   }
 }
 </style>

@@ -79,6 +79,7 @@ div {
 
 .events-container {
   display: flex;
+  margin-top: 2rem;
 }
 
 .events-mobile-container {

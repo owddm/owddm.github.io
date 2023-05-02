@@ -42,7 +42,7 @@
 <style scoped>
 .about-group-banner {
   clip-path: inset(180px 0px 180px 0px);
-  margin-top: -10rem;
+  margin-top: -9rem;
   margin-bottom: -9rem;
 }
 
@@ -95,7 +95,7 @@
   }
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 896px) {
   .about-title {
     margin-left: env(safe-area-inset-left, 3rem);
   }

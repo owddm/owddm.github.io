@@ -256,7 +256,7 @@ watchEffect(() => {
 <style scoped>
 .join-title {
   margin-left: 1rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-size: 2.2rem;
 }
 
@@ -386,7 +386,7 @@ svg {
   }
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 896px) {
   .join-title {
     margin-left: env(safe-area-inset-left, 2rem);
   }
