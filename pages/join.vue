@@ -385,4 +385,14 @@ svg {
     margin-top: 2rem;
   }
 }
+
+@media screen and (orientation: landscape) {
+  .join-title {
+    margin-left: env(safe-area-inset-left, 2rem);
+  }
+  .join-content-inner-container {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+}
 </style>

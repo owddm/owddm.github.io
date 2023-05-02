@@ -372,6 +372,36 @@ div {
   }
 }
 
+@media screen and (orientation: landscape) and (max-width: 896px) {
+  .event-image-map-container {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+
+  .event-image-detail {
+    width: 60%;
+  }
+
+  .event-map-detail {
+    max-width: 40%;
+  }
+
+  .event-details-container {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+
+  .event-details-description {
+    margin-top: -0.1rem;
+    max-width: 60%;
+  }
+
+  .event-details-date-rsvp-discord {
+    width: 40%;
+    margin-left: 2rem;
+  }
+}
+
 @container (inline-size < 240px) {
   .event-location-details {
     font-size: 0.6rem;

@@ -140,7 +140,14 @@ const updateScreenScroll = () => {
       </ul>
     </nav>
     <div class="join-button-container">
-      <NuxtLink to="/join"><button class="join-button">→ Join</button></NuxtLink>
+      <NuxtLink
+        @click="
+          updateAddress('join');
+          toggleHamburgerMenuVisibilityOff();
+        "
+        to="/join"
+        ><button class="join-button">→ Join</button></NuxtLink
+      >
     </div>
     <div class="menu-space"></div>
     <div class="lg-display">
@@ -367,6 +374,20 @@ header {
 
   .mobile-menu-items {
     margin-top: 6rem;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 896px) {
+  h1 {
+    margin-left: env(safe-area-inset-left, 2rem);
+  }
+
+  .hamburger-menu {
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+
+  .mobile-menu-items > ul {
+    margin-left: 1rem;
   }
 }
 </style>

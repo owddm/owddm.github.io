@@ -21,3 +21,12 @@ const markers = computed(() => {
   })
 })
 </script>
+
+<style scoped>
+@media screen and (orientation: landscape) {
+  .main-map {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+}
+</style>

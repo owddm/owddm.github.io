@@ -1,5 +1,7 @@
 <template>
-  <ImageContainer galleryID="full-gallery" :key="update" :groups="groups"/>
+  <div class="photos-container">
+    <ImageContainer galleryID="full-gallery" :key="update" :groups="groups" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -12,3 +14,12 @@ const groups = computed<Group[]>(() => {
   return Array.from(data.value!).reverse();
 });
 </script>
+
+<style scoped>
+@media screen and (orientation: landscape) {
+  .photos-container {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+}
+</style>

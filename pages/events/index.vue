@@ -93,4 +93,11 @@ div {
     display: block;
   }
 }
+
+@media screen and (orientation: landscape) {
+  .events-container {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+}
 </style>

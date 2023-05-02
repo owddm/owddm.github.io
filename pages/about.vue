@@ -94,4 +94,19 @@
     margin-right: 2rem;
   }
 }
+
+@media screen and (orientation: landscape) {
+  .about-title {
+    margin-left: env(safe-area-inset-left, 3rem);
+  }
+  .about-description-container div:nth-child(1) {
+    margin-left: env(safe-area-inset-left, 3rem);
+    margin-right: 1rem;
+  }
+
+  .about-description-container div:nth-child(2) {
+    margin-left: 1rem;
+    margin-right: env(safe-area-inset-right, 3rem);
+  }
+}
 </style>
