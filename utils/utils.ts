@@ -57,6 +57,7 @@ export const getTimeDiffInDays = (olderDate: Dayjs, newerDate: Dayjs = dayjs()):
 
 /**
  * Does a diff on the passed date and the current date.
+ * If the difference is greater than 1 day, it returns true.
  *
  * @param date
  * @returns true if the date is a date in the future.

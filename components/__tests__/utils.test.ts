@@ -16,3 +16,15 @@ test("getUniqueItems(): Returns an array of unique items from an array of items"
   expect(getUniqueItems(["A", "B", "C", "C", "D", "E"])).toEqual(["A", "B", "C", "D", "E"]);
 });
 
+test("isUpcoming(): Does a diff on the passed date and the current date.", () => {
+  expect(isUpcoming(dayjs(new Date).add(2, "day"))).toEqual(true);
+});
+
+test("isUpcoming(): Does a diff on the passed date and the current date.", () => {
+  expect(isUpcoming(dayjs(new Date))).toEqual(false);
+});
+
+test("getTimeDiffInDays(): Returns the time difference between two dates in days.", () => {
+  expect(getTimeDiffInDays(dayjs(1680483472000), dayjs(1684490400000))).toEqual(-46);
+});
+
