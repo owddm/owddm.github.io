@@ -31,9 +31,9 @@ withDefaults(defineProps<Props>(), {
         'container-kwddm': group == 'kwddm' ? true : false,
       }">
       <div class="title">
-        <a :href="url">
+        <NuxtLink :to="url">
           {{ title }}
-        </a>
+        </NuxtLink>
       </div>
       <div v-if="isUpcoming(dayjs(date))">
         <span v-if="getTimeDiffInDays(dayjs(date), dayjs()) == 1" class="date-timer">In {{ getTimeDiffInDays(dayjs(date), dayjs()) }} - day! </span>

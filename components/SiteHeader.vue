@@ -21,8 +21,7 @@ watch(
   // using the mobile menu.
   route,
   () => {
-    const body = document.querySelector("body");
-    body?.setAttribute("class", "");
+    unlockScreenScroll();
   },
   { deep: false, immediate: false }
 );
@@ -42,6 +41,11 @@ const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
 
   let currentRouteTokens = currentRoute.split("/");
   return currentRouteTokens.includes(menuItem);
+};
+
+const unlockScreenScroll = () => {
+  const body = document.querySelector("body");
+  body?.setAttribute("class", "");
 };
 
 /**
@@ -86,7 +90,7 @@ const updateScreenScroll = () => {
               updateAddress('/');
               updateScreenScroll();
             "
-            :class="{ 'active-menu': page_state.address == '/' }"
+            activeClass="active-menu"
             to="/"
             >Home</NuxtLink
           >
@@ -97,7 +101,7 @@ const updateScreenScroll = () => {
               updateAddress('about');
               updateScreenScroll();
             "
-            :class="{ 'active-menu': page_state.address == 'about' }"
+            activeClass="active-menu"
             to="/about"
             >About</NuxtLink
           >
@@ -108,6 +112,7 @@ const updateScreenScroll = () => {
               updateAddress('events');
               updateScreenScroll();
             "
+            activeClass="active-menu"
             :class="{ 'active-menu': page_state.address == 'events' }"
             to="/events"
             >Events</NuxtLink
@@ -119,7 +124,7 @@ const updateScreenScroll = () => {
               updateAddress('photos');
               updateScreenScroll();
             "
-            :class="{ 'active-menu': page_state.address == 'photos' }"
+            activeClass="active-menu"
             to="/photos"
             >Photos</NuxtLink
           >
@@ -139,14 +144,15 @@ const updateScreenScroll = () => {
         -->
       </ul>
     </nav>
-    <div class="join-button-container">
+    <div class="join-link-container">
       <NuxtLink
+        class="plain-link"
         @click="
           updateAddress('join');
           toggleHamburgerMenuVisibilityOff();
         "
         to="/join"
-        ><button class="join-button">→ Join</button></NuxtLink
+        ><div class="join-link">→ Join</div></NuxtLink
       >
     </div>
     <div class="menu-space"></div>
@@ -182,32 +188,36 @@ const updateScreenScroll = () => {
       <ul>
         <li>
           <NuxtLink
+            @mousedown="unlockScreenScroll()"
             @click="
               toggleHamburgerMenuVisibilityOff();
               updateAddress('/');
             "
-            :class="{ 'active-mobile-menu': page_state.address == '/' }"
+            activeClass="active-mobile-menu"
             to="/"
             >Home</NuxtLink
           >
         </li>
         <li>
           <NuxtLink
+            @mousedown="unlockScreenScroll()"
             @click="
               updateAddress('about');
               toggleHamburgerMenuVisibilityOff();
             "
-            :class="{ 'active-mobile-menu': page_state.address == 'about' }"
+            activeClass="active-mobile-menu"
             to="/about"
             >About</NuxtLink
           >
         </li>
         <li>
           <NuxtLink
+            @mousedown="unlockScreenScroll()"
             @click="
               updateAddress('events');
               toggleHamburgerMenuVisibilityOff();
             "
+            activeClass="active-mobile-menu"
             :class="{ 'active-mobile-menu': page_state.address == 'events' }"
             to="/events"
             >Events</NuxtLink
@@ -215,11 +225,12 @@ const updateScreenScroll = () => {
         </li>
         <li>
           <NuxtLink
+            @mousedown="unlockScreenScroll()"
             @click="
               toggleHamburgerMenuVisibilityOff();
               updateAddress('photos');
             "
-            :class="{ 'active-mobile-menu': page_state.address == 'photos' }"
+            activeClass="active-mobile-menu"
             to="/photos"
             >Photos</NuxtLink
           >
@@ -262,17 +273,38 @@ header {
   flex-grow: 1;
 }
 
-.join-button-container {
+.join-link-container {
   margin-left: 1.2rem;
 }
 
-.join-button {
-  margin-right: 1rem;
-  margin-left: 1rem;
-  min-width: 90px;
+.join-link-container > a {
+  text-decoration: none;
+  text-align: center;
 }
 
-.join-button:hover {
+.join-link {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  --_bg: var(--button-bg, var(--color-blue));
+  --_color: var(--button-color, var(--color-white));
+  --_width: var(--button-width, 100px);
+  --_fw: var(--button-fw, 400);
+  --_fs: var(--button-fs, var(--fd-5));
+  background: var(--_bg);
+  color: var(--_color);
+  font-family: inherit;
+  font-size: var(--_fs);
+  font-weight: var(--_fw);
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: var(--_width);
+  min-height: var(--_height);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.join-link:hover {
   background-color: red;
 }
 
@@ -350,7 +382,7 @@ header {
   padding: 1rem;
 }
 
-.join-button-mobile {
+.join-link-mobile {
   margin-top: 1rem;
   font-size: 1rem;
   min-width: 90px;
@@ -373,7 +405,7 @@ header {
 }
 
 @media only screen and (max-width: 420px) {
-  .join-button {
+  .join-link {
     margin-left: 0.5rem;
     min-width: 80px;
   }
