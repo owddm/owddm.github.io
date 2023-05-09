@@ -180,7 +180,7 @@
                   Join our Meetup Group
                 </button>
               </a>
-              <a href="">
+              <!--<a href="">
                 <button class="follow-us-button">
                   <span
                     ><svg class="svg-type-2" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +215,7 @@
                   ></span>
                   Add our Calendar to Google Cal
                 </button>
-              </a>
+              </a>-->
             </div>
           </div>
         </div>
