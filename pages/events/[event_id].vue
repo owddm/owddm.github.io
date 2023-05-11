@@ -16,7 +16,7 @@
         </div>
         <div class="event-location-details-container">
           <div class="event-location-details">
-            <a :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
+            <a target="_blank" rel="noopener noreferrer" :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
               {{ event?.venue?.name }}
             </a>
             <br />
@@ -36,15 +36,15 @@
       </div>
       <div class="event-rsvp-discord-mobile">
         <div>
-          <a v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
+          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
             <button class="rsvp">→ RSVP</button>
           </a>
-          <a v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
+          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
             <button class="rsvp">→ RSVP</button>
           </a>
         </div>
         <div>
-          <a href="https://discord.com/invite/k8xj8d75f6">
+          <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
             <button class="join-discord">→ Join Discord</button>
           </a>
         </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="event-location-details-container">
           <div class="event-location-details">
-            <a :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
+            <a target="_blank" rel="noopener noreferrer" :href="`https://www.google.com/maps/search/?api=1&query=${event?.venue?.lat}%2C${event?.venue?.lng}`">
               {{ event?.venue?.name }}
             </a>
             <br />
@@ -76,15 +76,15 @@
           <EventDateDisplay :date="dayjs(event?.time)" />
         </div>
         <div>
-          <a v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
+          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
             <button class="rsvp">→ RSVP</button>
           </a>
-          <a v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
+          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
             <button class="rsvp">→ RSVP</button>
           </a>
         </div>
         <div>
-          <a href="https://discord.com/invite/k8xj8d75f6">
+          <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
             <button class="join-discord">→ Join Discord</button>
           </a>
         </div>

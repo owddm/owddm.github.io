@@ -46,9 +46,9 @@
             </h2>
             <p>
               We always welcome new presenters and presentations. If you have a topic that is related to web design or web development. Please don't hesitate to create a post in
-              <a href="https://discord.com/channels/1034792577293094972/1034862103653257306">#presentation-proposals</a> on Discord or use this private form.
+              <a target="_blank" rel="noopener noreferrer" href="https://discord.com/channels/1034792577293094972/1034862103653257306">#presentation-proposals</a> on Discord or use this private form.
             </p>
-            <a href="https://forms.gle/KifJzLSmcXUPxSFk7">
+            <a target="_blank" rel="noopener noreferrer" href="https://forms.gle/KifJzLSmcXUPxSFk7">
               <button>→ Submit a presentation proposal</button>
             </a>
           </div>
@@ -131,7 +131,7 @@
               Share your opinion
             </h2>
             <p>To figure out if we are doing alright, or if we should change speeds we have a survey prepared.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzo6DecghqIfir5O-2eiuQXPf81j97XcOCVEr6eJgUSEGeMw/viewform">
+            <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSfzo6DecghqIfir5O-2eiuQXPf81j97XcOCVEr6eJgUSEGeMw/viewform">
               <button>→ Fill out our Survey</button>
             </a>
           </div>
@@ -159,7 +159,7 @@
             </h2>
             <p>Stay up to date on new events and other information about the meetup.</p>
             <div class="button-container">
-              <a href="https://twitter.com/owddm">
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/owddm">
                 <button class="follow-us-button">
                   <span
                     ><!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
@@ -170,7 +170,7 @@
                   Follow us on Twitter
                 </button>
               </a>
-              <a href="https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/">
                 <button class="follow-us-button">
                   <span
                     ><svg class="svg-type-2" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
