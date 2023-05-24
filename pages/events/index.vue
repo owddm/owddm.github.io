@@ -3,13 +3,13 @@
     <div class="ml-2" v-if="pending">Loading ...</div>
     <div v-else>
       <div>
-        <MeetupEventList :events="owddm" :years="owddm_year" :bannerURL="'https://owddm.github.io/public/images/events/5/0/5/516122@l.webp'" />
+        <MeetupEventList :events="owddm" :years="owddm_year" :bannerURL="'/banner/owddm-image.webp'" :logoURL="'/logo/owddm-outline@1x.png'" />
       </div>
     </div>
     <div class="ml-2" v-if="pending">Loading ...</div>
     <div v-else>
       <div>
-        <MeetupEventList :events="kwddm" :years="kwddm_year" :bannerURL="'https://owddm.github.io/public/images/events/5/0/5/516520@l.webp'" />
+        <MeetupEventList :events="kwddm" :years="kwddm_year" :bannerURL="'/banner/kwddm-image.webp'" :logoURL="'/logo/kwddm-outline@1x.png'" />
       </div>
     </div>
   </div>

@@ -3,6 +3,7 @@ interface Props {
   events: Event[] | undefined;
   years: number[];
   bannerURL?: string;
+  logoURL?: string;
   showHeaders?: boolean;
 }
 </script>
@@ -28,6 +29,7 @@ const bannerStyling = computed(() => ({
     <div class="event-list-container">
       <div v-if="bannerURL" class="group-banner-container">
         <img :class="bannerStyling" class="group-banner group-banner-owddm" :src="bannerURL" :alt="events![0].group.type + ' banner'" />
+        <img class="group-banner-logo" :src="logoURL" alt="" />
       </div>
       <h2 v-if="showHeaders" class="year-heading">Upcoming</h2>
       <div class="event-list-container" v-for="event in events">
@@ -55,6 +57,7 @@ const bannerStyling = computed(() => ({
 }
 .group-banner-container {
   max-width: 100%;
+  position: relative;
 }
 .group-banner {
   border-radius: 10px;
@@ -66,6 +69,13 @@ const bannerStyling = computed(() => ({
 }
 .group-banner-kwddm {
   border-top: 5px solid purple;
+}
+
+.group-banner-logo {
+  position: absolute;
+  top: 20%;
+  left: 0%;
+  transform: scale(0.7);
 }
 
 .year-heading {
