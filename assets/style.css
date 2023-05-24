@@ -483,3 +483,7 @@ additional spacing to the p tags for better readability.
 #__nuxt > div > main > div > div.event-details-container > div.event-details-description > div > div > p {
   margin-top: 1rem;
 }
+
+#__nuxt > div > main > div > div.event-image-date-container-mobile > div.event-description-container > div > p {
+  margin-top: 1rem;
+}
