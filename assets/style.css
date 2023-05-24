@@ -476,3 +476,10 @@ footer {
   overflow: hidden;
 }
 
+/*
+Single Event Page: Targets the p tags rendered by the markdown renderer and adds
+additional spacing to the p tags for better readability.
+*/
+#__nuxt > div > main > div > div.event-details-container > div.event-details-description > div > div > p {
+  margin-top: 1rem;
+}
