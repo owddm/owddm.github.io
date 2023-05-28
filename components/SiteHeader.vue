@@ -131,19 +131,6 @@ const updateScreenScroll = () => {
             >Photos</NuxtLink
           >
         </li>
-        <!--
-        <li>
-          <NuxtLink
-            @click="
-              updateAddress('survey');
-              updateScreenScroll();
-            "
-            :class="{ 'active-menu': page_state.address == 'survey' }"
-            to="/survey"
-            >Survey</NuxtLink
-          >
-        </li>
-        -->
       </ul>
     </nav>
     <div class="join-link-container">
@@ -324,9 +311,6 @@ header {
   margin-right: 0.5rem;
   position: relative;
   display: none;
-  @media only screen and (max-width: 1280px) {
-    display: inline;
-  }
 }
 
 .hamburger-menu:hover {
@@ -390,7 +374,7 @@ header {
   min-width: 90px;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 960px) {
   .lg-display {
     display: none;
   }
@@ -398,9 +382,6 @@ header {
   .hamburger-menu {
     display: inline;
   }
-}
-
-@media only screen and (max-width: 900px) {
   .mobile-menu-items {
     margin-top: 4rem;
   }
@@ -432,7 +413,7 @@ header {
   }
 }
 
-@media screen and (orientation: landscape) and (max-width: 1280px) {
+@media screen and (orientation: landscape) and (max-width: 960) {
   .mobile-menu-items {
     margin-top: 5.6rem;
   }
