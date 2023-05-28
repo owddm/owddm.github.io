@@ -251,7 +251,14 @@ header {
   flex-direction: row;
   justify-content: space-between;
 }
-.active-menu {
+.menu-container {
+  margin-left: 2rem;
+}
+
+.menu-container a {
+  text-decoration: none;
+}
+.menu-container a:hover, .active-menu {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(0.25turn, var(--color-osaka), var(--color-kyoto));
   border-image-slice: 1;
