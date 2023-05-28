@@ -14,12 +14,7 @@
             </h2>
             <p>No need to be shy! No prior skill required, if you are interested in the topic, please join us!</p>
             <div class="upcoming-events">
-              <div v-if="pending">Loading ...</div>
-              <div v-else>
-                <div>
-                  <MeetupEventList :events="events" :years="events_year" :show-headers="false" />
-                </div>
-              </div>
+              <MeetupEventList :eventGroups="events" />
             </div>
           </div>
           <div>
@@ -245,31 +240,16 @@
 </template>
 
 <script setup lang="ts">
-import dayjs, { Dayjs } from "dayjs/esm";
 import MeetupEventList from "~~/components/SiteMainEvents/MeetupEventList.vue";
-import { useEvents, GroupIDFromGroupType, Event } from "~~/utils/events";
-import { getYearFromMeetupEvents, getUniqueItems, isUpcoming } from "~~/utils/utils";
+import { useEvents } from "~~/utils/events";
 
-let events: Event[];
-let events_year: number[];
+const { data } = await useEvents();
 
-const { pending, data } = await useEvents();
-
-watchEffect(() => {
+const events = computed(() => {
   if (!data.value) return;
-
-  events = Array.from(data.value.events);
-
-  events = events?.filter((event) => {
-    return isUpcoming(dayjs(event?.time));
-  });
-
-  events = events?.sort(function (event_a, event_b) {
-    return event_b.time - event_a.time;
-  });
-
-  // * Pass an array of unique years to MeetupEventList
-  events_year = getUniqueItems(getYearFromMeetupEvents(events));
+  return [{
+    events: data.value.events.sort((a, b) => a.time - b.time).filter(event => event.time > Date.now())
+  }]
 });
 </script>
 
@@ -304,7 +284,6 @@ watchEffect(() => {
 }
 
 .upcoming-events {
-  margin-left: -1rem;
   margin-top: 1rem;
 }
 

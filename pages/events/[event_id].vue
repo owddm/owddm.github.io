@@ -1,12 +1,8 @@
 <template>
   <div class="error-container" v-if="pending"><EventPageError /></div>
   <div v-else>
-    <NuxtLink to="/events">
-      <div class="event-group-banner-container">
-        <img v-if="event?.group.type == 'owddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
-        <img v-else-if="event?.group.type == 'kwddm'" class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516520@l.webp" alt="KWDDM" />
-        <img v-else class="event-group-banner" src="https://owddm.github.io/public/images/events/5/0/5/516122@l.webp" alt="OWDDM" />
-      </div>
+    <NuxtLink to="/events" class="event-group-banner-container">
+      <EventGroupHeader :type="event?.group.type" />
     </NuxtLink>
     <div class="event-image-map-container">
       <img class="event-image-detail" :src="event?.image?.transforms.m.webp.file" alt="" />
@@ -97,6 +93,7 @@
 import EventMap from "~~/components/EventMap.vue";
 import EventDateDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
 import EventPageError from "~/components/SiteMainEvents/EventPageError.vue";
+import EventGroupHeader from '~/components/SiteMainEvents/EventGroupHeader.vue';
 import dayjs from "dayjs/esm";
 import { useEvents, Event } from "~~/utils/events";
 import { MapMarker } from "~/utils/map";
@@ -141,14 +138,9 @@ div {
 }
 
 .event-group-banner-container {
-  width: 100%;
-  margin-top: 1.4rem;
-}
-
-.event-group-banner {
-  clip-path: inset(140px 0px 160px 0px);
-  margin-top: -8rem;
-  margin-bottom: -9rem;
+  display: block;
+  margin: var(--space);
+  margin-top: 0;
 }
 
 .event-image-map-container {

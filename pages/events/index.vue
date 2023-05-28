@@ -1,104 +1,44 @@
 <template>
   <div class="events-container">
-    <div class="ml-2" v-if="pending">Loading ...</div>
-    <div v-else>
-      <div>
-        <MeetupEventList :events="owddm" :years="owddm_year" :bannerURL="'/banner/owddm-image.webp'" :logoURL="'/logo/owddm-outline@1x.png'" />
-      </div>
-    </div>
-    <div class="ml-2" v-if="pending">Loading ...</div>
-    <div v-else>
-      <div>
-        <MeetupEventList :events="kwddm" :years="kwddm_year" :bannerURL="'/banner/kwddm-image.webp'" :logoURL="'/logo/kwddm-outline@1x.png'" />
-      </div>
-    </div>
+    <MeetupEventList :eventGroups="owddm" type="owddm" />
+    <MeetupEventList :eventGroups="kwddm" type="kwddm" />
   </div>
   <div class="events-mobile-container">
-    <div v-if="pending">Loading ...</div>
-    <div v-else>
-      <div>
-        <MeetupEventList :events="events" :years="events_year" />
-      </div>
-    </div>
+    <MeetupEventList :eventGroups="mixed" type="mixed" />
   </div>
 </template>
 
 <script setup lang="ts">
 import MeetupEventList from "~~/components/SiteMainEvents/MeetupEventList.vue";
-import { useEvents, GroupIDFromGroupType, Event } from "~~/utils/events";
-import { getYearFromMeetupEvents, getUniqueItems } from "~~/utils/utils";
+import { useEvents, GroupIDFromGroupType } from "~~/utils/events";
+import { groupEvents } from "~~/utils/utils";
 
-let events: Event[];
-let events_year: number[];
-let owddm: Event[];
-let owddm_year: number[];
-let kwddm: Event[];
-let kwddm_year: number[];
-
-const { pending, data } = await useEvents();
-
-watchEffect(() => {
-  if (!data.value) return;
-
-  events = Array.from(data.value.events);
-
-  owddm = events?.filter((event) => {
-    return event.group.id == GroupIDFromGroupType.owddm;
-  });
-
-  kwddm = events?.filter((event) => {
-    return event.group.id == GroupIDFromGroupType.kwddm;
-  });
-
-  // * Additional chronological sort on the frontend just to make sure events are in the correct order.
-  owddm = owddm?.sort(function (event_a, event_b) {
-    return event_b.time - event_a.time;
-  });
-  kwddm = kwddm?.sort(function (event_a, event_b) {
-    return event_b.time - event_a.time;
-  });
-  events = events?.sort(function (event_a, event_b) {
-    return event_b.time - event_a.time;
-  });
-
-  // * Pass an array of unique years to MeetupEventList
-  owddm_year = getUniqueItems(getYearFromMeetupEvents(owddm));
-  kwddm_year = getUniqueItems(getYearFromMeetupEvents(kwddm));
-  events_year = getUniqueItems(getYearFromMeetupEvents(events));
-});
+const { data } = useEvents();
+const mixed = computed(() => groupEvents(data.value?.events))
+const owddm = computed(() => groupEvents(data.value?.events.filter(event => event.group.id == GroupIDFromGroupType.owddm)))
+const kwddm = computed(() => groupEvents(data.value?.events.filter(event => event.group.id == GroupIDFromGroupType.kwddm)))
 </script>
 
 <style scoped>
-div {
-  max-width: 100%;
-}
-
-.ml-2 {
-  margin-left: 2rem;
-}
 
 .events-container {
   display: flex;
-  margin-top: 2rem;
+  width: 100%;
+  gap: var(--space);
+  padding: 0 var(--space);
 }
 
 .events-mobile-container {
   display: none;
+  padding: 0 var(--space);
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 760px) {
   .events-container {
     display: none;
   }
   .events-mobile-container {
     display: block;
-  }
-}
-
-@media screen and (orientation: landscape) {
-  .events-container {
-    margin-left: env(safe-area-inset-left, 2rem);
-    margin-right: env(safe-area-inset-right, 2rem);
   }
 }
 </style>

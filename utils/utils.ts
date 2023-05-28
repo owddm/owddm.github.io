@@ -43,6 +43,41 @@ export const getYearFromMeetupEvents = (MeetupEvent: Event[] | undefined) => {
   return years;
 };
 
+export interface EventGroup {
+  name?: string;
+  events: Event[];
+}
+
+function groupForEvent(event: Event): string {
+  if (Date.now() < event.time) {
+    return "Upcoming";
+  }
+  return new Date(event.time).getFullYear().toString();
+}
+
+/**
+ * Groups all events to Upcoming or Year
+ */
+export function groupEvents(events?: Event[]): EventGroup[] | undefined {
+  if (!events) return;
+  events = events.sort((eventA, eventB) => eventB.time - eventA.time);
+  const groups: EventGroup[] = [];
+  let previousGroup: EventGroup | undefined;
+  for (const event of events) {
+    const name = groupForEvent(event);
+    if (!previousGroup || previousGroup.name !== name) {
+      previousGroup = {
+        name,
+        events: [event],
+      };
+      groups.push(previousGroup);
+    } else {
+      previousGroup.events.push(event);
+    }
+  }
+  return groups;
+}
+
 /**
  * Returns the time difference between two dates in days.
  *

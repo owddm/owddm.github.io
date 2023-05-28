@@ -1,84 +1,37 @@
-<script lang="ts">
-interface Props {
-  events: Event[] | undefined;
-  years: number[];
-  bannerURL?: string;
-  logoURL?: string;
-  showHeaders?: boolean;
-}
-</script>
-
 <script setup lang="ts">
+import EventGroupHeader from "./EventGroupHeader.vue";
 import MeetupEventItem from "./MeetupEventItem.vue";
 import dayjs from "dayjs/esm";
 import { Event } from "~~/utils/events";
-import { isUpcoming } from "~~/utils/utils";
 
-const props = withDefaults(defineProps<Props>(), {
-  showHeaders: true,
-});
+interface EventGroup {
+  name?: string
+  active?: boolean
+  events?: Event[]
+}
 
-const bannerStyling = computed(() => ({
-  "group-banner-owddm": props.events![0].group.type == "owddm",
-  "group-banner-kwddm": props.events![0].group.type == "kwddm",
-}));
+defineProps<{
+  eventGroups: EventGroup[] | undefined;
+  type?: string;
+}>()
 </script>
 
 <template>
   <div class="event-list-container">
-    <div class="event-list-container">
-      <div v-if="bannerURL" class="group-banner-container">
-        <img :class="bannerStyling" class="group-banner group-banner-owddm" :src="bannerURL" :alt="events![0].group.type + ' banner'" />
-        <img class="group-banner-logo" :src="logoURL" alt="" />
-      </div>
-      <h2 v-if="showHeaders" class="year-heading">Upcoming</h2>
-      <div class="event-list-container" v-for="event in events">
-        <div v-if="isUpcoming(dayjs(event.time))">
-          <MeetupEventItem :title="event.title" :date="dayjs(event.time)" :url="`events/${event.id}`" :group="event.group.type" />
-        </div>
-      </div>
-      <div v-for="year in years">
-        <h2 v-if="showHeaders" class="year-heading">{{ year }}</h2>
-        <div class="event-list-container" v-for="event in events">
-          <div v-if="dayjs(event.time).get('year') == year && !isUpcoming(dayjs(event.time))">
-            <MeetupEventItem :title="event.title" :date="dayjs(event.time)" :url="`events/${event.id}`" :group="event.group.type" />
-          </div>
-        </div>
-      </div>
+    <EventGroupHeader :type="type"/>
+    <div v-if="!eventGroups">Loading ...</div>
+    <div v-else v-for="{ name, events }, index in eventGroups" :key="index">
+      <h2 v-if="name" class="heading">{{name}}</h2>
+      <MeetupEventItem v-for="event in events" :key="event.id" :title="event.title" :date="dayjs(event.time)" :url="`events/${event.id}`" :group="event.group.type" />
     </div>
   </div>
 </template>
 
 <style scoped>
 .event-list-container {
-  max-width: 100%;
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
-}
-.group-banner-container {
-  max-width: 100%;
-  position: relative;
-}
-.group-banner {
-  border-radius: 10px;
   width: 100%;
 }
-
-.group-banner-owddm {
-  border-top: 5px solid red;
-}
-.group-banner-kwddm {
-  border-top: 5px solid purple;
-}
-
-.group-banner-logo {
-  position: absolute;
-  top: 20%;
-  left: 0%;
-  transform: scale(0.7);
-}
-
-.year-heading {
+.heading {
   font-weight: 100;
   letter-spacing: 0.025em;
   margin-top: 1rem;

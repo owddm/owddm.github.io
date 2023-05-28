@@ -40,13 +40,18 @@
 </template>
 
 <style scoped>
+section {
+  margin-top: 0;
+}
 .about-group-banner {
   clip-path: inset(180px 0px 180px 0px);
-  margin-top: -9rem;
-  margin-bottom: -9rem;
+  margin-top: -180px;
+  margin-bottom: -180px;
+  width: 100%;
 }
 
 .about-title {
+  margin-top: 2rem;
   margin-left: 2rem;
   margin-bottom: 2rem;
   line-height: normal;
@@ -55,6 +60,7 @@
 .about-description-container {
   display: flex;
   flex-direction: row;
+  margin-bottom: 2rem;
 }
 
 .about-description-container div:nth-child(1) {
@@ -69,16 +75,16 @@
 @media only screen and (max-width: 768px) {
   .about-group-banner {
     clip-path: inset(160px 0px 160px 0px);
-    margin-top: -9rem;
-    margin-bottom: -8rem;
+    margin-top: -160px;
+    margin-bottom: -160px;
   }
 }
 
 @media only screen and (max-width: 420px) {
   .about-group-banner {
     clip-path: inset(50px 0px 20px 0px);
-    margin-top: -2rem;
-    margin-bottom: 0.8rem;
+    margin-top: -50px;
+    margin-bottom: -20px;
   }
   .about-description-container {
     flex-direction: column;

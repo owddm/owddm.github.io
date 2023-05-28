@@ -139,9 +139,6 @@ a:hover {
 	text-decoration-thickness: var(--_td-width);
 	text-underline-offset: var(--_td-offset);
 }
-img {
-	width: 100%;
-}
 header {
 	display: flex;
 	flex-direction: row;
