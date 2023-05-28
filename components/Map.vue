@@ -47,7 +47,9 @@ onMounted(() => {
             html,
           }),
         }).on("click", () => {
-          console.log({ click: marker });
+          if (marker.target) {
+            document.location.href = marker.target;
+          }
         });
       });
       for (const marker of lMarkers) {

@@ -16,7 +16,8 @@ const markers = computed(() => {
       lng: event.venue.lng,
       title: event.title,
       subtitle: formatDate(event.time),
-      type: event.group.type
+      type: event.group.type,
+      target: `/events/${event.id}`
     }
   })
 })
