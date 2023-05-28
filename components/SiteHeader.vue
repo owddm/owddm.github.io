@@ -264,7 +264,7 @@ header {
 }
 .active-menu {
   border-bottom: 2px solid transparent;
-  border-image: linear-gradient(0.25turn, red, purple);
+  border-image: linear-gradient(0.25turn, var(--color-osaka), var(--color-kyoto));
   border-image-slice: 1;
   width: 100%;
 }
@@ -311,7 +311,7 @@ header {
 /* Mobile*/
 
 .active-mobile-menu {
-  border-image: linear-gradient(0.5turn, red, purple);
+  border-image: linear-gradient(0.5turn, var(--color-osaka), var(--color-kyoto));
   border-image-slice: 1;
   width: 100%;
   box-sizing: content-box;

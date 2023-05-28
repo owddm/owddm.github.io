@@ -62,19 +62,19 @@ withDefaults(defineProps<Props>(), {
 }
 
 .container-owddm {
-  border-left-color: red;
+  border-left-color: var(--color-osaka);
 }
 
 div.container-owddm a:hover {
-  color: red;
+  color: var(--color-osaka);
 }
 
 .container-kwddm {
-  border-left-color: purple;
+  border-left-color: var(--color-kyoto);
 }
 
 div.container-kwddm a:hover {
-  color: purple;
+  color: var(--color-kyoto);
 }
 
 .container-upcoming {
