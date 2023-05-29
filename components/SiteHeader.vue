@@ -1,6 +1,26 @@
 <script setup lang="ts">
 import SocialMedia from "./HeaderComponents/SocialMedia.vue";
 
+useHead({
+  title: "Osaka Kyoto Web Designers and Developers Meetup",
+  meta: [
+    {
+      name: "Osaka Kyoto Web Designers and Developers Meetup",
+      content:
+        "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.",
+    },
+  ],
+});
+
+useSeoMeta({
+  title: "Osaka Kyoto Web Designers and Developers Meetup",
+  ogTitle: "Osaka Kyoto Web Designers and Developers Meetup",
+  description:
+    "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.",
+  ogDescription:
+    "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.",
+});
+
 const route = useRoute();
 
 const page_state = reactive({
@@ -258,7 +278,8 @@ header {
 .menu-container a {
   text-decoration: none;
 }
-.menu-container a:hover, .active-menu {
+.menu-container a:hover,
+.active-menu {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(0.25turn, var(--color-osaka), var(--color-kyoto));
   border-image-slice: 1;
