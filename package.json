@@ -1,47 +1,31 @@
 {
-  "name": "owddm",
-  "version": "1.0.0",
   "private": true,
-  "description": "static website built with Hugo",
-  "homepage": "https://owddm.com/",
-  "bugs": {
-    "url": "https://github.com/owddm/owddm.com/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/owddm/owddm.com.git"
-  },
-  "license": "MIT",
-  "author": "owddm",
   "scripts": {
-    "build": "npm run css-lint && npm run htmlhint && npx hugo",
-    "css-lint": "stylelint assets/css/*.scss --custom-syntax postcss-scss",
-    "htmlhint": "htmlhint docs/_site/**/*.html",
-    "serve": "npx hugo serve",
-    "spellcheck": "npx cspell \"content/**/*.md\"",
-    "svgo": "npm-run-all --parallel \"svgo:base -- --folder=docs/img/header\"",
-    "svgo:base": "npx svgo --config=_svgo.yml --recursive",
-    "test": "npm run htmlhint && npm run css-lint"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
-    "autoprefixer": "10.4.12",
-    "bootstrap": "^5.2.2",
-    "bootstrap-ie11": "^5.2.2",
-    "htmlhint": "^1.1.4",
-    "hugo-bin": "^0.92.3",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.18",
-    "postcss-cli": "10.0.0",
-    "prettier": "^2.7.1",
-    "stylelint": "^14.13.0",
-    "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^26.0.0"
-  },
-  "hugo-bin": {
-    "buildTags": "extended"
+    "@types/leaflet": "^1.9.3",
+    "@types/marked": "^4.0.8",
+    "dayjs": "^1.11.7",
+    "nuxt": "^3.3.3",
+    "typedoc": "^0.23.28",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
-    "postcss-scss": "^4.0.5"
+    "@nuxt/test-utils": "^3.4.3",
+    "@vitejs/plugin-vue": "^4.2.1",
+    "@vue/test-utils": "^2.3.2",
+    "jsdom": "^21.1.1",
+    "leaflet": "^1.9.3",
+    "maplibre-gl": "^2.4.0",
+    "marked": "^4.3.0",
+    "photoswipe": "^5.3.4",
+    "vitest": "^0.30.1"
   }
 }

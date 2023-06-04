@@ -1,31 +1,38 @@
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+# OWDDM Site in Nuxt3
+## Setup
 
-# owddm
+Make sure to install the dependencies:
 
-The site is hosted on [GitHub Pages](https://pages.github.com/)
+```bash
+# yarn
+yarn install
 
-The domain was registered by [Christian Oliff](https://github.com/coliff/) at [GoDaddy](https://goddady.com/)
+# npm
+npm install
 
-The SSL/CDN is provided by [Cloudflare](https://cloudflare.com/).
+# pnpm
+pnpm install --shamefully-hoist
+```
 
-## Notes
+## Development Server
 
-Osaka city skyline photos:
-https://www.google.co.uk/search?q=osaka+umeda+skyline&hl=en&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjemdbFxZ3aAhUFH5QKHZc_CsQQ_AUICigB&biw=2560&bih=1326
+Start the development server on http://localhost:3000
 
-Review Meetup:
-https://www.meetup.com/Osaka-Web-Designers-and-Developers-Meetup/about/comments/?op=all
+```bash
+npm run dev
+```
 
-## Testing and Audits
+## Production
 
-| Resource               | Link                                                                          |
-| ---------------------- | ----------------------------------------------------------------------------- |
-| OpenGraph Test         | https://opengraphcheck.com/result.php?url=https%3A%2F%2Fowddm.com             |
-|                        | https://developers.facebook.com/tools/debug/                                  |
-| Twitter Card Validator | https://cards-dev.twitter.com/validator                                       |
-| Page Speed Test        | https://developers.google.com/speed/pagespeed/insights/?url=https://owddm.com |
-| Validation             | http://owddm.com.websiteoutlook.com/                                          |
-| Website Grader         | https://website.grader.com/results/owddm.com                                  |
-| SEO, Social & More     | https://www.seoptimer.com/owddm.com                                           |
-| Security               | https://observatory.mozilla.org/analyze/owddm.com                             |
-| More Testing Tools     | https://github.com/coliff/awesome-website-testing-tools/                      |
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+```
+
