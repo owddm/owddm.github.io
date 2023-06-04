@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxi generate",
     "dev": "nuxt dev",
     "test": "vitest",
     "coverage": "vitest run --coverage",
