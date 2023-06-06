@@ -102,6 +102,7 @@ const updateScreenScroll = () => {
             <circle cx="129" cy="21" r="3" />
           </g>
         </svg>
+        <span class="sr-only">OWDDM KWDDM</span>
       </h1>
     </NuxtLink>
     <nav role="navigation">

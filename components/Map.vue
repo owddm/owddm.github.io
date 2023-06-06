@@ -38,7 +38,7 @@ onMounted(() => {
         let title = marker.title
           ? `<div class="map-event--label"><div class="map-event--title">${marker.title}</div>${marker.subtitle ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div></div>` : ""}`
           : "";
-        const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image">${title}`;
+        const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image" alt="">${title}`;
         return L.marker([marker.lat, marker.lng], {
           icon: L.divIcon({
             iconAnchor: [37, 118],

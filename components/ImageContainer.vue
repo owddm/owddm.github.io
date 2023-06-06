@@ -112,10 +112,10 @@ onMounted(() => {
     ref="imageContainer"
   >
     <div v-for="(item, key) in items" :key="key">
-      <h3 v-if="item.type === 'group'">
+      <h2 v-if="item.type === 'group'">
         <span class="date">{{ formatDate(item.group.timestamp) }}</span>
         <span class="content" v-if="item.group.content">{{ item.group.content }}</span>
-      </h3>
+      </h2>
       <a
         v-else-if="item.type === 'photo'"
         :href="item.large.file"
@@ -172,15 +172,15 @@ img:hover {
   box-shadow: 0 0 150px 5px #aab6bd;
 }
 
-div, h3 {
+div, h2 {
   border-radius: 10px;
 }
 
-h3 {
+h2 {
   display: inline-block;
   background: #f0f0f0;
   font-size: 1em;
-  line-height: 1em;
+  line-height: 1.2;
   height: 200px;
   margin: 0;
   max-width: 300px;
