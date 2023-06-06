@@ -72,18 +72,18 @@
           <EventDateDisplay :date="dayjs(event?.time)" />
         </div>
         <div>
-          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
-            <button class="rsvp">→ RSVP</button>
+          <a class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
+            → RSVP
           </a>
-          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
-            <button class="rsvp">→ RSVP</button>
+          <a  class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
+            → RSVP
           </a>
         </div>
         <div>
-          <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
-            <button class="join-discord">→ Join Discord</button>
-          </a>
-        </div>
+            <a class="button join-discord" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
+              → Join Discord
+            </a>
+          </div>
       </div>
     </div>
   </div>
@@ -218,6 +218,15 @@ div {
   align-self: start;
   width: 25%;
   margin-left: 1rem;
+}
+.event-details-date-rsvp-discord .button {
+  --button-width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: var(--color-white);
+  text-decoration: none;
 }
 
 .rsvp {
