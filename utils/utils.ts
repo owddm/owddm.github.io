@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from "dayjs/esm";
 import { Event } from "./events";
 
-const base = "https://owddm.github.io/public";
+const base = "https://owddm.com/public";
 
 export function getSitePath(path: string): string {
   return `${base}${path}`;
