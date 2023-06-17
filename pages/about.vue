@@ -12,7 +12,6 @@
             We have gotten to like it, but it is a tad long!
             For short, we go by “OWDDM” - for those able to pronounce it.
           </p>
-          <br />
           <p>
             The "O" stands for <em>Osaka</em>, the vibrant, second-largest metropolis in Japan.
             This is where the meetup group started and where we still do most of our events.
@@ -20,14 +19,12 @@
             For that reason, we opened the "KWDDM".
             For brevity, we tend to call the group <em>OWDDM</em> and use "O" for “owesome”. 😛
           </p>
-          <br />
           <p>
             <em>Alright,</em> the OWDDM is a volunteer, non-profit group that organizes meetups in Kansai.
             We usually have one meetup per month and region.
             Usually, during the meetups, one or two community members present about a topic of their choosing.
             Occasionally, we hold other events such as Hanami’s, hikes, and other get-togethers.
           </p>
-          <br />
           <p>
             Our events are in English and about a broad range of topics.
             We want to <em>invite people from all walks of web-life</em> and ask them to present things they enjoy.
@@ -43,7 +40,6 @@
             -->この名前を気に入っていますが、ちょっと長いです！<!--
             -->略して、私たちは「OWDDM」で通っています… 発音できる人たちのために「オー・ダブルユー・ディ・ディ・エム」。
           </p>
-          <br />
           <p>
             「O」は大阪を意味します。<!--
             -->ミートアップグループが始まった場所であり、今でもほとんどのイベントをここで行っています。<!--
@@ -52,15 +48,13 @@
             -->簡潔にするために、私たちはこのグループを OWDDM と呼び、「O」の意味を「オーサム」と傾向があります。<!--
             -->😛
           </p>
-          <br />
-          <p lang="ja">
+          <p>
             さて、OWDDM は関西でミートアップを開催するボランティアで非営利のグループです。<!--
             -->私たちは通常、月と地域に1回のミートアップを開催しています。<!--
             -->通常、ミートアップでは、1人または2人のコミュニティメンバーが、自分の選んだトピックについて発表します。<!--
             -->時には、花見、ハイキング、その他の集まりなどのイベントも開催しています。
           </p>
-          <br />
-          <p lang="ja">
+          <p>
             イベントは、英語で、幅広いトピックについて行われます。<!--
             -->私たちは、ウェブライフのあらゆる分野から人々を招き、彼らが楽しんでいることを発表してもらいたいと考えています。<!--
             -->フロントエンド、バックエンド、デザイン、SEO、クラウド管理、ゲーム…様々なトピックが過去に少し時間を割いたことがあります。<!--
@@ -96,6 +90,10 @@ section {
   margin-bottom: 2rem;
   padding: 0 2rem;
   gap: 2rem;
+}
+.about-description-container p {
+  margin-bottom: 0.8em;
+  text-indent: 0.5em;
 }
 
 @media only screen and (max-width: 768px) {
