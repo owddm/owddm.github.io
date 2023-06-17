@@ -5,35 +5,60 @@
       <h1 class="about-title">Osaka/Kyoto Web Designers and Developers Meetup</h1>
       <div class="about-description-container">
         <div>
-          <p>Wow! This 👆 is a mouthful! We choose this name a long time ago to make the group easy to find and we have since gotten to like. It is a tad long however and for those able to pronounce it we go by “OWDDM” for short.</p>
-          <br />
           <p>
-            The O for Osaka is the vibrant, second-largest metropolis in Japan. We this meetup group started and where we still do most of the events there. Recently, we have also been in Kyoto quite a bit, which is why there also is a KWDDM. Though that K can also stand for
-            Kobe/Kyoto/Kansai. 🤯 For brevity we tend to call the group OWDDM and use O as “owesome”. 😛
+            Wow!
+            This 👆 is a mouthful!
+            We chose this name long ago to make the group easy to find.
+            We have gotten to like it, but it is a tad long!
+            For short, we go by “OWDDM” - for those able to pronounce it.
           </p>
-          <br />
           <p>
-            Alright, the OWDDM is a volunteer non-profit group that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as
-            Hanami’s, hikes and other get-togethers.
+            The "O" stands for <em>Osaka</em>, the vibrant, second-largest metropolis in Japan.
+            This is where the meetup group started and where we still do most of our events.
+            Recently, we have also been in <em>Kyoto</em> quite a bit.
+            For that reason, we opened the "KWDDM".
+            For brevity, we tend to call the group <em>OWDDM</em> and use "O" for “owesome”. 😛
           </p>
-          <br />
           <p>
-            Our events are held in english with a broad range of topics. We want to invite people from all walks of web-life and ask them to present topics that they are interested in. Frontend, Backend, Design, SEO, Cloud management, Games... all have had their time a bit in the
-            past. It is not really part of the event, but often the members go out for dinner & drinks after the meetup.
+            <em>Alright,</em> the OWDDM is a volunteer, non-profit group that organizes meetups in Kansai.
+            We usually have one meetup per month and region.
+            Usually, during the meetups, one or two community members present about a topic of their choosing.
+            Occasionally, we hold other events such as Hanami’s, hikes, and other get-togethers.
+          </p>
+          <p>
+            Our events are in English and about a broad range of topics.
+            We want to <em>invite people from all walks of web-life</em> and ask them to present things they enjoy.
+            Frontend, Backend, Design, SEO, Cloud management, Games... many topics got a bit of time in the past.
+            While its not part of the main events, often the members go out for dinner after the meetup.
           </p>
         </div>
         <div>
-          <p>長いね！この👆は口癖です！私たちはずっと前に、グループを見つけやすくするためにこの名前を選び、それ以来気に入っています。しかし、ちょっと長すぎですので、発音できる人は「OWDDM」と略して呼ぶことにしています。</p>
-          <br />
           <p>
-            このミートアップグループは大阪で始まり、今でもほとんどのイベントをここで行っています。最近は京都にもよく行くので、KWDDM というのもあります。Kは 京都、神戸、関西略でもあるんですけどね。🤯 簡略化するために、私たちはグループを OWDDM
-            と呼び、「O」を「オーサム」と使うことが多い。
+            わぁーい！<!--
+            -->この👆は口癖です！<!--
+            -->私たちは、グループを見つけやすくするために、ずっと前にこの名前を選びました。<!--
+            -->この名前を気に入っていますが、ちょっと長いです！<!--
+            -->略して、私たちは「OWDDM」で通っています… 発音できる人たちのために「オー・ダブルユー・ディ・ディ・エム」。
           </p>
-          <br />
-          <p>OWDDM は、関西でMeetupを開催する非営利のボランティアグループです。月1回のペースで開催し、1～2人のプレゼンターがWebでのものづくりに関連したトピックを話すリージョンを目指しています。時々、お花見やハイキングなどのイベントも開催しています。</p>
-          <br />
           <p>
-            イベントは英語で行われ、トピックは多岐にわたります。ウェブライフのあらゆる分野から人を招き、彼らが興味を持つトピックを発表してもらいたいと考えています。フロントエンド、バックエンド、デザイン、SEO、クラウド管理、ゲームなど、どれも過去に少しはあったことです。イベントの一環というわけではありませんが、ミートアップの後、メンバーでディナー＆ドリンクに出かけることもしばしばです。
+            「O」は大阪を意味します。<!--
+            -->ミートアップグループが始まった場所であり、今でもほとんどのイベントをここで行っています。<!--
+            -->最近は、京都にもよく行くようになりました。<!--
+            -->そのため、「KWDDM」をオープンしました。<!--
+            -->簡潔にするために、私たちはこのグループを OWDDM と呼び、「O」の意味を「オーサム」と傾向があります。<!--
+            -->😛
+          </p>
+          <p>
+            さて、OWDDM は関西でミートアップを開催するボランティアで非営利のグループです。<!--
+            -->私たちは通常、月と地域に1回のミートアップを開催しています。<!--
+            -->通常、ミートアップでは、1人または2人のコミュニティメンバーが、自分の選んだトピックについて発表します。<!--
+            -->時には、花見、ハイキング、その他の集まりなどのイベントも開催しています。
+          </p>
+          <p>
+            イベントは、英語で、幅広いトピックについて行われます。<!--
+            -->私たちは、ウェブライフのあらゆる分野から人々を招き、彼らが楽しんでいることを発表してもらいたいと考えています。<!--
+            -->フロントエンド、バックエンド、デザイン、SEO、クラウド管理、ゲーム…様々なトピックが過去に少し時間を割いたことがあります。<!--
+            -->イベントの内容ではないですが、ミートアップ後に参加者は居酒屋に行くこともよくあります。
           </p>
         </div>
       </div>
@@ -65,6 +90,10 @@ section {
   margin-bottom: 2rem;
   padding: 0 2rem;
   gap: 2rem;
+}
+.about-description-container p {
+  margin-bottom: 0.8em;
+  text-indent: 0.5em;
 }
 
 @media only screen and (max-width: 768px) {
