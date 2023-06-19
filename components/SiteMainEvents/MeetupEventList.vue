@@ -22,7 +22,7 @@ defineProps<{
     <div v-if="!eventGroups">Loading ...</div>
     <div v-else v-for="{ name, events }, index in eventGroups" :key="index">
       <h2 v-if="name" class="heading">{{name}}</h2>
-      <MeetupEventItem v-for="event in events" :key="event.id" :title="event.title" :date="dayjs(event.time)" :url="`events/${event.id}`" :group="event.group.type" />
+      <MeetupEventItem v-for="event in events" :key="event.id" :title="event.title" :date="dayjs(event.time)" :url="`/events/${event.id}`" :group="event.group.type" />
     </div>
   </div>
 </template>
