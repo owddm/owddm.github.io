@@ -102,7 +102,7 @@ function updateScreenScroll() {
     <div class="lg-display">
       <SocialMedia />
     </div>
-    <div class="hamburger-menu" @click="toggleHamburgerMenuVisibility()">
+    <a class="hamburger-menu" href="" @click.prevent="toggleHamburgerMenuVisibility()">
       <svg viewBox="0 0 100 80" width="40" height="25" v-if="!page_state.isHamburgerMenuOpen">
         <rect y="10" width="100" height="10"></rect>
         <rect y="40" width="100" height="10"></rect>
@@ -112,7 +112,7 @@ function updateScreenScroll() {
         <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
         <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
       </svg>
-    </div>
+    </a>
     <div class="mobile-menu-items" v-if="page_state.isHamburgerMenuOpen">
       <ul>
         <li>
@@ -271,12 +271,6 @@ header {
 
 .mobile-logo {
   padding: 1rem;
-}
-
-.join-link-mobile {
-  margin-top: 1rem;
-  font-size: 1rem;
-  min-width: 90px;
 }
 
 @media only screen and (max-width: 960px) {
