@@ -51,19 +51,6 @@ const updateAddress = (address: any) => {
   page_state.address = address;
 };
 
-/**
- * Checks whether the current route (path) matches the selected menu item (not used)
- *
- * @param menuItem
- * @returns boolean
- */
-const doesCurrentRouteMatchMenuItem = (menuItem: string): boolean => {
-  let currentRoute = useRoute().fullPath;
-
-  let currentRouteTokens = currentRoute.split("/");
-  return currentRouteTokens.includes(menuItem);
-};
-
 const unlockScreenScroll = () => {
   const body = document.querySelector("body");
   body?.setAttribute("class", "");
