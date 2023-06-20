@@ -104,19 +104,15 @@ function updateScreenScroll() {
       <SocialMedia />
     </div>
     <div class="hamburger-menu" @click="toggleHamburgerMenuVisibility()">
-      <div v-if="!page_state.isHamburgerMenuOpen">
-        <svg viewBox="0 0 100 80" width="40" height="25">
-          <rect y="10" width="100" height="10"></rect>
-          <rect y="40" width="100" height="10"></rect>
-          <rect y="70" width="100" height="10"></rect>
-        </svg>
-      </div>
-      <div v-else>
-        <svg viewBox="0 0 100 100" width="40" height="25">
-          <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
-          <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
-        </svg>
-      </div>
+      <svg viewBox="0 0 100 80" width="40" height="25" v-if="!page_state.isHamburgerMenuOpen">
+        <rect y="10" width="100" height="10"></rect>
+        <rect y="40" width="100" height="10"></rect>
+        <rect y="70" width="100" height="10"></rect>
+      </svg>
+      <svg viewBox="0 0 100 100" width="40" height="25" v-else>
+        <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
+        <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
+      </svg>
     </div>
     <div class="mobile-menu-items" v-if="page_state.isHamburgerMenuOpen">
       <ul>
