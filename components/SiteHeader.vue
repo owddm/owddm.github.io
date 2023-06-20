@@ -238,6 +238,7 @@ header {
   z-index: 9999;
   overflow-y: hidden;
   display: none;
+  user-select: none;
 }
 
 .mobile-menu-items > ul {
