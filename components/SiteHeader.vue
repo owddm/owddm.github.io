@@ -103,12 +103,12 @@ function updateScreenScroll() {
       <SocialMedia />
     </div>
     <a class="hamburger-menu" href="" @click.prevent="toggleHamburgerMenuVisibility()">
-      <svg viewBox="0 0 100 80" width="40" height="25" v-if="!page_state.isHamburgerMenuOpen">
-        <rect y="10" width="100" height="10"></rect>
-        <rect y="40" width="100" height="10"></rect>
-        <rect y="70" width="100" height="10"></rect>
+      <svg viewBox="0 0 100 100" v-if="!page_state.isHamburgerMenuOpen">
+        <rect y="5" width="100" height="15" />
+        <rect y="43.5" width="100" height="15" />
+        <rect y="80" width="100" height="15" />
       </svg>
-      <svg viewBox="0 0 100 100" width="40" height="25" v-else>
+      <svg viewBox="0 0 100 100" v-else>
         <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
         <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
       </svg>
@@ -210,14 +210,11 @@ header {
 }
 
 .hamburger-menu {
-  padding: 0.3rem;
-  margin-right: 0.5rem;
-  position: relative;
   display: none;
 }
-
-.hamburger-menu:hover {
-  cursor: pointer;
+.hamburger-menu svg {
+  height: 1.8rem;
+  margin: 0.5rem;
 }
 
 .mobile-menu-items {
@@ -279,7 +276,7 @@ header {
   }
 
   .hamburger-menu {
-    display: inline;
+    display: inline-flex;
   }
   .mobile-menu-items {
     margin-top: 4rem;
