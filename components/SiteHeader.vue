@@ -1,24 +1,25 @@
 <script setup lang="ts">
 import SocialMedia from "./HeaderComponents/SocialMedia.vue";
 
+const title = "Osaka Kyoto Web Designers and Developers Meetup";
+const description =
+  "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.";
+
 useHead({
-  title: "Osaka Kyoto Web Designers and Developers Meetup",
+  title,
   meta: [
     {
       name: "Osaka Kyoto Web Designers and Developers Meetup",
-      content:
-        "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.",
+      content: description,
     },
   ],
 });
 
 useSeoMeta({
-  title: "Osaka Kyoto Web Designers and Developers Meetup",
-  ogTitle: "Osaka Kyoto Web Designers and Developers Meetup",
-  description:
-    "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.",
-  ogDescription:
-    "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.",
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description,
 });
 
 const route = useRoute();
