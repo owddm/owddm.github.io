@@ -29,12 +29,9 @@ const page_state = reactive({
   isHamburgerMenuOpen: false,
 });
 
-const toggleHamburgerMenuVisibilityOn = () => {
-  page_state.isHamburgerMenuOpen = true;
-};
-
-const toggleHamburgerMenuVisibilityOff = () => {
-  page_state.isHamburgerMenuOpen = false;
+const toggleHamburgerMenuVisibility = (newState = !page_state.isHamburgerMenuOpen) => {
+  page_state.isHamburgerMenuOpen = newState;
+  updateScreenScroll();
 };
 
 watch(
@@ -42,18 +39,14 @@ watch(
   // using the mobile menu.
   route,
   () => {
-    unlockScreenScroll();
+    updateScreenScroll();
   },
   { deep: false, immediate: false }
 );
 
 const updateAddress = (address: any) => {
   page_state.address = address;
-};
-
-const unlockScreenScroll = () => {
-  const body = document.querySelector("body");
-  body?.setAttribute("class", "");
+  toggleHamburgerMenuVisibility(false);
 };
 
 /**
@@ -65,18 +58,12 @@ const unlockScreenScroll = () => {
  * @returns void
  */
 const updateScreenScroll = () => {
-  console.log(page_state.isHamburgerMenuOpen);
-  const body = document.querySelector("body");
-  if (page_state.isHamburgerMenuOpen == true) {
-    body?.setAttribute("class", "prevent-scrolling");
-  } else {
-    body?.setAttribute("class", "");
-  }
+  document.body.classList.toggle("prevent-scrolling", !!page_state.isHamburgerMenuOpen);
 };
 </script>
 
 <template>
-  <header>
+  <header :class="{ open: page_state.isHamburgerMenuOpen }">
     <NuxtLink to="/">
       <h1>
         <svg width="258px" height="42px" viewBox="0 0 258 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" alt="OWDDM / KWDDM">
@@ -96,154 +83,60 @@ const updateScreenScroll = () => {
     <nav role="navigation">
       <ul class="list-reset menu-container lg-display">
         <li>
-          <NuxtLink
-            @click="
-              updateAddress('/');
-              updateScreenScroll();
-            "
-            activeClass="active-menu"
-            to="/"
-            >Home</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('/')" activeClass="active-menu" to="/">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            @click="
-              updateAddress('about');
-              updateScreenScroll();
-            "
-            activeClass="active-menu"
-            to="/about"
-            >About</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('about')" activeClass="active-menu" to="/about">About</NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            @click="
-              updateAddress('events');
-              updateScreenScroll();
-            "
-            activeClass="active-menu"
-            :class="{ 'active-menu': page_state.address == 'events' }"
-            to="/events"
-            >Events</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('events')" activeClass="active-menu" :class="{ 'active-menu': page_state.address == 'events' }" to="/events">Events</NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            @click="
-              updateAddress('photos');
-              updateScreenScroll();
-            "
-            activeClass="active-menu"
-            to="/photos"
-            >Photos</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('photos')" activeClass="active-menu" to="/photos">Photos</NuxtLink>
         </li>
       </ul>
     </nav>
     <div class="join-link-container">
-      <NuxtLink
-        class="plain-link"
-        @click="
-          updateAddress('join');
-          toggleHamburgerMenuVisibilityOff();
-        "
-        to="/join"
-        ><div class="join-link">→ Join</div></NuxtLink
-      >
+      <NuxtLink class="plain-link" @click="updateAddress('join')" to="/join">
+        <div class="join-link">→ Join</div>
+      </NuxtLink>
     </div>
     <div class="menu-space"></div>
     <div class="lg-display">
       <SocialMedia />
     </div>
-    <div class="hamburger-menu">
-      <div
-        @click="
-          toggleHamburgerMenuVisibilityOn();
-          updateScreenScroll();
-        "
-        :class="{ 'display-none': page_state.isHamburgerMenuOpen == true }">
+    <div class="hamburger-menu" @click="toggleHamburgerMenuVisibility()">
+      <div v-if="!page_state.isHamburgerMenuOpen">
         <svg viewBox="0 0 100 80" width="40" height="25">
           <rect y="10" width="100" height="10"></rect>
           <rect y="40" width="100" height="10"></rect>
           <rect y="70" width="100" height="10"></rect>
         </svg>
       </div>
-      <div
-        @click="
-          toggleHamburgerMenuVisibilityOff();
-          updateScreenScroll();
-        "
-        :class="{ 'display-none': !page_state.isHamburgerMenuOpen == true }">
+      <div v-else>
         <svg viewBox="0 0 100 100" width="40" height="25">
           <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
           <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
         </svg>
       </div>
     </div>
-    <div class="mobile-menu-items" :class="{ 'display-none': !page_state.isHamburgerMenuOpen }">
+    <div class="mobile-menu-items" v-if="page_state.isHamburgerMenuOpen">
       <ul>
         <li>
-          <NuxtLink
-            @mousedown="unlockScreenScroll()"
-            @click="
-              toggleHamburgerMenuVisibilityOff();
-              updateAddress('/');
-            "
-            activeClass="active-mobile-menu"
-            to="/"
-            >Home</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('/')" activeClass="active-mobile-menu" to="/">Home</NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            @mousedown="unlockScreenScroll()"
-            @click="
-              updateAddress('about');
-              toggleHamburgerMenuVisibilityOff();
-            "
-            activeClass="active-mobile-menu"
-            to="/about"
-            >About</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('about')" activeClass="active-mobile-menu" to="/about">About</NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            @mousedown="unlockScreenScroll()"
-            @click="
-              updateAddress('events');
-              toggleHamburgerMenuVisibilityOff();
-            "
-            activeClass="active-mobile-menu"
-            :class="{ 'active-mobile-menu': page_state.address == 'events' }"
-            to="/events"
-            >Events</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('events')" activeClass="active-mobile-menu" :class="{ 'active-mobile-menu': page_state.address == 'events' }" to="/events">Events</NuxtLink>
         </li>
         <li>
-          <NuxtLink
-            @mousedown="unlockScreenScroll()"
-            @click="
-              toggleHamburgerMenuVisibilityOff();
-              updateAddress('photos');
-            "
-            activeClass="active-mobile-menu"
-            to="/photos"
-            >Photos</NuxtLink
-          >
+          <NuxtLink @click="updateAddress('photos')" activeClass="active-mobile-menu" to="/photos">Photos</NuxtLink>
         </li>
         <!--
         <li>
-          <NuxtLink
-            @click="
-              toggleHamburgerMenuVisibilityOff();
-              updateAddress('survey');
-            "
-            :class="{ 'active-mobile-menu': page_state.address == 'survey' }"
-            to="/survey"
-            >Survey</NuxtLink
-          >
+          <NuxtLink @mousedown="unlockScreenScroll()" @click="updateAddress('survey')" activeClass="active-mobile-menu" :class="{ 'active-mobile-menu': page_state.address == 'survey' }" to="/survey">Survey</NuxtLink>
         </li>
         -->
         <li>
@@ -348,6 +241,7 @@ header {
   width: 100%;
   z-index: 9999;
   overflow-y: hidden;
+  display: none;
 }
 
 .mobile-menu-items > ul {
@@ -401,6 +295,7 @@ header {
   }
   .mobile-menu-items {
     margin-top: 4rem;
+    display: block;
   }
 }
 
