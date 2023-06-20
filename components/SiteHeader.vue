@@ -38,13 +38,12 @@ watch(
   // Make sure the body is scrollable after navigation
   // using the mobile menu.
   route,
-  updateScreenScroll,
+  () => toggleHamburgerMenuVisibility(false),
   { deep: false, immediate: false }
 );
 
 function updateAddress(address: any) {
   page_state.address = address;
-  toggleHamburgerMenuVisibility(false);
 }
 
 /**
