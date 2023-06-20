@@ -51,6 +51,7 @@
 	--color-bg-back: #F1F0F0;
 	--color-bg-front: #fff;
 	--space: .75rem;
+  --space-small: .5rem;
 	--radius: .5rem;
 
 	--border: 1px solid var(--color-gray);
@@ -117,6 +118,61 @@ h2 {
 	padding: 0 0 5px;
 	margin: 0;
 	border-bottom: var(--_border);
+}
+
+.gallery-container div, h2,
+.explainer {
+  border-radius: var(--radius);
+}
+
+
+.gallery-container h2,
+.explainer {
+  background: var(--color-bg-back);
+  font-size: 1em;
+}
+
+.explainer {
+  margin: 0 var(--space) var(--space-small) var(--space);
+  padding: 0.5rem 1rem;
+}
+.explainer summary {
+  display: flex;
+  user-select: none;
+  cursor: pointer;
+  opacity: 0.5;
+  width: 100%;
+  justify-content: space-between;
+}
+.explainer ul {
+  padding-inline-start: 1rem;
+}
+.explainer li {
+  margin-bottom: 0.5rem;
+}
+.explainer summary:hover {
+  opacity: 1;
+}
+.explainer[open] summary {
+  opacity: 1;
+  margin-bottom: .5rem;
+}
+.explainer[open] summary::after {
+  content: "×";
+}
+.explainer summary abbr {
+  text-decoration: none;
+}
+
+.gallery-container h2 {
+  display: inline-block;
+  line-height: 1.2;
+  height: 200px;
+  max-width: 300px;
+  margin: 0;
+  padding: 0;
+	--title-border: 0;
+  --title-underline: 0;
 }
 
 p {
@@ -303,6 +359,7 @@ main {
 
 .event-header h2 {
 	--title-border: 0;
+  --title-underline: 0;
 }
 .event-header button {
 	--button-bg: transparent;

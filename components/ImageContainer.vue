@@ -147,13 +147,18 @@ div {
 }
 
 .gallery-container {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-small);
   margin: 0 var(--space);
 }
 
+.img-container-margin {
+  max-width: 100%;
+  overflow: auto;
+  position: relative;
+  border-radius: var(--radius);
+}
 .img-container {
   width: 10rem;
   height: 10rem;
@@ -165,25 +170,10 @@ div {
 img {
   margin-top: auto;
   margin-bottom: auto;
-  border-radius: var(--radius);
 }
 
 img:hover {
   box-shadow: 0 0 150px 5px #aab6bd;
-}
-
-div, h2 {
-  border-radius: 10px;
-}
-
-h2 {
-  display: inline-block;
-  background: #f0f0f0;
-  font-size: 1em;
-  line-height: 1.2;
-  height: 200px;
-  margin: 0;
-  max-width: 300px;
 }
 .content, .date {
   display: block;
