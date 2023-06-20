@@ -234,7 +234,7 @@ header {
   transform: translate(-50%, -50%);
   width: 100%;
   z-index: 9999;
-  overflow-y: hidden;
+  overflow-y: auto;
   display: none;
   user-select: none;
 }
