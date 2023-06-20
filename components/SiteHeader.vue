@@ -29,25 +29,23 @@ const page_state = reactive({
   isHamburgerMenuOpen: false,
 });
 
-const toggleHamburgerMenuVisibility = (newState = !page_state.isHamburgerMenuOpen) => {
+function toggleHamburgerMenuVisibility(newState = !page_state.isHamburgerMenuOpen) {
   page_state.isHamburgerMenuOpen = newState;
   updateScreenScroll();
-};
+}
 
 watch(
   // Make sure the body is scrollable after navigation
   // using the mobile menu.
   route,
-  () => {
-    updateScreenScroll();
-  },
+  updateScreenScroll,
   { deep: false, immediate: false }
 );
 
-const updateAddress = (address: any) => {
+function updateAddress(address: any) {
   page_state.address = address;
   toggleHamburgerMenuVisibility(false);
-};
+}
 
 /**
  * Add the prevent-scrolling CSS class to the body
@@ -57,9 +55,9 @@ const updateAddress = (address: any) => {
  * @param void
  * @returns void
  */
-const updateScreenScroll = () => {
+function updateScreenScroll() {
   document.body.classList.toggle("prevent-scrolling", !!page_state.isHamburgerMenuOpen);
-};
+}
 </script>
 
 <template>
