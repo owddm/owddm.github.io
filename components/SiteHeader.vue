@@ -56,7 +56,7 @@ function updateAddress(address: any) {
  * @returns void
  */
 function updateScreenScroll() {
-  document.body.classList.toggle("prevent-scrolling", !!page_state.isHamburgerMenuOpen);
+  (document.body.parentNode as HTMLElement).classList.toggle("prevent-scrolling", !!page_state.isHamburgerMenuOpen);
 }
 </script>
 
