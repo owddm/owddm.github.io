@@ -40,16 +40,24 @@
 }
 
 :root {
-	--color-osaka: hsla(359, 85%, 53%, 1);
-	--color-kyoto: hsla(284, 61%, 26%, 1);
+  --color-osaka: #ed2225;
+	--color-osaka: oklch(60.53% 0.232 27.25);
+	--color-kyoto: #551A6B;
+  --color-kyoto: oklch(35.19% 0.139 315.11);
 	--color-white: #fff;
-	--color-black: hsla(0, 0%, 0%, 1);
-	--color-blue: hsla(230, 100%, 61%, 1);
+  --color-white: oklch(100% 0 0);
+	--color-black: #000;
+  --color-black: oklch(0% 0 0);
+	--color-blue: #3859FF;
+  --color-blue: oklch(55.18% 0.24695061917412528 267.93122271160547);
 	--color-gray: #C7C7C7;
-	--color-gold: hsla(36, 19%, 44%, 1);
-	--color-text-gray: #5A5A5A;
+  --color-gray: oklch(82.97% 0 0);
+  --color-gold: #86745b;
+	--color-gold: oklch(56.9% 0.043 75.79);
+	--color-text-gray: oklch(46.76% 0 0);
 	--color-bg-back: #F1F0F0;
-	--color-bg-front: #fff;
+  --color-bg-back: oklch(95.59% 0.001 17.18);
+	--color-bg-front: var(--color-white);
 	--space: .75rem;
   --space-small: .5rem;
 	--radius: .5rem;
