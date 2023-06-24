@@ -130,10 +130,8 @@ onMounted(() => {
           class="img-container"
           :src="item.small.file"
           alt=""
-          :style="{
-            width: `${item.small.size.width}px`,
-            height: `${item.small.size.height}px`,
-          }"
+          :width="`${item.small.size.width}`"
+          :height="`${item.small.size.height}`"
         />
       </a>
     </div>
@@ -141,11 +139,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-div {
-  display: flex;
-  flex-direction: row;
-}
-
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
@@ -159,23 +152,21 @@ div {
   position: relative;
   border-radius: var(--radius);
 }
-.img-container {
-  width: 10rem;
-  height: 10rem;
-}
+
 .gallery-container a {
   line-height: 0;
 }
 
-img {
-  margin-top: auto;
-  margin-bottom: auto;
+.img-container {
+  border-radius: var(--radius);
+  width: 100%;
 }
 
-img:hover {
+.img-container:hover {
   box-shadow: 0 0 150px 5px #aab6bd;
 }
-.content, .date {
+.content, 
+.date {
   display: block;
   margin: 1em;
 }
