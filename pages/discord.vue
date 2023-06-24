@@ -1,5 +1,5 @@
 <script setup>
-await navigateTo("https://discord.com/invite/Tf4SyBrE?utm_source=Discord%20Widget&utm_medium=Connect", {
+await navigateTo("https://discord.com/invite/k8xj8d75f6", {
   external: true,
 });
 </script>
