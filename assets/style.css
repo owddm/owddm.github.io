@@ -104,6 +104,12 @@
 	min-height: var(--_height);
 }
 
+@media only screen and (max-width: 320px) {
+  html {
+    font-size: 12px;
+  }
+}
+
 body {
 	font-family: var(--body-font);
 	line-height: 1.25;
@@ -128,7 +134,7 @@ h2 {
 	border-bottom: var(--_border);
 }
 
-.gallery-container div, h2,
+.gallery-container div,
 .explainer {
   border-radius: var(--radius);
 }
@@ -203,12 +209,6 @@ a:hover {
 	text-decoration-thickness: var(--_td-width);
 	text-underline-offset: var(--_td-offset);
 }
-header {
-	display: flex;
-	flex-direction: row;
-	padding: .75rem;
-	align-items: center;
-}
 h1 {
 	padding: 0;
 	margin: 0;
@@ -219,17 +219,6 @@ h1 svg {
 	height: auto;
 	width: 12.8rem;
 }
-nav[role="navigation"] > ul {
-	display: flex;
-}
-nav > ul li:not(:first-of-type) {
-	margin-left: 47px;
-}
-.nav-link {
-	--link-font: var(--heading-font);
-	text-transform: upper-case;
-}
-
 main {
 	flex-grow: 1;
 	display: flex;
@@ -504,10 +493,9 @@ footer {
 }
 .map-event--info {
 	border-radius: 0 0 5px 5px;
-	font-size: 16px;
+	font-size: 1.6rem;
 	font-weight: 400;
 }
-
 .map-single-event--title,
 .map-single-event--info,
 .map-single-event--label {
@@ -532,6 +520,7 @@ footer {
 /* Add to body to prevent scrolling when viewing the mobile menu */
 .prevent-scrolling {
   height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
