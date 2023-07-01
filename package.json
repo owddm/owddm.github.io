@@ -15,7 +15,7 @@
     "dayjs": "^1.11.7",
     "nuxt": "^3.4.3",
     "typedoc": "^0.23.28",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "@nuxt/test-utils": "^3.4.3",
