@@ -72,18 +72,12 @@
           <EventDateDisplay :date="dayjs(event?.time)" />
         </div>
         <div>
-          <a class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
-            → RSVP
-          </a>
-          <a  class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
-            → RSVP
-          </a>
+          <a class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`"> → RSVP </a>
+          <a class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`"> → RSVP </a>
         </div>
         <div>
-            <a class="button join-discord" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
-              → Join Discord
-            </a>
-          </div>
+          <a class="button join-discord" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6"> → Join Discord </a>
+        </div>
       </div>
     </div>
   </div>
@@ -93,7 +87,7 @@
 import EventMap from "~~/components/EventMap.vue";
 import EventDateDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
 import EventPageError from "~/components/SiteMainEvents/EventPageError.vue";
-import EventGroupHeader from '~/components/SiteMainEvents/EventGroupHeader.vue';
+import EventGroupHeader from "~/components/SiteMainEvents/EventGroupHeader.vue";
 import dayjs from "dayjs/esm";
 import { useEvents, Event } from "~~/utils/events";
 import { MapMarker } from "~/utils/map";
@@ -342,12 +336,12 @@ div {
   }
 
   .rsvp {
-    width: 11rem;
+    width: 10rem;
     margin-left: 1rem;
   }
 
   .join-discord {
-    width: 11rem;
+    width: 10rem;
     margin-right: 1rem;
   }
 

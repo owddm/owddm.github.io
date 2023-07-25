@@ -27,7 +27,7 @@ onMounted(() => {
     if (!mounted) {
       return;
     }
-    lMap = L.map(map.value!).setView([34.95937, 136.07081], 9.4);
+    lMap = L.map(map.value!).setView([34.95937, 135.57081], 9.4);
     const gl = new MaplibreLayer({
       attribution: '\u003ca href="https://www.maptiler.com/copyright/" target="_blank"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href="https://www.openstreetmap.org/copyright" target="_blank"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e',
       style: `https://api.maptiler.com/maps/${mapId}/style.json?key=${key}`,
