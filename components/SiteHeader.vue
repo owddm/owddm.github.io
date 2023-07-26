@@ -62,7 +62,7 @@ function updateScreenScroll() {
   if (!page_state || !isMobile) return;
   const matching = !!page_state.isHamburgerMenuOpen && isMobile.matches;
   (document.body.parentNode as HTMLElement).classList.toggle("prevent-scrolling", matching);
-  alert("hi" + matching);
+  // alert("hi" + matching);
 }
 
 updateScreenScroll();
@@ -278,6 +278,13 @@ header {
   }
   .header--links a {
     text-decoration: none;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .header--container {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
   }
 }
 </style>
