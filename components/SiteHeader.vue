@@ -114,7 +114,7 @@ updateScreenScroll();
       <div class="header--social-media">
         <SocialMedia />
       </div>
-      <a class="hamburger-menu" href="" @click.prevent="toggleHamburgerMenuVisibility()">
+      <button class="hamburger-menu" href="" @click.prevent="toggleHamburgerMenuVisibility()">
         <svg viewBox="0 0 100 100" v-if="!page_state.isHamburgerMenuOpen">
           <rect y="5" width="100" height="15" />
           <rect y="43.5" width="100" height="15" />
@@ -124,7 +124,7 @@ updateScreenScroll();
           <line x1="0" y1="0" x2="100" y2="100" style="stroke: #000; stroke-width: 15" />
           <line x1="100" y1="0" x2="0" y2="100" style="stroke: #000; stroke-width: 15" />
         </svg>
-      </a>
+      </button>
     </div>
   </header>
 </template>
@@ -206,10 +206,16 @@ header {
 
 .hamburger-menu {
   display: none;
+  min-width: 60px;
+  width: 60px;
+  margin-top: 0.3rem;
+  margin-right: 0.2rem;
+  background-color: transparent;
 }
+
 .hamburger-menu svg {
   height: 1.8rem;
-  margin: 0.5rem calc(var(--space) + 0.5rem);
+  /* margin: 0.5rem calc(var(--space) + 0.5rem); */
 }
 .header--social-media {
   margin-right: var(--space);
@@ -218,6 +224,26 @@ header {
   margin: 0 2rem;
   user-select: none;
 }
+
+/* For iPhone SE */
+@media only screen and (max-width: 24em) {
+  .join-link {
+    height: 0.5rem;
+    margin-bottom: -0.1rem;
+    padding-bottom: 1.1rem;
+  }
+  .hamburger-menu {
+    display: inline-flex;
+    align-self: end;
+    min-width: 50px;
+    width: 50px;
+  }
+
+  .hamburger-menu svg {
+    height: 2rem;
+  }
+}
+
 @media only screen and (max-width: 50em) {
   .hamburger-menu {
     display: inline-flex;
