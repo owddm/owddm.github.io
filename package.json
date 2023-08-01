@@ -23,7 +23,7 @@
     "@vue/test-utils": "^2.4.0",
     "jsdom": "^21.1.1",
     "leaflet": "^1.9.3",
-    "maplibre-gl": "^2.4.0",
+    "maplibre-gl": "^3.2.1",
     "marked": "^4.3.0",
     "photoswipe": "^5.3.4",
     "vitest": "^0.30.1"
