@@ -9,6 +9,14 @@ function updateAddress(address: any) {
   page_state.address = address;
 }
 
+const title = "Osaka Kyoto Web Designers and Developers Meetup";
+const description =
+  "OWDDM and KWDDM are volunteer non-profit groups that organizes Meetups in Kansai. We try to have 1 meetup per month and Region with one or two presenters talking about a topic related to either making things in the Web. Occasionally we hold other events such as Hanami’s, hikes and other get-togethers.";
+
+function updateAddress(address: any) {
+  page_state.address = address;
+}
+
 useHead({
   title,
   meta: [
