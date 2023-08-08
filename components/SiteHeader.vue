@@ -90,16 +90,49 @@ updateScreenScroll();
       <nav role="navigation" class="header--links">
         <ul class="list-reset">
           <li>
-            <NuxtLink @click="updateAddress('/')" activeClass="active-menu" to="/">Home</NuxtLink>
+            <NuxtLink
+              @click="
+                updateAddress('/');
+                toggleHamburgerMenuVisibility();
+              "
+              activeClass="active-menu"
+              to="/"
+              >Home</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink @click="updateAddress('about')" activeClass="active-menu" to="/about">About</NuxtLink>
+            <NuxtLink
+              @click="
+                updateAddress('about');
+                toggleHamburgerMenuVisibility();
+              "
+              activeClass="active-menu"
+              to="/about"
+              >About</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink @click="updateAddress('events')" activeClass="active-menu" :class="{ 'active-menu': page_state.address == 'events' }" to="/events">Events</NuxtLink>
+            <NuxtLink
+              @click="
+                updateAddress('events');
+                toggleHamburgerMenuVisibility();
+              "
+              activeClass="active-menu"
+              :class="{ 'active-menu': page_state.address == 'events' }"
+              to="/events"
+              >Events</NuxtLink
+            >
           </li>
           <li>
-            <NuxtLink @click="updateAddress('photos')" activeClass="active-menu" to="/photos">Photos</NuxtLink>
+            <NuxtLink
+              @click="
+                updateAddress('photos');
+                toggleHamburgerMenuVisibility();
+              "
+              activeClass="active-menu"
+              to="/photos"
+              >Photos</NuxtLink
+            >
           </li>
           <!--
           <li>
