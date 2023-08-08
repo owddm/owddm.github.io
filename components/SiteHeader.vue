@@ -114,7 +114,7 @@ updateScreenScroll();
       <div class="header--social-media">
         <SocialMedia />
       </div>
-      <button class="hamburger-menu" href="" @click.prevent="toggleHamburgerMenuVisibility()">
+      <button aria-label="mobile menu" type="button" class="hamburger-menu" href="" @click.prevent="toggleHamburgerMenuVisibility()">
         <svg viewBox="0 0 100 100" v-if="!page_state.isHamburgerMenuOpen">
           <rect y="5" width="100" height="15" />
           <rect y="43.5" width="100" height="15" />
