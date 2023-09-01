@@ -14,7 +14,7 @@
     "@types/marked": "^4.0.8",
     "dayjs": "^1.11.9",
     "nuxt": "^3.6.2",
-    "typedoc": "^0.24.8",
+    "typedoc": "^0.25.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {
