@@ -10,21 +10,21 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/leaflet": "^1.9.3",
-    "@types/marked": "^4.0.8",
+    "@types/leaflet": "^1.9.4",
+    "@types/marked": "^5.0.1",
     "dayjs": "^1.11.9",
-    "nuxt": "^3.6.2",
-    "typedoc": "^0.24.8",
-    "typescript": "^5.1.6"
+    "nuxt": "^3.7.1",
+    "typedoc": "^0.25.1",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@vitejs/plugin-vue": "^4.3.3",
+    "@vitejs/plugin-vue": "^4.3.4",
     "@vue/test-utils": "^2.4.1",
     "jsdom": "^22.1.0",
     "leaflet": "^1.9.4",
-    "maplibre-gl": "^3.3.0",
-    "marked": "^7.0.4",
-    "photoswipe": "^5.3.8",
-    "vitest": "^0.34.3"
+    "maplibre-gl": "^3.3.1",
+    "marked": "^9.0.0",
+    "photoswipe": "^5.4.0",
+    "vitest": "^0.34.4"
   }
 }
