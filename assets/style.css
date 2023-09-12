@@ -437,12 +437,11 @@ main {
 }
 
 footer {
-	margin-top: 2rem;
 	text-align: center;
 	font-size: .75rem;
 	color: var(--color-text-gray);
 	padding: var(--space);
-	padding-bottom: calc(var(--space) * 2.67)
+	margin: var(--space) 0;
 }
 
 .inactive {

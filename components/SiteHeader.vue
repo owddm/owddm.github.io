@@ -168,7 +168,6 @@ updateScreenScroll();
   text-transform: upper-case;
 }
 header {
-  height: 4.5rem;
   position: relative;
 }
 .header--container {
@@ -289,6 +288,9 @@ header {
 }
 
 @media only screen and (max-width: 50em) {
+  header {
+    height: 4.2rem;
+  }
   .hamburger-menu {
     display: inline-flex;
     align-self: end;
