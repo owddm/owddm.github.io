@@ -190,6 +190,10 @@ header {
 .header--links a {
   text-decoration: none;
 }
+.header--links a:hover {
+  border-bottom: 2px solid;
+  border-color: var(--color-gray);
+}
 .header--links ul {
   display: flex;
   flex-direction: row;
@@ -202,9 +206,16 @@ header {
 .active-menu {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(0.25turn, var(--color-osaka), var(--color-kyoto));
-  border-image: linear-gradient(in oklch 0.25turn, var(--color-osaka), var(--color-kyoto));
   border-image-slice: 1;
 }
+
+@supports (border-image: linear-gradient(in oklch, red, blue)) {
+  .active-menu {
+    border-image: linear-gradient(in oklch 0.25turn, var(--color-osaka), var(--color-kyoto));
+    border-image-slice: 1;
+  }
+}
+
 .header--join-link {
   margin: 0 var(--space);
   flex-grow: 1;
@@ -326,6 +337,9 @@ header {
     width: 100vw;
     margin: 0;
   }
+  .header--links a:hover {
+    border-bottom: none;
+  }
   .header--links > ul {
     list-style-type: none;
     flex-grow: 1;
@@ -340,9 +354,6 @@ header {
     border-left: 0.5rem solid transparent;
     border-bottom: 0;
     display: block;
-  }
-  .header--links > ul > li > a:hover {
-    border-color: var(--color-gray);
   }
   .header--links > ul > li > a.active-menu {
     border-image: linear-gradient(0.5turn, var(--color-osaka), var(--color-kyoto));
