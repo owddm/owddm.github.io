@@ -32,10 +32,7 @@
       </div>
       <div class="event-rsvp-discord-mobile">
         <div>
-          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`">
-            <button class="rsvp">→ RSVP</button>
-          </a>
-          <a target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`">
+          <a target="_blank" rel="noopener noreferrer" :v-if="event?.group" :href="`https://www.meetup.com/en-US/${event?.group.urlname}/events/${event?.id}`">
             <button class="rsvp">→ RSVP</button>
           </a>
         </div>
@@ -72,8 +69,7 @@
           <EventDateDisplay :date="dayjs(event?.time)" />
         </div>
         <div>
-          <a class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'owddm'" :href="`https://www.meetup.com/ja-JP/osaka-web-designers-and-developers-meetup/events/${event?.id}`"> → RSVP </a>
-          <a class="button rsvp" target="_blank" rel="noopener noreferrer" v-if="event?.group.type == 'kwddm'" :href="`https://www.meetup.com/ja-JP/kyoto-web-designers-and-developers-meetup/${event?.id}`"> → RSVP </a>
+          <a class="button rsvp" target="_blank" rel="noopener noreferrer" :v-if="event?.group" :href="`https://www.meetup.com/en-US/${event?.group.urlname}/events/${event?.id}`"> → RSVP </a>
         </div>
         <div>
           <a class="button join-discord" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6"> → Join Discord </a>
