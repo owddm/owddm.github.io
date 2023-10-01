@@ -13,7 +13,7 @@
     "@types/leaflet": "^1.9.4",
     "@types/marked": "^5.0.1",
     "dayjs": "^1.11.9",
-    "nuxt": "^3.7.1",
+    "nuxt": "^3.7.4",
     "typedoc": "^0.25.1",
     "typescript": "^5.2.2"
   },
