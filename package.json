@@ -24,7 +24,7 @@
     "leaflet": "^1.9.4",
     "maplibre-gl": "^3.3.1",
     "marked": "^9.0.0",
-    "photoswipe": "^5.4.0",
+    "photoswipe": "^5.4.2",
     "vitest": "^0.34.4"
   }
 }
