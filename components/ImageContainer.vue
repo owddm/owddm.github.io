@@ -2,17 +2,17 @@
 import { ref, onMounted } from "vue";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import "photoswipe/style.css";
-import { Group, PhotoTransform } from '~~/utils/photos';
+import { PhotoGroup, PhotoTransform } from '~~/utils/photos';
 import { SlideData } from 'photoswipe/dist/types/slide/zoom-level';
 
 const props = defineProps<{
   galleryID: string;
-  groups: Group[];
+  groups: PhotoGroup[];
 }>();
 
 interface GroupItem {
   type: 'group';
-  group: Group;
+  group: PhotoGroup;
 }
 
 interface PhotoItem {

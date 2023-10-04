@@ -15,7 +15,7 @@ interface GroupRaw {
   timestamp: number;
 }
 
-export interface Group {
+export interface PhotoGroup {
   content?: string;
   event?: string;
   photos: Photo[];
@@ -56,7 +56,7 @@ export interface Photo {
   };
 }
 
-const photoCache = new WeakMap<PhotosRaw, Group[]>();
+const photoCache = new WeakMap<PhotosRaw, PhotoGroup[]>();
 
 export function preparePhoto(photoRaw: PhotoRaw, transforms: Transform[]): Photo {
   const file = photoRaw.file.replace(/\..*$/, "");

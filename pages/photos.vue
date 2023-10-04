@@ -15,10 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { usePhotos, Group } from "~~/utils/photos";
+import { usePhotos, PhotoGroup } from "~~/utils/photos";
 const { data } = await usePhotos();
 const update = ref(Date.now());
-const groups = computed<Group[]>(() => {
+const groups = computed<PhotoGroup[]>(() => {
   update.value = Date.now();
   if (!data.value) return [];
   return Array.from(data.value!).reverse();
