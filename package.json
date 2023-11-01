@@ -23,7 +23,7 @@
     "jsdom": "^22.1.0",
     "leaflet": "^1.9.4",
     "maplibre-gl": "^3.3.1",
-    "marked": "^9.0.3",
+    "marked": "^9.1.4",
     "photoswipe": "^5.4.2",
     "vitest": "^0.34.6"
   }
