@@ -49,7 +49,7 @@ export interface EventGroup {
 }
 
 function groupForEvent(event: Event): string {
-  if (Date.now() < event.time) {
+  if (Date.now() < event.time && !event.isCancelled) {
     return "Upcoming";
   }
   return new Date(event.time).getFullYear().toString();
@@ -86,7 +86,7 @@ export function groupEvents(events?: Event[]): EventGroup[] | undefined {
  * @returns time difference in days
  */
 export const getTimeDiffInDays = (olderDate: Dayjs, newerDate: Dayjs = dayjs()): number => {
-  let timeDiff = dayjs(olderDate).diff(newerDate, "days");
+  let timeDiff = olderDate.diff(newerDate, "days");
   return timeDiff;
 };
 
@@ -97,7 +97,10 @@ export const getTimeDiffInDays = (olderDate: Dayjs, newerDate: Dayjs = dayjs()):
  * @param date
  * @returns true if the date is a date in the future.
  */
-export const isUpcoming = (date: Dayjs): boolean => {
-  let timeDifferenceInDays = getTimeDiffInDays(date, dayjs());
+export const isUpcoming = (event: Pick<Event, 'isCancelled' | 'time'>): boolean => {
+  if (event.isCancelled) {
+    return false;
+  }
+  let timeDifferenceInDays = getTimeDiffInDays(dayjs(event.time), dayjs());
   return timeDifferenceInDays > 0;
 };

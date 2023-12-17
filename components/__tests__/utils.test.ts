@@ -17,11 +17,16 @@ test("getUniqueItems(): Returns an array of unique items from an array of items"
 });
 
 test("isUpcoming(): Does a diff on the passed date and the current date.", () => {
-  expect(isUpcoming(dayjs(new Date).add(2, "day"))).toEqual(true);
+  expect(isUpcoming({ time: dayjs(new Date).add(2, "day").unix(), isCancelled: false })).toEqual(true);
 });
 
+test("isUpcoming(): Cancelled events arnt upcoming", () => {
+  expect(isUpcoming({ time: dayjs(new Date).add(2, "day").unix(), isCancelled: true })).toEqual(false);
+});
+
+
 test("isUpcoming(): Does a diff on the passed date and the current date.", () => {
-  expect(isUpcoming(dayjs(new Date))).toEqual(false);
+  expect(isUpcoming({ time: dayjs(new Date).unix(), isCancelled: false })).toEqual(false);
 });
 
 test("getTimeDiffInDays(): Returns the time difference between two dates in days.", () => {

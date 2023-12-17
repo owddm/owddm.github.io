@@ -17,6 +17,7 @@ interface FeeSettings {
 }
 export interface EventRaw {
   title: string;
+  isCancelled?: boolean;
   description: string;
   time: number;
   duration: number;
@@ -105,6 +106,9 @@ export function getMostRelevantEvent(events: Event[]): Event {
     }
     if (!mostRelevant) {
       mostRelevant = event;
+      continue;
+    }
+    if (!event.isCancelled) {
       continue;
     }
     if (inFuture(mostRelevant)) {

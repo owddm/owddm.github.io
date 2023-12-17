@@ -24,9 +24,13 @@
     <div class="event-image-date-container-mobile">
       <img class="event-image-detail" :src="event?.image?.transforms.m.webp.file" alt="" />
       <div class="event-date-container-mobile">
-        <EventDateDisplay :date="dayjs(event?.time)" />
+        <EventDateDisplay :event="event!" :v-if="event" />
       </div>
-      <h1 class="event-title-mobile">{{ event?.title }}</h1>
+      <h1 :class="{
+        'event-title-mobile': true,
+        'event-title-cancelled': !!event?.isCancelled
+      }">{{ event?.title }}</h1>
+      <sub :v-if="event?.isCancelled">(Cancelled)</sub>
       <div class="event-description-container">
         <Marked :text="event!.description" />
       </div>
@@ -59,14 +63,18 @@
     </div>
     <div class="event-details-container">
       <div class="event-details-description">
-        <h1 class="event-title">{{ event?.title }}</h1>
+        <h1 :class="{
+          'event-title': true,
+          'event-title-cancelled': !!event?.isCancelled
+        }">{{ event?.title }}</h1>
+        <sub :v-if="event?.isCancelled" class="event-cancelled">(Cancelled)</sub>
         <div class="event-description-container">
           <Marked :text="event!.description" />
         </div>
       </div>
       <div class="event-details-date-rsvp-discord">
         <div>
-          <EventDateDisplay :date="dayjs(event?.time)" />
+          <EventDateDisplay :event="event!" :v-if="event" />
         </div>
         <div>
           <a class="button rsvp" target="_blank" rel="noopener noreferrer" :v-if="event?.group" :href="`https://www.meetup.com/en-US/${event?.group.urlname}/events/${event?.id}`"> → RSVP </a>
@@ -84,7 +92,6 @@ import EventMap from "~~/components/EventMap.vue";
 import EventDateDisplay from "~~/components/SiteMainEvents/EventDateDisplay.vue";
 import EventPageError from "~/components/SiteMainEvents/EventPageError.vue";
 import EventGroupHeader from "~/components/SiteMainEvents/EventGroupHeader.vue";
-import dayjs from "dayjs/esm";
 import { useEvents, Event } from "~~/utils/events";
 import { MapMarker } from "~/utils/map";
 
@@ -101,6 +108,8 @@ watchEffect(() => {
   events = Array.from(data.value.events);
   event = events.find((event) => event.id == route.params.event_id);
 });
+
+console.log({ event })
 
 const update = ref(Date.now());
 const markers = computed(() => {
@@ -148,6 +157,10 @@ div {
   margin-left: 1rem;
 }
 
+.event-cancelled {
+  margin-left: 1rem;
+}
+
 .event-map-detail {
   max-width: 25%;
   width: 100%;
@@ -179,6 +192,9 @@ div {
 .event-title {
   margin-left: 1rem;
   line-height: normal;
+}
+.event-title-cancelled {
+  text-decoration: line-through;
 }
 
 .event-description-container {

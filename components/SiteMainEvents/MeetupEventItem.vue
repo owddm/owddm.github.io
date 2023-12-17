@@ -1,24 +1,23 @@
 <script lang="ts">
+import { Event } from "~~/utils/events";
 interface Props {
-  title: string;
-  date: Dayjs;
-  url: string;
-  group: string;
+  event: Pick<Event, 'title' | 'time' | 'id' | 'group' | 'isCancelled'>;
 }
 </script>
 
 <script setup lang="ts">
-import dayjs, { Dayjs } from "dayjs/esm";
+
+import dayjs from "dayjs/esm";
 import { getTimeDiffInDays, isUpcoming } from "~~/utils/utils";
 
-withDefaults(defineProps<Props>(), {
-  title: "Insert Event Title",
-  date: function () {
-    return dayjs();
-  },
-  url: "Insert event page URL",
-  group: "owddm",
-});
+const { event } = defineProps<Props>();
+
+const title = event.title;
+const date = dayjs(event.time);
+const url = `/events/${event.id}`;
+const group = event.group.type;
+
+const upcoming = isUpcoming(event);
 </script>
 
 <template>
@@ -26,25 +25,25 @@ withDefaults(defineProps<Props>(), {
     <div
       class="event-item-container"
       :class="{
-        'container-upcoming': isUpcoming(dayjs(date)),
+        'container-upcoming': upcoming,
         'container-owddm': group == 'owddm' ? true : false,
         'container-kwddm': group == 'kwddm' ? true : false,
       }">
-      <div class="title">
+      <div :class="{
+        title: true,
+        'title-cancelled': !!event.isCancelled
+      }">
         <NuxtLink :to="url">
           {{ title }}
         </NuxtLink>
       </div>
-      <div v-if="isUpcoming(dayjs(date))">
+      <div v-if="upcoming">
         <span v-if="getTimeDiffInDays(dayjs(date), dayjs()) == 1" class="date-timer">In {{ getTimeDiffInDays(dayjs(date), dayjs()) }} - day! </span>
         <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) <= 7" class="date-timer">In {{ getTimeDiffInDays(dayjs(date), dayjs()) }} - days! </span>
         <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) > 7 && getTimeDiffInDays(dayjs(date), dayjs()) < 28" class="date-timer">In {{ Math.floor(getTimeDiffInDays(dayjs(date), dayjs()) / 7) }} - weeks! </span>
         <span v-else-if="getTimeDiffInDays(dayjs(date), dayjs()) >= 28" class="date-timer">In {{ Math.floor(getTimeDiffInDays(dayjs(date), dayjs()) / 28) }} - months! </span>
-        <span class="date">{{ dayjs(date).format("ddd. MMMM D YYYY [at] H:mm") }}</span>
       </div>
-      <div v-else>
-        <span class="date">{{ dayjs(date).format("ddd. MMMM D YYYY [at] H:mm") }}</span>
-      </div>
+      <span class="date">{{ dayjs(date).format("ddd. MMMM D YYYY [at] H:mm") }}</span>
     </div>
   </Transition>
 </template>
@@ -53,6 +52,9 @@ withDefaults(defineProps<Props>(), {
 .title {
   font-weight: 600;
   margin-left: 0.5rem;
+}
+.title-cancelled {
+  text-decoration: line-through;
 }
 
 .event-item-container {
