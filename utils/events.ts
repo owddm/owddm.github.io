@@ -108,7 +108,7 @@ export function getMostRelevantEvent(events: Event[]): Event {
       mostRelevant = event;
       continue;
     }
-    if (!event.isCancelled) {
+    if (event.isCancelled) {
       continue;
     }
     if (inFuture(mostRelevant)) {
