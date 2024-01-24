@@ -30,7 +30,7 @@
         'event-title-mobile': true,
         'event-title-cancelled': !!event?.isCancelled
       }">{{ event?.title }}</h1>
-      <sub :v-if="event?.isCancelled">(Cancelled)</sub>
+      <sub v-if="!!event?.isCancelled">(Cancelled)</sub>
       <div class="event-description-container">
         <Marked :text="event!.description" />
       </div>
@@ -67,7 +67,7 @@
           'event-title': true,
           'event-title-cancelled': !!event?.isCancelled
         }">{{ event?.title }}</h1>
-        <sub :v-if="event?.isCancelled" class="event-cancelled">(Cancelled)</sub>
+        <sub v-if="!!event?.isCancelled" class="event-cancelled">(Cancelled)</sub>
         <div class="event-description-container">
           <Marked :text="event!.description" />
         </div>
