@@ -18,7 +18,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@vitejs/plugin-vue": "^4.4.0",
+    "@vitejs/plugin-vue": "^5.0.4",
     "@vue/test-utils": "^2.4.1",
     "jsdom": "^24.0.0",
     "leaflet": "^1.9.4",
