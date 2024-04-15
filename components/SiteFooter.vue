@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p><span class="capitalize">Copyright</span> © {{ new Date().getFullYear() }} Osaka/Kyoto Web Designers and web developers meetup</p>
+    <p><span class="capitalize">Copyright</span> © {{ new Date().getFullYear() }} Osaka/Kyoto Web Designers and web developers meetup - <a href="/coc">Code of Conduct</a></p>
   </footer>
 </template>
 
