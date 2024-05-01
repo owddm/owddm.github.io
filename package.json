@@ -25,6 +25,6 @@
     "maplibre-gl": "^3.6.2",
     "marked": "^9.0.3",
     "photoswipe": "^5.4.2",
-    "vitest": "^0.34.6"
+    "vitest": "^1.5.3"
   }
 }
