@@ -15,7 +15,7 @@
     "dayjs": "^1.11.10",
     "nuxt": "^3.7.4",
     "typedoc": "^0.25.4",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
