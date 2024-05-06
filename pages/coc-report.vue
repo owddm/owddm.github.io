@@ -60,7 +60,9 @@
         <h3>What happens after you file a report?</h3>
         <p>
           We promise to acknowledge the issue with a reply within 72 hours
-          <em>(and will aim for much quicker than that)</em>.
+          <em>(and will aim for much quicker than that)</em>. If you are at an 
+          physical event and you feel comfortable doing-so, it would be helpful
+          to notify the event organizer that you submitted an report.
         </p>
         <p>
           The organizers will meet to review the incident and determine:
