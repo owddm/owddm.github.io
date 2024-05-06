@@ -2,7 +2,7 @@
   <section>
     <img class="about-group-banner" src="https://owddm.github.io/public/images/discord/event-photos/1089404389707481099/1089404385362186250/P1004543@l.webp" alt="" />
     <div class="about-content">
-      <h1 class="about-title">Osaka/Kyoto Web Designers and Developers Meetup</h1>
+      <h1 class="about-title" id="osaka-kyoto-web-designers-and-developers-meetup">Osaka/Kyoto Web Designers and Developers Meetup</h1>
       <div class="about-description-container">
         <p>
           Wow!
@@ -58,6 +58,32 @@
           -->イベントの内容ではないですが、ミートアップ後に参加者は居酒屋に行くこともよくあります。
         </p>
       </div>
+      <h2 class="about-title" id="organization">Organization</h2>
+      <div class="about-single-container">
+        <p>（英語のみ）</p>
+        <p>
+          This in a non-profit effort. The current organizer of the OWDDM・KWDDM is
+          <a href="//leichtgewicht.at">Martin Heidegger</a>. He carries the final responsibility
+          for all issues and has final say, but he does not work by himself. Volunteers can and
+          have-been taking care of accounting; organizing meetups; work on the homepage; moderate
+          the Discord and other things such-as sending out announcements of the events. The current
+          volunteers can be recognized by their <em>"Volunteer"</em>-role in the
+          <a href="/discord">Discord chat</a>.
+        </p>
+        <p>
+          Volunteering is done proactively. Volunteers can bring up tasks and topics and can work
+          on them directly. All questions are discussed through Volunteer-only Discord chats rooms.
+          The reason for restricting this to Volunteers is to avoid spamming other members
+          of the Discord chat. To become Volunteer yourself, please contact the organizer.
+        </p>
+        <p>
+          Considering the <a href="//en.wikipedia.org/wiki/Bus_factor">Bus factor</a>, biases
+          in judgements and to avoid bottle neck situations: it is our goal to increase the number
+          of official organizers. If you feel like you want to share the responsibility and have a
+          bigger say in the meetup, first: become a Volunteer, then help out for a bit and
+          afterwards talk to the organizers.
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -79,13 +105,20 @@ section {
 .about-title {
   margin: 2rem;
   line-height: normal;
+  border-bottom: none;
 }
 
+.about-single-container, 
 .about-description-container {
   display: flex;
   padding: 0 2rem;
-  flex-wrap: wrap;
   gap: 1rem;
+}
+.about-single-container {
+  flex-direction: column;
+}
+.about-description-container {
+  flex-wrap: wrap;
 }
 .about-description-container p {
   text-indent: 0.5em;

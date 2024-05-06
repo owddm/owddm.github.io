@@ -6,8 +6,8 @@
       <div class="coc-description-container">
         <p>
           If you believe someone is violating <a href="/coc">the code of conduct</a>
-          we ask that you report it to the OWDDM・KWDDM organizer using the
-          <a href="mailto:owddm@proton.me">owddm@proton.me</a> email address.
+          we ask that you report it to <a href="/about#organization">the OWDDM・KWDDM organizer</a>
+          using the <a href="mailto:owddm@proton.me">owddm@proton.me</a> email address.
         </p>
         <p>
           All reports will be kept confidential. In some cases we may determine
@@ -16,8 +16,10 @@
           those individuals instruct us otherwise.
         </p>
         <p>
-          If you believe anyone is in physical danger, please notify appropriate
-          law enforcement first.<br/>
+          <strong>If you believe anyone is in physical danger, please notify appropriate
+          law enforcement first.</strong>
+        </p>
+        <p>
           If you are unsure what law enforcement agency is appropriate, please include
           this in your report and we will attempt to notify them.
         </p>
@@ -105,6 +107,19 @@
         </p>
         <h3>What if your report concerns a possible violation by the organizer?</h3>
         <p>
+          The group organizer occasionally hands over the responsibility to run events to
+          volunteers. <em>(see:
+          <a href="/about#organization">the organizer section on the about page</a>)</em>.
+          No person other than <strong>the group organizer</strong> will process the violations.
+          Event organizers will not receive a copy.
+        </p>
+        <p>
+          As there is currently only one organizer of the group, it is a problem if your issue
+          concerns them. In that case, we ask you to contact a trusted Volunteer. Together with
+          other Volunteers, they may be able to support and help you.
+        </p>
+        <!--
+        <p>
           If your report concerns the organizer, you may not feel comfortable sending
           your report to the committee, as all members will see the report.
         </p>
@@ -115,6 +130,7 @@
           The members you contact will respond to the issue, to the best of their
           ability, in a group excluding the member(s) that the report concerns.
         </p>
+        -->
         <h3>Reconsideration</h3>
         <p>
           Any of the parties directly involved or affected can request reconsideration
