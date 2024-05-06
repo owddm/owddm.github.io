@@ -48,7 +48,7 @@
           </li>
           <li>When and where the incident occurred. Please be as specific as possible.</li>
           <li>Your account of what occurred. If there is a publicly available record
-            (e.g. a mailing list archive or a public IRC logger) please include
+            (e.g. a link to a Discord message or Meetup comment) please include
             a link and/or screenshot.
           </li>
           <li>Any extra context you believe existed for the incident.</li>
