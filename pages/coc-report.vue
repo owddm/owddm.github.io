@@ -120,19 +120,6 @@
           concerns them. In that case, we ask you to contact a trusted Volunteer. Together with
           other Volunteers, they may be able to support and help you.
         </p>
-        <!--
-        <p>
-          If your report concerns the organizer, you may not feel comfortable sending
-          your report to the committee, as all members will see the report.
-        </p>
-        <p>
-          In that case, you can make a report directly to any or all other organizers.
-        </p>
-        <p>
-          The members you contact will respond to the issue, to the best of their
-          ability, in a group excluding the member(s) that the report concerns.
-        </p>
-        -->
         <h3>Reconsideration</h3>
         <p>
           Any of the parties directly involved or affected can request reconsideration
