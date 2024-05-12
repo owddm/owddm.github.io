@@ -74,7 +74,8 @@
           Volunteering is done proactively. Volunteers can bring up tasks and topics and can work
           on them directly. All questions are discussed through Volunteer-only Discord chats rooms.
           The reason for restricting this to Volunteers is to avoid spamming other members
-          of the Discord chat. To become Volunteer yourself, please contact the organizer.
+          of the Discord chat. To become Volunteer yourself, please join the Discord and tell the
+          name of your Discord account to the organizer of a Meetup.
         </p>
         <p>
           Considering the <a href="//en.wikipedia.org/wiki/Bus_factor">Bus factor</a>, biases
