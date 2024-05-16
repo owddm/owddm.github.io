@@ -63,7 +63,7 @@
         <p>（英語のみ）</p>
         <p>
           This in a non-profit effort. The current organizer of the OWDDM・KWDDM is
-          <a href="//leichtgewicht.at">Martin Heidegger</a>. He carries the final responsibility
+          <a href="https://leichtgewicht.at">Martin Heidegger</a>. He carries the final responsibility
           for all issues and has final say, but he does not work by himself. Volunteers can and
           have-been taking care of accounting; organizing meetups; work on the homepage; moderate
           the Discord and other things such-as sending out announcements of the events. The current
@@ -78,7 +78,7 @@
           name of your Discord account to the organizer of a Meetup.
         </p>
         <p>
-          Considering the <a href="//en.wikipedia.org/wiki/Bus_factor">Bus factor</a>, biases
+          Considering the <a href="https://en.wikipedia.org/wiki/Bus_factor">Bus factor</a>, biases
           in judgements and to avoid bottle neck situations: it is our goal to increase the number
           of official organizers. If you feel like you want to share the responsibility and have a
           bigger say in the meetup, first: become a Volunteer, then help out for a bit and
