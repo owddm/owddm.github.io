@@ -64,24 +64,24 @@
         <p>
           This in a non-profit effort. The current organizer of the OWDDM・KWDDM is
           <a href="https://leichtgewicht.at">Martin Heidegger</a>. He carries the final responsibility
-          for all issues and has final say, but he does not work by himself. Volunteers can and
-          have-been taking care of accounting; organizing meetups; work on the homepage; moderate
-          the Discord and other things such-as sending out announcements of the events. The current
-          volunteers can be recognized by their <em>"Volunteer"</em>-role in the
+          for all issues and has final say, but he does not work by himself. Volunteers can, and
+          have been, taking care of accounting; organizing meetups; work on the homepage; moderating
+          the Discord and other things such as sending out announcements of events. The current
+          volunteers can be recognized by their <em>"Volunteer"</em> role in the
           <a href="/discord">Discord chat</a>.
         </p>
         <p>
           Volunteering is done proactively. Volunteers can bring up tasks and topics and can work
           on them directly. All questions are discussed through Volunteer-only Discord chats rooms.
           The reason for restricting this to Volunteers is to avoid spamming other members
-          of the Discord chat. To become Volunteer yourself, please join the Discord and tell the
-          name of your Discord account to the organizer of a Meetup.
+          of the Discord chat. To become a Volunteer yourself, please join the Discord and make
+          yourself known to the organizer of a Meetup.
         </p>
         <p>
           Considering the <a href="https://en.wikipedia.org/wiki/Bus_factor">Bus factor</a>, biases
-          in judgements and to avoid bottle neck situations: it is our goal to increase the number
+          in judgments and to avoid bottle neck situations, it is our goal to increase the number
           of official organizers. If you feel like you want to share the responsibility and have a
-          bigger say in the meetup, first: become a Volunteer, then help out for a bit and
+          bigger say in the meetup, first become a Volunteer, then help out for a bit and
           afterwards talk to the organizers.
         </p>
       </div>
