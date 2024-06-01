@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
-    "@vue/test-utils": "^2.4.1",
+    "@vue/test-utils": "^2.4.6",
     "jsdom": "^24.0.0",
     "leaflet": "^1.9.4",
     "maplibre-gl": "^3.6.2",
