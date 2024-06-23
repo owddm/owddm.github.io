@@ -142,7 +142,7 @@ updateScreenScroll();
         </ul>
       </nav>
       <div class="header--join-link">
-        <NuxtLink class="join-link" @click="updateAddress('join')" to="/join">→ Join</NuxtLink>
+        <NuxtLink class="join-link" @click="updateAddress('join');toggleHamburgerMenuVisibility(false);" to="/join">→ Join</NuxtLink>
       </div>
       <div class="header--social-media">
         <SocialMedia />
