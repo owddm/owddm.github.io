@@ -1,4 +1,5 @@
 {
+  "name": "owddm.github.io",
   "private": true,
   "scripts": {
     "build": "nuxi generate",
