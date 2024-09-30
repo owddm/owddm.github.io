@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro'
+import PhotosPage from '../components/pages/Photos.vue'
+import { fetchPhotos } from '../utils/photos'
+
+const data = await fetchPhotos()
+---
+<Layout>
+    <PhotosPage url={Astro.url} data={data} client:load></PhotosComp>
+</Layout>

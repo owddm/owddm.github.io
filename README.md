@@ -1,4 +1,5 @@
-# OWDDM Site in Nuxt3
+# OWDDM Site built with AstroJS and Vue
+
 ## Setup
 
 Make sure to install the dependencies:
@@ -35,4 +36,3 @@ Locally preview production build:
 ```bash
 npm run preview
 ```
-
