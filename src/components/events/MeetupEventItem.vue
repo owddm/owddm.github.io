@@ -48,13 +48,13 @@ const upcoming = isUpcoming(event);
   </Transition>
 </template>
 
-<style scoped>
-.title {
+<style>
+.event-item-container .title {
   font-weight: 600;
   margin-left: 0.5rem;
 }
 
-.title-cancelled {
+.event-item-container .title-cancelled {
   text-decoration: line-through;
 }
 
@@ -64,45 +64,45 @@ const upcoming = isUpcoming(event);
   max-width: 100%;
 }
 
-.container-owddm {
+.event-item-container.container-owddm {
   border-left-color: var(--color-osaka);
 }
 
-div.container-owddm a:hover {
+.event-item-container.container-owddm a:hover {
   color: var(--color-osaka);
 }
 
-.container-kwddm {
+.event-item-container.container-kwddm {
   border-left-color: var(--color-kyoto);
 }
 
-div.container-kwddm a:hover {
+.event-item-container.container-kwddm a:hover {
   color: var(--color-kyoto);
 }
 
-.container-upcoming {
+.event-item-container.container-upcoming {
   border-left-width: 6px;
 }
 
-.date {
+.event-item-container .date {
   font-weight: 200;
   font-size: 0.8rem;
   margin-left: 0.5rem;
 }
 
-.date-timer {
+.event-item-container .date-timer {
   font-weight: 600;
   margin-left: 0.5rem;
   font-size: 0.8rem;
 }
 
-.v-enter-active,
-.v-leave-active {
+.event-item-container .v-enter-active,
+.event-item-container .v-leave-active {
   transition: opacity 0.3s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.event-item-container .v-enter-from,
+.event-item-container .v-leave-to {
   opacity: 0;
 }
 </style>

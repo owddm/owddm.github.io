@@ -121,7 +121,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
@@ -129,39 +129,39 @@ onMounted(() => {
   margin: 0 var(--space);
 }
 
-.img-container-margin {
+.gallery-container .img-container-margin {
   max-width: 100%;
   overflow: auto;
   position: relative;
   border-radius: var(--radius);
 }
 
-.gallery-container a {
+.gallery-container .gallery-container a {
   line-height: 0;
 }
 
-.img-container {
+.gallery-container .img-container {
   border-radius: var(--radius);
   width: 100%;
 }
 
-.img-container:hover {
+.gallery-container .img-container:hover {
   box-shadow: 0 0 150px 5px #aab6bd;
 }
 
-.content,
-.date {
+.gallery-container .content,
+.gallery-container .date {
   display: block;
   margin: 1em;
 }
 
-.date {
+.gallery-container .date {
   font-weight: normal;
   color: #acacac;
   margin-bottom: 0;
 }
 
-.content {
+.gallery-container .content {
   margin-top: 0;
 }
 </style>
