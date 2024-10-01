@@ -40,7 +40,7 @@ updateScreenScroll();
 </script>
 
 <template>
-  <header :class="{ open: page_state.isHamburgerMenuOpen, closed: !page_state.isHamburgerMenuOpen }">
+  <header :class="{ 'site-header': true, open: page_state.isHamburgerMenuOpen, closed: !page_state.isHamburgerMenuOpen }">
     <div class="header--container">
       <AstroLink href="/" class="header--logo">
         <h1>
@@ -95,18 +95,18 @@ updateScreenScroll();
   </header>
 </template>
 
-<style scoped>
-.nav-link {
+<style>
+.site-header .nav-link {
   --link-font: var(--heading-font);
 
   text-transform: upper-case;
 }
 
-header {
+.site-header {
   position: relative;
 }
 
-.header--container {
+.site-header .header--container {
   display: flex;
   flex-direction: row;
   align-content: flex-start;
@@ -116,56 +116,56 @@ header {
   background-color: var(--color-bg-front);
 }
 
-.header--container header > * {
+.site-header .header--container header > * {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.header--links {
+.site-header .header--links {
   flex-direction: row;
   margin: 0 2rem;
   user-select: none;
 }
 
-.header--links a {
+.site-header .header--links a {
   text-decoration: none;
 }
 
-.header--links a:hover {
+.site-header .header--links a:hover {
   border-bottom: 2px solid;
   border-color: var(--color-gray);
 }
 
-.header--links ul {
+.site-header .header--links ul {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
 }
 
-.header--logo {
+.site-header .header--logo {
   padding-left: var(--space);
 }
 
-.active-menu {
+.site-header .active-menu {
   border-bottom: 2px solid transparent;
   border-image: linear-gradient(0.25turn, var(--color-osaka), var(--color-kyoto));
   border-image-slice: 1;
 }
 
 @supports (border-image: linear-gradient(in oklch, red, blue)) {
-  .active-menu {
+  .site-header .active-menu {
     border-image: linear-gradient(in oklch 0.25turn, var(--color-osaka), var(--color-kyoto));
     border-image-slice: 1;
   }
 }
 
-.header--join-link {
+.site-header .header--join-link {
   margin: 0 var(--space);
   flex-grow: 1;
 }
 
-.join-link {
+.site-header .join-link {
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -190,13 +190,13 @@ header {
   white-space: nowrap;
 }
 
-.join-link:hover {
+.site-header .join-link:hover {
   background-color: var(--color-osaka);
 }
 
 /* Mobile */
 
-.active-mobile-menu {
+.site-header .active-mobile-menu {
   border-image: linear-gradient(0.5turn, var(--color-osaka), var(--color-kyoto));
   border-image: linear-gradient(in oklch 0.5turn, var(--color-osaka), var(--color-kyoto));
   border-image-slice: 1;
@@ -204,7 +204,7 @@ header {
   box-sizing: content-box;
 }
 
-.hamburger-menu {
+.site-header .hamburger-menu {
   display: none;
   min-width: 60px;
   width: 60px;
@@ -213,47 +213,47 @@ header {
   background-color: transparent;
 }
 
-.hamburger-menu svg {
+.site-header .hamburger-menu svg {
   height: 1.8rem;
 
   /* margin: 0.5rem calc(var(--space) + 0.5rem); */
 }
 
-.header--social-media {
+.site-header .header--social-media {
   margin-right: var(--space);
 }
 
 /* For iPhone SE */
 @media only screen and (width <= 24em) {
-  .join-link {
+  .site-header .join-link {
     height: 0.5rem;
     margin-bottom: -0.1rem;
     padding-bottom: 1.1rem;
   }
 
-  .hamburger-menu {
+  .site-header .hamburger-menu {
     display: inline-flex;
     align-self: end;
     min-width: 50px;
     width: 50px;
   }
 
-  .hamburger-menu svg {
+  .site-header .hamburger-menu svg {
     height: 2rem;
   }
 }
 
 @media only screen and (width <= 50em) {
-  header {
+  .site-header {
     height: 4.2rem;
   }
 
-  .hamburger-menu {
+  .site-header .hamburger-menu {
     display: inline-flex;
     align-self: end;
   }
 
-  .header--container {
+  .site-header .header--container {
     width: 100vw;
     position: fixed;
     z-index: 9999;
@@ -263,16 +263,16 @@ header {
     backdrop-filter: blur(10px);
   }
 
-  header.open .header--container {
+  .site-header.open .header--container {
     height: 100%;
   }
 
-  header.closed .header--links,
-  header.closed .header--social-media {
+  .site-header.closed .header--links,
+  .site-header.closed .header--social-media {
     display: none;
   }
 
-  .header--social-media {
+  .site-header .header--social-media {
     order: 5;
     flex-grow: 1;
     max-width: 100vw;
@@ -281,7 +281,7 @@ header {
     gap: 0.4rem;
   }
 
-  .header--links {
+  .site-header .header--links {
     order: 4;
     font-size: 2rem;
     height: auto;
@@ -289,40 +289,40 @@ header {
     margin: 0;
   }
 
-  .header--links a:hover {
+  .site-header .header--links a:hover {
     border-bottom: none;
   }
 
-  .header--links > ul {
+  .site-header .header--links > ul {
     list-style-type: none;
     flex-grow: 1;
     flex-direction: column;
     gap: 0;
   }
 
-  .header--links > ul > li {
+  .site-header .header--links > ul > li {
     padding-top: 1rem;
   }
 
-  .header--links > ul > li > a {
+  .site-header .header--links > ul > li > a {
     padding-left: 1.5rem;
     border-left: 0.5rem solid transparent;
     border-bottom: 0;
     display: block;
   }
 
-  .header--links > ul > li > a.active-menu {
+  .site-header .header--links > ul > li > a.active-menu {
     border-image: linear-gradient(0.5turn, var(--color-osaka), var(--color-kyoto));
     border-image-slice: 1;
   }
 
-  .header--links a {
+  .site-header .header--links a {
     text-decoration: none;
   }
 }
 
 @media screen and (orientation: landscape) {
-  .header--container {
+  .site-header .header--container {
     margin-left: env(safe-area-inset-left, 2rem);
     margin-right: env(safe-area-inset-right, 2rem);
   }

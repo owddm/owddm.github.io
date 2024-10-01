@@ -32,7 +32,7 @@ const date = dayjs(event.time);
   </Transition>
 </template>
 
-<style scoped>
+<style>
 .event-item-container {
   margin-top: 0.1rem;
   max-width: 100%;
@@ -41,12 +41,12 @@ const date = dayjs(event.time);
   border-radius: 10px;
 }
 
-.date {
+.event-item-container .date {
   font-weight: 500;
   margin-left: 0.5rem;
 }
 
-.date-timer {
+.event-item-container .date-timer {
   font-weight: 600;
   margin-left: 0.5rem;
 }

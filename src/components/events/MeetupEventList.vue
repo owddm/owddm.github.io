@@ -25,12 +25,12 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style>
 .event-list-container {
   width: 100%;
 }
 
-.heading {
+.event-list-container .heading {
   font-weight: 100;
   letter-spacing: 0.025em;
   margin-top: 1rem;
@@ -40,13 +40,13 @@ defineProps<{
   border-bottom-color: rgb(218 207 207);
 }
 
-.v-enter-active,
-.v-leave-active {
+.event-list-container .v-enter-active,
+.event-list-container .v-leave-active {
   transition: opacity 0.3s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.event-list-container .v-enter-from,
+.event-list-container .v-leave-to {
   opacity: 0;
 }
 </style>

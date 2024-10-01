@@ -27,7 +27,7 @@ provide("url", url);
 const groups = transform(data).reverse();
 </script>
 
-<style scoped>
+<style>
 @media screen and (orientation: landscape) {
   .photos-container {
     margin-left: env(safe-area-inset-left, 2rem);

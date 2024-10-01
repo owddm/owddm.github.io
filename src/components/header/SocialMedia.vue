@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="social-media">
     <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/owddm">
       <svg version="1.1" viewBox="0 0 56.693 56.693" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <path
@@ -36,18 +36,18 @@
   </div>
 </template>
 
-<style scoped>
-a {
+<style>
+.social-media a {
   padding: 4px;
 }
 
-svg {
+.social-media svg {
   width: 25px;
   height: 25px;
   fill: gray;
 }
 
-svg:hover {
-  fill: red;
+.social-media svg:hover {
+  fill: blue;
 }
 </style>
