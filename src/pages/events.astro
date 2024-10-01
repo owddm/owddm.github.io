@@ -1,0 +1,11 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { fetchEvents } from "../utils/events";
+import EventsPage from "../components/pages/Events.vue";
+
+const data = await fetchEvents();
+---
+
+<Layout>
+    <EventsPage url={Astro.url} data={data} client:load />
+</Layout>

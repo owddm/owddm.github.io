@@ -1,10 +1,3 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "typeRoots": [
-      "./node_modules/photoswipe/dist/types/"
-    ],
-    "types": ["vitest/globals"]
-  }
+  "extends": "astro/tsconfigs/strictest"
 }

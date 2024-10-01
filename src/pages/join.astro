@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { fetchEvents } from "../utils/events";
+import JoinPage from '../components/pages/Join.vue'
+
+const data = await fetchEvents();
+---
+<Layout>
+    <JoinPage url={Astro.url} data={data} client:load />
+</Layout>
+  

@@ -1,9 +1,4 @@
 {
-  "recommendations": [
-    "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode",
-    "mkaufman.HTMLHint",
-    "stylelint.vscode-stylelint",
-    "streetsidesoftware.code-spell-checker"
-  ]
+  "recommendations": ["astro-build.astro-vscode"],
+  "unwantedRecommendations": []
 }

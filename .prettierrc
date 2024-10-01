@@ -1,1 +1,5 @@
-{ "bracketSameLine": true, "printWidth": 280 }
+{
+  "$schema": "https://json.schemastore.org/prettierrc.json",
+  "bracketSameLine": true,
+  "printWidth": 280
+}
