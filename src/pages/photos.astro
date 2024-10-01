@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import PhotosPage from '../components/pages/Photos.vue'
+import { PhotosPage } from '../components/pages/Photos.tsx'
 import { fetchPhotos } from '../utils/photos'
 
 const data = await fetchPhotos()

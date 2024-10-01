@@ -11,13 +11,3 @@
   border-bottom: 2px solid;
   border-bottom-color: rgb(218 207 207);
 }
-
-.event-list-container .v-enter-active,
-.event-list-container .v-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.event-list-container .v-enter-from,
-.event-list-container .v-leave-to {
-  opacity: 0;
-}

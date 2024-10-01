@@ -44,13 +44,3 @@
   margin-left: 0.5rem;
   font-size: 0.8rem;
 }
-
-.meetup-event-item-container .v-enter-active,
-.meetup-event-item-container .v-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.meetup-event-item-container .v-enter-from,
-.meetup-event-item-container .v-leave-to {
-  opacity: 0;
-}

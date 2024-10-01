@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { fetchEvents } from "../utils/events";
-import JoinPage from '../components/pages/Join.vue'
+import { JoinPage } from '../components/pages/Join.tsx';
 
 const data = await fetchEvents();
 ---
