@@ -6,6 +6,6 @@ import AstroVue from "@astrojs/vue";
 export default defineConfig({
   integrations: [AstroVue({})],
   redirects: {
-    'discord': 'https://discord.com/invite/k8xj8d75f6'
-  }
+    discord: "https://discord.com/invite/k8xj8d75f6",
+  },
 });
