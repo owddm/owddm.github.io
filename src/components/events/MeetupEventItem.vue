@@ -6,6 +6,7 @@ interface Props {
 </script>
 
 <script setup lang="ts">
+import "./MeetupEventItem.css";
 import dayjs from "dayjs";
 import { getTimeDiffInDays, isUpcoming } from "../../utils/utils";
 
@@ -22,7 +23,7 @@ const upcoming = isUpcoming(event);
 <template>
   <Transition>
     <div
-      class="event-item-container"
+      class="meetup-event-item-container"
       :class="{
         'container-upcoming': upcoming,
         'container-owddm': group == 'owddm' ? true : false,
@@ -47,62 +48,3 @@ const upcoming = isUpcoming(event);
     </div>
   </Transition>
 </template>
-
-<style>
-.event-item-container .title {
-  font-weight: 600;
-  margin-left: 0.5rem;
-}
-
-.event-item-container .title-cancelled {
-  text-decoration: line-through;
-}
-
-.event-item-container {
-  border-left-style: solid;
-  margin-top: 0.1rem;
-  max-width: 100%;
-}
-
-.event-item-container.container-owddm {
-  border-left-color: var(--color-osaka);
-}
-
-.event-item-container.container-owddm a:hover {
-  color: var(--color-osaka);
-}
-
-.event-item-container.container-kwddm {
-  border-left-color: var(--color-kyoto);
-}
-
-.event-item-container.container-kwddm a:hover {
-  color: var(--color-kyoto);
-}
-
-.event-item-container.container-upcoming {
-  border-left-width: 6px;
-}
-
-.event-item-container .date {
-  font-weight: 200;
-  font-size: 0.8rem;
-  margin-left: 0.5rem;
-}
-
-.event-item-container .date-timer {
-  font-weight: 600;
-  margin-left: 0.5rem;
-  font-size: 0.8rem;
-}
-
-.event-item-container .v-enter-active,
-.event-item-container .v-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.event-item-container .v-enter-from,
-.event-item-container .v-leave-to {
-  opacity: 0;
-}
-</style>

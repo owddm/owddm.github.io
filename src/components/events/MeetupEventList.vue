@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import "./MeetupEventList.css";
 import EventGroupHeader from "./EventGroupHeader.vue";
 import MeetupEventItem from "./MeetupEventItem.vue";
 import { type MeetupEvent } from "../../utils/events";
@@ -24,29 +25,3 @@ defineProps<{
     </div>
   </div>
 </template>
-
-<style>
-.event-list-container {
-  width: 100%;
-}
-
-.event-list-container .heading {
-  font-weight: 100;
-  letter-spacing: 0.025em;
-  margin-top: 1rem;
-  margin-bottom: 0.2rem;
-  margin-left: 0.2rem;
-  border-bottom: 2px solid;
-  border-bottom-color: rgb(218 207 207);
-}
-
-.event-list-container .v-enter-active,
-.event-list-container .v-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.event-list-container .v-enter-from,
-.event-list-container .v-leave-to {
-  opacity: 0;
-}
-</style>

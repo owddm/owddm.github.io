@@ -69,6 +69,7 @@
   </section>
 </template>
 <script setup lang="ts">
+import "./CocReport.css";
 import { provide } from "vue";
 
 const { url } = defineProps<{
@@ -76,20 +77,3 @@ const { url } = defineProps<{
 }>();
 provide("url", url);
 </script>
-<style>
-.coc-content {
-  padding: var(--space) max(var(--space), env(safe-area-inset-right)) var(--space) max(var(--space), env(safe-area-inset-left));
-}
-
-.coc-title,
-.coc-description-container > p,
-.coc-description-container > h3,
-.coc-description-container > ul > li {
-  margin: var(--space) 3rem 0 2rem;
-  line-height: normal;
-}
-
-.coc-content ul {
-  margin: var(--space) 0 0 0;
-}
-</style>

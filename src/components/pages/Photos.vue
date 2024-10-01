@@ -14,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import "./Photos.css";
 import * as vue from "vue";
 import ImageContainer from "../ImageContainer.vue";
 import { transform } from "../../utils/photos";
@@ -26,12 +27,3 @@ const { data, url } = defineProps<{
 provide("url", url);
 const groups = transform(data).reverse();
 </script>
-
-<style>
-@media screen and (orientation: landscape) {
-  .photos-container {
-    margin-left: env(safe-area-inset-left, 2rem);
-    margin-right: env(safe-area-inset-right, 2rem);
-  }
-}
-</style>

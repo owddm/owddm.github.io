@@ -1,4 +1,5 @@
 <script setup lang="tsx">
+import "./Events.css";
 import { transform, GroupIDFromGroupType, type EventData } from "../../utils/events";
 import { groupEvents } from "../../utils/utils";
 import MeetupEventList from "../events/MeetupEventList.vue";
@@ -38,26 +39,3 @@ onMounted(() => {
     <MeetupEventList :eventGroups="filtered.mixed!" type="mixed" />
   </div>
 </template>
-<style>
-.events-container {
-  display: flex;
-  width: 100%;
-  gap: var(--space);
-  padding: 0 var(--space);
-}
-
-.events-mobile-container {
-  display: none;
-  padding: 0 var(--space);
-}
-
-@media only screen and (width <= 760px) {
-  .events-container {
-    display: none;
-  }
-
-  .events-mobile-container {
-    display: block;
-  }
-}
-</style>

@@ -1,0 +1,41 @@
+.group-banner-owddm {
+  border-top: 5px solid var(--color-osaka);
+  background-image: url("/banner/owddm-image.webp");
+}
+
+.group-banner-kwddm {
+  border-top: 5px solid var(--color-kyoto);
+  background-image: url("/banner/kwddm-image.webp");
+}
+
+.group-banner,
+.group-banner-mixed {
+  width: 100%;
+  height: 25vw;
+  max-height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.group-banner-mixed {
+  justify-content: stretch;
+}
+
+.group-banner-part {
+  display: flex;
+}
+
+.group-banner,
+.group-banner-part {
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-banner-logo {
+  width: 45%;
+  max-width: 320px;
+}

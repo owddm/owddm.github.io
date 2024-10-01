@@ -35,19 +35,6 @@
     </a>
   </div>
 </template>
-
-<style>
-.social-media a {
-  padding: 4px;
-}
-
-.social-media svg {
-  width: 25px;
-  height: 25px;
-  fill: gray;
-}
-
-.social-media svg:hover {
-  fill: blue;
-}
-</style>
+<script lang="ts" setup>
+import "./SocialMedia.css";
+</script>
