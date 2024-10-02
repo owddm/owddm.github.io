@@ -133,7 +133,14 @@ export const JoinPage = ({ data, url }: JoinPageProps) => {
                   Talk with us online
                 </h2>
                 <p>We have our own Discord where we can talk about work, coding, design and coworking. Join us for a more-vibrant together.</p>
-                <iframe className="discord-widget" src="https://discord.com/widget?id=1034792577293094972&theme=dark" width="90%" height="300" allowTransparency frameBorder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                <iframe
+                  className="discord-widget"
+                  src="https://discord.com/widget?id=1034792577293094972&theme=dark"
+                  width="90%"
+                  height="300"
+                  allowTransparency
+                  style={{ border: "none" }}
+                  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
               </div>
               <div>
                 <h2 className="mt-2">
