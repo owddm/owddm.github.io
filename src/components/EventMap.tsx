@@ -7,23 +7,6 @@ export type EventMapProps = {
   className?: string;
   markers: MapMarker[];
 };
-// const key = "8JZtFquVr4EgrXWK57Kx";
-// const mapId = "53ec7d02-deae-4eb4-8294-406ed07b3271";
-
-// export const EventMap = ({ markers, className }: EventMapProps) => {
-//   const mapStyle = `https://api.maptiler.com/maps/${mapId}/style.json?key=${key}`
-//   if (!globalThis.document) return <></>
-//   console.log(mapStyle)
-//   return <Map
-//     initialViewState={{
-//       longitude: -122.4,
-//       latitude: 37.8,
-//       zoom: 14
-//     }}
-//     style={{width: 600, height: 400}}
-//     mapStyle={mapStyle}>
-//   </Map>
-// }
 export const EventMap = ({ markers, className }: EventMapProps) => {
   const map = useRef<HTMLDivElement>(null);
   useEffect(() => {
