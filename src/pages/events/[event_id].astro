@@ -13,5 +13,5 @@ const eventId = Astro.params.event_id
 ---
 
 <Layout>
-    <EventPage url={Astro.url} eventId={eventId} events={events} />
+    <EventPage url={Astro.url} eventId={eventId} events={events} client:load />
 </Layout>
