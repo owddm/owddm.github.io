@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { fetchEvents } from "../utils/events";
-import EventsPage from "../components/pages/Events.vue";
+import { EventsPage } from "../components/pages/Events.tsx";
 
 const data = await fetchEvents();
 ---

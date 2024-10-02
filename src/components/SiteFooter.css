@@ -1,0 +1,7 @@
+.site-footer p {
+  text-transform: uppercase;
+}
+
+.site-footer .capitalize {
+  text-transform: capitalize;
+}

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { fetchEvents, transform } from '../../utils/events'
-import EventPage from '../../components/pages/Event.vue'
+import { EventPage } from '../../components/pages/Event.tsx'
 
 export async function getStaticPaths() {
   const events = transform(await fetchEvents());
@@ -13,5 +13,5 @@ const eventId = Astro.params.event_id
 ---
 
 <Layout>
-    <EventPage url={Astro.url} eventId={eventId} events={events} />
+    <EventPage url={Astro.url} eventId={eventId} events={events} client:load />
 </Layout>

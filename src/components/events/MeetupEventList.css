@@ -1,0 +1,13 @@
+.event-list-container {
+  width: 100%;
+}
+
+.event-list-container .heading {
+  font-weight: 100;
+  letter-spacing: 0.025em;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+  margin-left: 0.2rem;
+  border-bottom: 2px solid;
+  border-bottom-color: rgb(218 207 207);
+}

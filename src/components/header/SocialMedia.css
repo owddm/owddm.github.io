@@ -1,0 +1,13 @@
+.social-media a {
+  padding: 4px;
+}
+
+.social-media svg {
+  width: 25px;
+  height: 25px;
+  fill: gray;
+}
+
+.social-media svg:hover {
+  fill: red;
+}

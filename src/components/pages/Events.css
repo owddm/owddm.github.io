@@ -1,0 +1,21 @@
+.events-container {
+  display: flex;
+  width: 100%;
+  gap: var(--space);
+  padding: 0 var(--space);
+}
+
+.events-mobile-container {
+  display: none;
+  padding: 0 var(--space);
+}
+
+@media only screen and (width <=760px) {
+  .events-container {
+    display: none;
+  }
+
+  .events-mobile-container {
+    display: block;
+  }
+}

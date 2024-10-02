@@ -1,0 +1,46 @@
+.meetup-event-item-container .title {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.meetup-event-item-container .title-cancelled {
+  text-decoration: line-through;
+}
+
+.meetup-event-item-container {
+  border-left-style: solid;
+  margin-top: 0.1rem;
+  max-width: 100%;
+}
+
+.meetup-event-item-container.container-owddm {
+  border-left-color: var(--color-osaka);
+}
+
+.meetup-event-item-container.container-owddm a:hover {
+  color: var(--color-osaka);
+}
+
+.meetup-event-item-container.container-kwddm {
+  border-left-color: var(--color-kyoto);
+}
+
+.meetup-event-item-container.container-kwddm a:hover {
+  color: var(--color-kyoto);
+}
+
+.meetup-event-item-container.container-upcoming {
+  border-left-width: 6px;
+}
+
+.meetup-event-item-container .date {
+  font-weight: 200;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.meetup-event-item-container .date-timer {
+  font-weight: 600;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}

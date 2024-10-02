@@ -568,3 +568,10 @@ additional spacing to the p tags for better readability.
 #outside > div > main > div > div.event-image-date-container-mobile > div.event-description-container > div > p {
   margin-top: 1rem;
 }
+
+@media screen and (orientation: landscape) {
+  main {
+    margin-left: env(safe-area-inset-left, 2rem);
+    margin-right: env(safe-area-inset-right, 2rem);
+  }
+}

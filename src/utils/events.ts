@@ -189,4 +189,40 @@ export function transform(raw: any): EventData {
   };
 }
 
+export interface EventGroup {
+  name?: string;
+  events: MeetupEvent[];
+}
+
+function groupForEvent(event: MeetupEvent): string {
+  if (Date.now() < event.time && !event.isCancelled) {
+    return "Upcoming";
+  }
+  return new Date(event.time).getFullYear().toString();
+}
+
+export type EventGroups = EventGroup[];
+
+/**
+ * Groups all events to Upcoming or Year
+ */
+export function groupEvents(events: MeetupEvent[]): EventGroups {
+  events = events.sort((eventA, eventB) => eventB.time - eventA.time);
+  const groups: EventGroups = [];
+  let previousGroup: EventGroup | undefined;
+  for (const event of events) {
+    const name = groupForEvent(event);
+    if (!previousGroup || previousGroup.name !== name) {
+      previousGroup = {
+        name,
+        events: [event],
+      };
+      groups.push(previousGroup);
+    } else {
+      previousGroup.events.push(event);
+    }
+  }
+  return groups;
+}
+
 export const fetchEvents = async () => await (await fetch("https://owddm.com/public/events.json")).json();

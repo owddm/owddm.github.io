@@ -1,7 +1,8 @@
 import { test, expect } from "vitest";
 import dayjs from "dayjs";
 
-import { formatDate, getUniqueItems, getTimeDiffInDays, isUpcoming } from "../utils";
+import { getUniqueItems } from "../lang";
+import { formatDate, getTimeDiffInDays, isUpcoming } from "../time";
 
 test("formatDate(): Formats a timestamp into a valid Date string", () => {
   expect(formatDate(1664002800000)).toEqual("Sat Sep 24 2022");

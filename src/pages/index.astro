@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import IndexPage from '../components/pages/Index.vue'
+import { IndexPage } from '../components/pages/Index.tsx'
 import { fetchEvents } from '../utils/events'
 const data = await fetchEvents()
 ---
 
 <Layout>
-	<IndexPage url={Astro.url} class:list={['main-map']} client:only="vue" data={data} />
+	<IndexPage url={Astro.url} client:only="react" data={data} />
 </Layout>

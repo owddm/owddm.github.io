@@ -1,0 +1,19 @@
+.event-item-container {
+  margin-top: 0.1rem;
+  max-width: 100%;
+  background-color: #e5e7eb;
+
+  /* TailwindCSS Gray 200 */
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.event-item-container .date {
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.event-item-container .date-timer {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
