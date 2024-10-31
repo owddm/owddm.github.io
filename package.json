@@ -1,5 +1,13 @@
 {
   "name": "owddm.github.io",
+  "homepage": "https://github.com/owddm/owddm.github.io",
+  "bugs": {
+    "url": "https://github.com/owddm/owddm.github.io/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owddm/owddm.github.io.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -14,7 +22,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "spellcheck": "npx cspell@7 \"**/*.*\" --no-progress"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -40,5 +49,11 @@
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.6.2",
     "vitest": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "volta": {
+    "node": "18.20.4"
   }
 }
