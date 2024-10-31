@@ -30,8 +30,8 @@ export const CocPage = ({ url }: CocPageProps) => (
             <li>
               <h4>Be welcoming.</h4>
               <p>
-                We strive to be a community that welcomes and supports people of all backgrounds and identities. This includes, but is not limited to members of any race, ethnicity, culture, national origin, colour, immigration status, social and economic class, educational
-                level, sex, sexual orientation, gender identity and expression, age, size, family status, political belief, religion, and mental and physical ability.
+                We strive to be a community that welcomes and supports people of all backgrounds and identities. This includes, but is not limited to members of any race, ethnicity, culture, national origin, color, immigration status, social and economic class, educational level,
+                sex, sexual orientation, gender identity and expression, age, size, family status, political belief, religion, and mental and physical ability.
               </p>
             </li>
             <li>
