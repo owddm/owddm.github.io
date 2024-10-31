@@ -71,8 +71,5 @@
     "webp"
   ],
   "language": ",en,en-US",
-  "ignorePaths": [
-    "*.{log,svg,snap}",
-    "**/*.dll"
-  ]
+  "ignorePaths": ["*.{log,svg,snap}", "**/*.dll"]
 }
