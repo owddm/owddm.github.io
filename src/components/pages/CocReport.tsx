@@ -69,7 +69,7 @@ export const CocReportPage = ({ url }: CocReportPageProps) => (
           </ul>
           <p>We'll respond as soon as we can to the person who filed the report with either a resolution or an explanation of why the situation is not yet resolved.</p>
           <p>
-            Futhermore, once we've determined our final action, we'll let them know what action <em>(if any)</em> we'll be taking.
+            Furthermore, once we've determined our final action, we'll let them know what action <em>(if any)</em> we'll be taking.
           </p>
           <p>We'll take into account feedback from the reporter on the appropriateness of our response, but we don't guarantee we'll act on it.</p>
           <h3>What if your report concerns a possible violation by the organizer?</h3>
