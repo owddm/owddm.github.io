@@ -26,7 +26,7 @@
     "spellcheck": "npx cspell@7 \"**/*.*\" --no-progress"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
+    "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^3.6.2",
     "astro": "^4.16.8",
     "clsx": "^2.1.1",
