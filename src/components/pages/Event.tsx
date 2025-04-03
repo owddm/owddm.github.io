@@ -18,6 +18,9 @@ export type EventPageProps = {
 export const EventPage = ({ url, events, eventId }: EventPageProps) => {
   const event = transform(events).events.find((event) => event.id === eventId)!;
   const image = event.image?.transforms?.m?.webp;
+  // "Lists" created by newlines + dashes in the Meetup editor don't get rendered as
+  // HTML lists without a bit of pre-processing.
+  const description = event!.description.replaceAll("\n\\- ", "\n- ")
   const markers = useMemo(() => {
     if (!event && Array(event).length != 1) return [];
     return Array(event).map((event): MapMarker => {
@@ -65,7 +68,7 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
           </h1>
           {event.isCancelled && <sub>(Cancelled)</sub>}
           <div className="event-description-container">
-            <Marked text={event!.description} />
+            <Marked text={description} />
           </div>
           <div className="event-rsvp-discord-mobile">
             <div>
@@ -107,7 +110,7 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
             </h1>
             {event.isCancelled && <sub className="event-cancelled">(Cancelled)</sub>}
             <div className="event-description-container">
-              <Marked text={event!.description} />
+              <Marked text={description} />
             </div>
           </div>
           <div className="event-details-date-rsvp-discord">
