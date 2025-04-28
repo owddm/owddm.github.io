@@ -1,7 +1,7 @@
 .site-header .nav-link {
   --link-font: var(--heading-font);
 
-  text-transform: upper-case;
+  text-transform: uppercase;
 }
 
 .site-header {
