@@ -49,15 +49,19 @@ export const IndexPage = ({ data, url }: IndexPageProps) => {
       gl.addTo(lMap);
       stop = (() => {
         const lMarkers = markers.map((marker) => {
+          const isKwddmMarker = marker.type == "kwddm"
           let title = marker.title
-            ? `<div class="map-event--label"><div class="map-event--title">${marker.title}</div>${marker.subtitle ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div></div>` : ""}`
+            ? `<div class="map-event--label">
+              <div class="map-event--title">${marker.title}</div>
+              ${marker.subtitle ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div>
+              ${isKwddmMarker ? `<div class="map-event--info">(on a break)</div>` : ""}</div>` : ""}`
             : "";
-          const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image" alt="">${title}`;
+          const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image " alt="">${title}`;
           return L.marker([marker.lat, marker.lng], {
             icon: L.divIcon({
               iconAnchor: [37, 118],
               iconSize: [74, 120],
-              className: "owddm-map-marker",
+              className: `owddm-map-marker${isKwddmMarker ? " inactive" : "" }`,
               html,
             }),
           }).on("click", () => {
