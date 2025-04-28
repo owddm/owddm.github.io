@@ -8,6 +8,7 @@ export type MapMarker = {
   subtitle?: string;
   subtitlePrefix?: string;
   target?: string;
+  isUpcoming?: boolean;
 };
 
 async function createMapLibreLayer(L: any) {
