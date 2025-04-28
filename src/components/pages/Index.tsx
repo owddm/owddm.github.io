@@ -1,7 +1,7 @@
 import "leaflet/dist/leaflet.css";
 import { type MapMarker, loadMapLibreLayer } from "../../utils/map.ts";
 import { transform, getLatestEvents } from "../../utils/events.ts";
-import { formatDate } from "../../utils/time.ts";
+import { formatDate, isUpcoming } from "../../utils/time.ts";
 import { useEffect, useMemo, useRef } from "react";
 import { AstroLinkURL } from "../AstroLink.tsx";
 
@@ -23,6 +23,7 @@ export const IndexPage = ({ data, url }: IndexPageProps) => {
             subtitle: formatDate(event.time),
             type: event.group.type,
             target: `/events/${event.id}`,
+            isUpcoming: isUpcoming(event),
           };
         }),
     [data],
@@ -50,14 +51,21 @@ export const IndexPage = ({ data, url }: IndexPageProps) => {
       stop = (() => {
         const lMarkers = markers.map((marker) => {
           let title = marker.title
-            ? `<div class="map-event--label"><div class="map-event--title">${marker.title}</div>${marker.subtitle ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div></div>` : ""}`
+            ? `<div class="map-event--label">
+              <div class="map-event--title">${marker.title}</div>
+              ${
+                marker.subtitle
+                  ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div>
+              ${!marker.isUpcoming ? `<div class="map-event--info">(on a break)</div>` : ""}</div>`
+                  : ""
+              }`
             : "";
-          const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image" alt="">${title}`;
+          const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image " alt="">${title}`;
           return L.marker([marker.lat, marker.lng], {
             icon: L.divIcon({
               iconAnchor: [37, 118],
               iconSize: [74, 120],
-              className: "owddm-map-marker",
+              className: `owddm-map-marker${!marker.isUpcoming ? " inactive" : ""}`,
               html,
             }),
           }).on("click", () => {
