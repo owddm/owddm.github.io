@@ -23,7 +23,7 @@ export const IndexPage = ({ data, url }: IndexPageProps) => {
             subtitle: formatDate(event.time),
             type: event.group.type,
             target: `/events/${event.id}`,
-            isUpcoming: isUpcoming(event)
+            isUpcoming: isUpcoming(event),
           };
         }),
     [data],
@@ -53,15 +53,19 @@ export const IndexPage = ({ data, url }: IndexPageProps) => {
           let title = marker.title
             ? `<div class="map-event--label">
               <div class="map-event--title">${marker.title}</div>
-              ${marker.subtitle ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div>
-              ${!marker.isUpcoming ? `<div class="map-event--info">(on a break)</div>` : ""}</div>` : ""}`
+              ${
+                marker.subtitle
+                  ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div>
+              ${!marker.isUpcoming ? `<div class="map-event--info">(on a break)</div>` : ""}</div>`
+                  : ""
+              }`
             : "";
           const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image " alt="">${title}`;
           return L.marker([marker.lat, marker.lng], {
             icon: L.divIcon({
               iconAnchor: [37, 118],
               iconSize: [74, 120],
-              className: `owddm-map-marker${!marker.isUpcoming ? " inactive" : "" }`,
+              className: `owddm-map-marker${!marker.isUpcoming ? " inactive" : ""}`,
               html,
             }),
           }).on("click", () => {
