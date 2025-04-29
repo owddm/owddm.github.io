@@ -20,7 +20,7 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
   const image = event.image?.transforms?.m?.webp;
   // "Lists" created by newlines + dashes in the Meetup editor don't get rendered as
   // HTML lists without a bit of pre-processing.
-  const description = event!.description.replaceAll("\n\\- ", "\n- ")
+  const description = event!.description.replaceAll("\n\\- ", "\n- ");
   const markers = useMemo(() => {
     if (!event && Array(event).length != 1) return [];
     return Array(event).map((event): MapMarker => {
