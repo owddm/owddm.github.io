@@ -31,6 +31,7 @@
     "astro": "^5.7.6",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
+    "ics": "^3.8.1",
     "leaflet": "^1.9.4",
     "maplibre-gl": "^4.7.1",
     "photoswipe": "^5.4.4"
