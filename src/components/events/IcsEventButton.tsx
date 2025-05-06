@@ -37,7 +37,6 @@ export const IcsEventButton = ({ event }: IcsEventButtonProps) => {
     icsEvent.location = venue.address;
     icsEvent.geo = { lat: venue!.lat, lon: venue!.lng };
   }
-  console.log(icsEvent);
 
   const generateIcsEvent = () => {
     ics.createEvent(icsEvent, (error, value) => {
@@ -49,7 +48,8 @@ export const IcsEventButton = ({ event }: IcsEventButtonProps) => {
 
       var downloadLink = document.createElement("a");
       downloadLink.href = uri;
-      downloadLink.download = "ok-tech-event.ics";
+      var startDate = dayjs(event.time);
+      downloadLink.download = `ok-tech-event-${startDate.year()}-${startDate.month()}-${startDate.day()}.ics`;
 
       document.body.appendChild(downloadLink);
       downloadLink.click();
