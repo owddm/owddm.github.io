@@ -65,7 +65,7 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
               "event-title-mobile": true,
               "event-title-cancelled": !!event.isCancelled,
             })}>
-            {event.title}¥
+            {event.title}
           </h1>
           {event.isCancelled && <sub>(Cancelled)</sub>}
           <div className="event-description-container">
@@ -73,11 +73,14 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
           </div>
           <div className="event-rsvp-discord-mobile">
             <div>
-              {event.group ? (
-                <a target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
-                  <button className="rsvp">→ RSVP</button>
-                </a>
-              ) : null}
+              {event.group && isUpcoming(event) && (
+                <>
+                    <a target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
+                    <button className="rsvp">→ RSVP</button>
+                    </a>
+                    <IcsEventButton event={event} />
+                </>
+              )}
             </div>
             <div>
               <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
