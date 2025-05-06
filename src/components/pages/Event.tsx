@@ -75,10 +75,10 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
             <div>
               {event.group && isUpcoming(event) && (
                 <>
-                    <a target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
+                  <a target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
                     <button className="rsvp">→ RSVP</button>
-                    </a>
-                    <IcsEventButton event={event} />
+                  </a>
+                  <IcsEventButton event={event} />
                 </>
               )}
             </div>
@@ -122,16 +122,15 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
             <div>
               {event.group && isUpcoming(event) && (
                 <>
-                    <a className="button rsvp" target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
+                  <a className="button rsvp" target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
                     {" "}
                     → RSVP{" "}
-                    </a>
-                    <IcsEventButton event={event} />
+                  </a>
+                  <IcsEventButton event={event} />
                 </>
               )}
             </div>
-            <div>
-            </div>
+            <div></div>
             <div>
               <a className="button join-discord" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
                 {" "}
