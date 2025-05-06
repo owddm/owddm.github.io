@@ -3,8 +3,16 @@
   border-radius: 10px;
   margin-top: 1rem;
   padding: 0.8rem;
+  background-color: green;
 }
 
 .ics-event-button:hover {
   background-color: red;
+}
+
+@media only screen and (width <=768px) {
+  .ics-event-button {
+    width: 10rem;
+    margin-left: 1rem;
+  }
 }
