@@ -5,7 +5,7 @@ import { EventGroupHeader } from "../events/EventGroupHeader";
 import { IcsEventButton } from "../events/IcsEventButton";
 import { Marked } from "../Marked";
 import { AstroLink, AstroLinkURL } from "../AstroLink.tsx";
-import { formatDate } from "../../utils/time.ts";
+import { formatDate, isUpcoming } from "../../utils/time.ts";
 import { type MapMarker } from "../../utils/map";
 import { transform, type EventData } from "../../utils/events";
 import clsx from "clsx";
@@ -117,7 +117,7 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
           <div className="event-details-date-rsvp-discord">
             <div>{event && <EventDateDisplay event={event} />}</div>
             <div>
-              {event.group && (
+              {event.group && isUpcoming(event) && (
                 <>
                     <a className="button rsvp" target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
                     {" "}
