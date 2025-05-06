@@ -2,6 +2,7 @@ import "./Event.css";
 import { EventMap } from "../EventMap.tsx";
 import { EventDateDisplay } from "../events/EventDateDisplay.tsx";
 import { EventGroupHeader } from "../events/EventGroupHeader";
+import { IcsEventButton } from "../events/IcsEventButton";
 import { Marked } from "../Marked";
 import { AstroLink, AstroLinkURL } from "../AstroLink.tsx";
 import { formatDate } from "../../utils/time.ts";
@@ -117,11 +118,16 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
             <div>{event && <EventDateDisplay event={event} />}</div>
             <div>
               {event.group && (
-                <a className="button rsvp" target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
-                  {" "}
-                  → RSVP{" "}
-                </a>
+                <>
+                    <a className="button rsvp" target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
+                    {" "}
+                    → RSVP{" "}
+                    </a>
+                    <IcsEventButton event={event} />
+                </>
               )}
+            </div>
+            <div>
             </div>
             <div>
               <a className="button join-discord" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
