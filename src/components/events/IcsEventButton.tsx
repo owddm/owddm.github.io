@@ -7,29 +7,32 @@ export type IcsEventButtonProps = {
   event: MeetupEvent;
 };
 export const IcsEventButton = ({ event }: IcsEventButtonProps) => {
-  // At the moment, event.time is unix timestamp (in miliseconds) for the start time of the event.
-  // Only the event.duration is the unix timestamp (in seconds) of only the time in hours and minutes not the actual date itself (e.g. Thu Jan 01 1970 XX XX).
-  // TODO: remove complexity around start and end date calculations by also using actual timestamps and both in unix timestamp in seconds. (robertvbraam)
-  const getTimeDiffInHours = (startDate: number, endDate: number): number => {
-    const startHours = dayjs(startDate).hour();
-    const endHours = dayjs(endDate * 1000).hour();
-    return endHours - startHours;
-  };
-
-  const getTimeDiffInMinutes = (startDate: number, endDate: number): number => {
-    const startHours = dayjs(startDate).minute();
-    const endHours = dayjs(endDate * 1000).minute();
-    return endHours - startHours;
-  };
+  function msToDuration(durationInMs: number): ics.DurationObject {
+    let time = (durationInMs / 1000) | 0;
+    const seconds = time % 60;
+    time = (time / 60) | 0;
+    const minutes = time % 60;
+    time = (time / 60) | 0;
+    const hours = time % 24;
+    time = (time / 24) | 0;
+    const days = time % 7;
+    time = (time / 7) | 0;
+    const weeks = time;
+    return {
+      weeks,
+      days,
+      hours,
+      minutes,
+      seconds,
+    };
+  }
 
   var venue = event.venue;
 
   const icsEvent: ics.EventAttributes = {
+    uid: event.id,
     start: event.time,
-    duration: {
-      hours: getTimeDiffInHours(event.time, event.duration),
-      minutes: getTimeDiffInMinutes(event.time, event.duration),
-    },
+    duration: msToDuration(event.duration),
     title: event.title,
   };
 
