@@ -161,7 +161,7 @@
     z-index: 9999;
     flex-wrap: wrap;
     overflow: auto;
-    background: rgba(255 255 255 / 85%);
+    background: rgb(255 255 255 / 85%);
     backdrop-filter: blur(10px);
   }
 
