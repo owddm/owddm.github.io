@@ -33,7 +33,7 @@
     "dayjs": "^1.11.13",
     "ics": "^3.8.1",
     "leaflet": "^1.9.4",
-    "maplibre-gl": "^4.7.1",
+    "maplibre-gl": "^5.5.0",
     "photoswipe": "^5.4.4"
   },
   "devDependencies": {
