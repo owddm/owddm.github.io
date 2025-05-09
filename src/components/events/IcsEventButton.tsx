@@ -7,6 +7,32 @@ export type IcsEventButtonProps = {
   event: MeetupEvent;
 };
 export const IcsEventButton = ({ event }: IcsEventButtonProps) => {
+  function generateICalFilename(time: number): string {
+    var startDate = dayjs(time);
+    return `ok-tech-event-${startDate.year()}-${startDate.month()}-${startDate.day()}.ics`;
+  }
+
+  function generateICalEvent(icsEventAttrib: ics.EventAttributes): Promise<string> {
+    return new Promise<string>((resolve, reject) =>
+      ics.createEvent(icsEventAttrib, (error, value) => {
+        if (error) {
+          console.log(error);
+          reject(error);
+          return;
+        }
+
+        var uri = encodeURI("data:text/calendar;charset=utf8," + value);
+        var downloadLink = document.createElement("a");
+        downloadLink.href = uri;
+        downloadLink.download = generateICalFilename(event.time);
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+        resolve(value);
+      }),
+    );
+  }
+
   function msToDuration(durationInMs: number): ics.DurationObject {
     let time = (durationInMs / 1000) | 0;
     const seconds = time % 60;
@@ -41,28 +67,9 @@ export const IcsEventButton = ({ event }: IcsEventButtonProps) => {
     icsEvent.geo = { lat: venue!.lat, lon: venue!.lng };
   }
 
-  const generateIcsEvent = () => {
-    ics.createEvent(icsEvent, (error, value) => {
-      if (error) {
-        console.log(error);
-        return;
-      }
-      var uri = encodeURI("data:text/calendar;charset=utf8," + value);
-
-      var downloadLink = document.createElement("a");
-      downloadLink.href = uri;
-      var startDate = dayjs(event.time);
-      downloadLink.download = `ok-tech-event-${startDate.year()}-${startDate.month()}-${startDate.day()}.ics`;
-
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-    });
-  };
-
   return (
     <div>
-      <button className="button ics-event-button" onClick={generateIcsEvent}>
+      <button className="button ics-event-button" onClick={() => generateICalEvent(icsEvent)}>
         → ICalendar
       </button>
     </div>
