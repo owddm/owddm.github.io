@@ -8,6 +8,7 @@ export type EventDateDisplayProps = {
 };
 export const EventDateDisplay = ({ event }: EventDateDisplayProps) => {
   const upcoming = isUpcoming(event);
+  // TODO: fix bug with dayjs and time diff calculations. Adding 2h instead of calculating will show incorrect value for different duration events (robertvbraam)
   const date = dayjs(event.time);
   const then = dayjs(date);
 

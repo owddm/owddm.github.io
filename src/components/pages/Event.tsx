@@ -2,9 +2,10 @@ import "./Event.css";
 import { EventMap } from "../EventMap.tsx";
 import { EventDateDisplay } from "../events/EventDateDisplay.tsx";
 import { EventGroupHeader } from "../events/EventGroupHeader";
+import { IcsEventButton } from "../events/IcsEventButton";
 import { Marked } from "../Marked";
 import { AstroLink, AstroLinkURL } from "../AstroLink.tsx";
-import { formatDate } from "../../utils/time.ts";
+import { formatDate, isUpcoming } from "../../utils/time.ts";
 import { type MapMarker } from "../../utils/map";
 import { transform, type EventData } from "../../utils/events";
 import clsx from "clsx";
@@ -64,7 +65,7 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
               "event-title-mobile": true,
               "event-title-cancelled": !!event.isCancelled,
             })}>
-            {event.title}¥
+            {event.title}
           </h1>
           {event.isCancelled && <sub>(Cancelled)</sub>}
           <div className="event-description-container">
@@ -72,11 +73,14 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
           </div>
           <div className="event-rsvp-discord-mobile">
             <div>
-              {event.group ? (
-                <a target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
-                  <button className="rsvp">→ RSVP</button>
-                </a>
-              ) : null}
+              {event.group && isUpcoming(event) && (
+                <>
+                  <a target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
+                    <button className="rsvp">→ RSVP</button>
+                  </a>
+                  <IcsEventButton event={event} />
+                </>
+              )}
             </div>
             <div>
               <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
@@ -116,13 +120,17 @@ export const EventPage = ({ url, events, eventId }: EventPageProps) => {
           <div className="event-details-date-rsvp-discord">
             <div>{event && <EventDateDisplay event={event} />}</div>
             <div>
-              {event.group && (
-                <a className="button rsvp" target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
-                  {" "}
-                  → RSVP{" "}
-                </a>
+              {event.group && isUpcoming(event) && (
+                <>
+                  <a className="button rsvp" target="_blank" rel="noopener noreferrer" href={`https://www.meetup.com/en-US/${event.group.urlname}/events/${event.id}`}>
+                    {" "}
+                    → RSVP{" "}
+                  </a>
+                  <IcsEventButton event={event} />
+                </>
               )}
             </div>
+            <div></div>
             <div>
               <a className="button join-discord" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
                 {" "}
