@@ -28,7 +28,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.7",
-    "astro": "^5.7.12",
+    "astro": "^5.10.2",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "ics": "^3.8.1",
