@@ -35,6 +35,9 @@
     "maplibre-gl": "^4.7.1",
     "photoswipe": "^5.4.4"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.46.0"
+  },
   "devDependencies": {
     "@types/leaflet": "^1.9.15",
     "@types/react": "^19.0.2",
