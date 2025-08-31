@@ -79,7 +79,7 @@ export function preparePhoto(photoRaw: PhotoRaw, transforms: Transform[]): Photo
       };
       sizes[transform.key] = transform.formats.reduce((formats, format) => {
         formats[format] = {
-          file: `https://owddm.com/public/${file}@${transform.key}.${format}`,
+          file: `https://oktech.jp/public/${file}@${transform.key}.${format}`,
           size,
         };
         return formats;
@@ -101,4 +101,4 @@ export function transform(raw: any): PhotoGroup[] {
   });
 }
 
-export const fetchPhotos = async () => await (await fetch("https://owddm.com/public/photos.json")).json();
+export const fetchPhotos = async () => await (await fetch("https://oktech.jp/public/photos.json")).json();

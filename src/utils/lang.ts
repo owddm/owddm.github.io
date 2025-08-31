@@ -1,4 +1,4 @@
-const base = "https://owddm.com/public";
+const base = "https://oktech.jp/public";
 
 export function getSitePath(path: string): string {
   return `${base}${path}`;
