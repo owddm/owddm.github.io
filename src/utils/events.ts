@@ -225,4 +225,4 @@ export function groupEvents(events: MeetupEvent[]): EventGroups {
   return groups;
 }
 
-export const fetchEvents = async () => await (await fetch("https://oktech.jp/public/events.json")).json();
+export const fetchEvents = async () => await (await fetch("https://public.oktech.jp/events.json")).json();

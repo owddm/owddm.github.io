@@ -7,7 +7,7 @@ export type AboutPageProps = {
 export const AboutPage = ({ url }: AboutPageProps) => (
   <AstroLinkURL url={url}>
     <section className="about">
-      <img className="about-group-banner" src="https://owddm.github.io/public/images/discord/event-photos/1089404389707481099/1089404385362186250/P1004543@l.webp" alt="" />
+      <img className="about-group-banner" src="https://public.oktech.jp/images/discord/event-photos/1089404389707481099/1089404385362186250/P1004543@l.webp" alt="" />
       <div className="about-content">
         <h1 className="about-title" id="osaka-kyoto-web-designers-and-developers-meetup">
           Osaka/Kyoto Web Designers and Developers Meetup

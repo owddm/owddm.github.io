@@ -24,7 +24,7 @@ export const PhotosPage = ({ data, url }: PhotosPageProps) => {
               All photos are published under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons BY-NC-SA license</a>.
             </li>
             <li>
-              If you want a photo of you removed from the page, or if you have any other issues with a photo on this page, please let us know through → <a href="https://github.com/owddm/public/issues/new">a new GitHub issue</a>.
+              If you want a photo of you removed from the page, or if you have any other issues with a photo on this page, please let us know through → <a href="https://github.com/oktechjp/public/issues/new">a new GitHub issue</a>.
             </li>
             <li>If you use any photo of this page, we request you to follow the github repository and also remove any photo if a member is uncomfortable with it.</li>
           </ul>
