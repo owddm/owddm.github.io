@@ -1,9 +1,10 @@
 {
-  "coc": "https://oktech.jp/code-of-conduct",
-  "code-of-conduct": "https://oktech.jp/code-of-conduct",
+  "coc": "https://oktech.jp/code-of-conduct/",
+  "code-of-conduct": "https://oktech.jp/code-of-conduct/",
   "coc-report": "https://oktech.jp/code-of-conduct/#code-of-conduct---reporting-guide",
-  "photos": "https://oktech.jp/events/album",
+  "photos": "https://oktech.jp/events/album/",
   "discord": "https://oktech.jp/discord",
+  "events": "https://oktech.jp/events/",
   "events/310102122": "https://oktech.jp/events/310102122-omega-programming-and-fonts",
   "events/308580120": "https://oktech.jp/events/308580120-agentic-sentiments",
   "events/308421830": "https://oktech.jp/events/308421830-oktech-study-session-ddd-part-2-a-new-product-emerges",
