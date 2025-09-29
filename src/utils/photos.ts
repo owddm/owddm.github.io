@@ -61,31 +61,14 @@ export interface Photo {
   instructional?: boolean;
   original: string;
   corners: Corners;
-  transforms: TransformSet;
 }
 
-export function preparePhoto(photoRaw: PhotoRaw, transforms: Transform[]): Photo {
-  const file = photoRaw.file.replace(/\..*$/, "");
+export function preparePhoto(photoRaw: PhotoRaw): Photo {
   return {
     instructional: photoRaw.instructional ?? false,
     caption: photoRaw.caption ?? "",
     original: photoRaw.file,
     corners: photoRaw.corners,
-    transforms: transforms.reduce((sizes, transform, index) => {
-      const sizeRaw = photoRaw.res[index];
-      const size = {
-        width: sizeRaw?.[0] ?? 0,
-        height: sizeRaw?.[1] ?? 0,
-      };
-      sizes[transform.key] = transform.formats.reduce((formats, format) => {
-        formats[format] = {
-          file: `https://public.oktech.jp/${file}@${transform.key}.${format}`,
-          size,
-        };
-        return formats;
-      }, {} as FormatSet);
-      return sizes;
-    }, {} as TransformSet),
   };
 }
 
@@ -96,7 +79,7 @@ export function transform(raw: any): PhotoGroup[] {
       event: group.event,
       timestamp: new Date(group.timestamp),
       content: group.content ?? "",
-      photos: group.photos.map((photoRaw) => preparePhoto(photoRaw, data.transforms)),
+      photos: group.photos.map((photoRaw) => preparePhoto(photoRaw)),
     };
   });
 }

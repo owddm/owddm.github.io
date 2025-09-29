@@ -1,4 +1,4 @@
-import { type Photo, type PhotoRaw, preparePhoto, type Transform } from "./photos";
+import { type Photo, type PhotoRaw, preparePhoto } from "./photos";
 export type EventID = string;
 export type GroupID = string;
 export type VenueID = string;
@@ -61,7 +61,6 @@ interface VenueRaw {
 
 interface EventsRaw {
   groups: { [id: GroupID]: GroupRaw };
-  transforms: Transform[];
   venues: VenueRaw[];
 }
 
@@ -177,7 +176,7 @@ export function transform(raw: any): EventData {
             ...rest,
             group,
             venue: venueLookup[venue!]!,
-            image: preparePhoto(image!, input.transforms),
+            image: preparePhoto(image!),
           };
           events.push(event);
           return event;
