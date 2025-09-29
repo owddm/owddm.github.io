@@ -1,11 +1,9 @@
 export type Resolutions = [width: number, height: number][];
-export type Corners = [topLeft: string, topRight: string, bottomLeft: string, bottomRight: string];
 export interface PhotoRaw {
   instructional?: boolean;
   caption?: string;
   file: string;
   res: Resolutions;
-  corners: Corners;
 }
 
 interface GroupRaw {
@@ -25,17 +23,7 @@ export interface PhotoGroup {
 export type PhotoSize = "l" | "m" | "s";
 export type PhotoFormat = "jpg" | "webp";
 
-export interface Transform {
-  key: PhotoSize;
-  formats: PhotoFormat[];
-  resize?: {
-    width?: number;
-    height?: number;
-    fit?: string;
-  };
-}
 interface PhotosRaw {
-  transforms: Transform[];
   groups: GroupRaw[];
 }
 
@@ -60,15 +48,13 @@ export interface Photo {
   caption?: string;
   instructional?: boolean;
   original: string;
-  corners: Corners;
 }
 
 export function preparePhoto(photoRaw: PhotoRaw): Photo {
   return {
     instructional: photoRaw.instructional ?? false,
     caption: photoRaw.caption ?? "",
-    original: photoRaw.file,
-    corners: photoRaw.corners,
+    original: photoRaw.file
   };
 }
 
