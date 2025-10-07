@@ -54,7 +54,7 @@ export function preparePhoto(photoRaw: PhotoRaw): Photo {
   return {
     instructional: photoRaw.instructional ?? false,
     caption: photoRaw.caption ?? "",
-    original: photoRaw.file
+    original: photoRaw.file,
   };
 }
 

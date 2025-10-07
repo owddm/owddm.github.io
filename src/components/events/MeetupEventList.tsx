@@ -19,7 +19,9 @@ export const MeetupEventList = ({ eventGroups, type }: MeetupEventListProps) => 
     {eventGroups.map(({ name, events }, index) => (
       <div key={index}>
         {name && <h2 className="heading">{name}</h2>}
-        {events?.map((event) => <MeetupEventItem key={event.id} event={event} />)}
+        {events?.map((event) => (
+          <MeetupEventItem key={event.id} event={event} />
+        ))}
       </div>
     ))}
   </div>
