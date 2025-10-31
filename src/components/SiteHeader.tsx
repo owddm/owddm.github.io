@@ -29,8 +29,15 @@ export const SiteHeader = ({ url }: SiteHeaderProps) => {
   return (
     <AstroLinkURL url={url}>
       <div className="banner-goodbye">
-        <div>In 2025, <abbr title="Osaka Web Designers and Developers Meetup">OWDDM</abbr> &amp; <abbr title="Kyoto Web Designers and Developers Meetup">KWDDM</abbr> became one and are now <a href="https://oktech.jp"><img src="https://public.oktech.jp/images/logo-and-design/OKTech-logo-onlight.svg" style={{ height: '1.5em', verticalAlign: 'bottom' }}/></a></div>
-        <div>→ <a href="https://oktech.jp/articles/hello-oktech">Read more about the change!</a></div>
+        <div>
+          In 2025, <abbr title="Osaka Web Designers and Developers Meetup">OWDDM</abbr> &amp; <abbr title="Kyoto Web Designers and Developers Meetup">KWDDM</abbr> became one and are now{" "}
+          <a href="https://oktech.jp">
+            <img src="https://public.oktech.jp/images/logo-and-design/OKTech-logo-onlight.svg" style={{ height: "1.5em", verticalAlign: "bottom" }} />
+          </a>
+        </div>
+        <div>
+          → <a href="https://oktech.jp/articles/hello-oktech">Read more about the change!</a>
+        </div>
       </div>
       <header className={clsx({ "site-header": true, open: isHamburgerMenuOpen, closed: !isHamburgerMenuOpen })}>
         <div className="header--container">
