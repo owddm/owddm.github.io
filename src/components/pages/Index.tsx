@@ -16,6 +16,7 @@ function toMarker(event: MeetupEvent): MapMarker {
     lng: event!.venue!.lng,
     title: event.title,
     subtitle: formatDate(event.time),
+    target: "https://oktech.jp/events",
     type: event.group.type,
     isUpcoming: isUpcoming(event),
   };
