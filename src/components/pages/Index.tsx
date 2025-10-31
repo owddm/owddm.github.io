@@ -1,6 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import { type MapMarker, loadMapLibreLayer } from "../../utils/map.ts";
-import { transform, getLatestEvents } from "../../utils/events.ts";
+import { transform, getLatestEvents, type MeetupEvent } from "../../utils/events.ts";
 import { formatDate, isUpcoming } from "../../utils/time.ts";
 import { useEffect, useMemo, useRef } from "react";
 import { AstroLinkURL } from "../AstroLink.tsx";
@@ -9,25 +9,40 @@ export type IndexPageProps = {
   data: any;
   url: URL;
 };
+
+function toMarker(event: MeetupEvent): MapMarker {
+  return {
+    lat: event!.venue!.lat,
+    lng: event!.venue!.lng,
+    title: event.title,
+    subtitle: formatDate(event.time),
+    type: event.group.type,
+    isUpcoming: isUpcoming(event),
+  };
+}
 export const IndexPage = ({ data, url }: IndexPageProps) => {
   const map = useRef<HTMLDivElement>(null);
-  const markers = useMemo(
+  const marker = useMemo(
     () =>
-      getLatestEvents(transform(data))
-        .filter((event) => event?.venue)
-        .map((event): MapMarker => {
-          return {
-            lat: event!.venue!.lat,
-            lng: event!.venue!.lng,
-            title: event.title,
-            subtitle: formatDate(event.time),
-            type: event.group.type,
-            target: `/events/${event.id}`,
-            isUpcoming: isUpcoming(event),
-          };
-        }),
+      toMarker(
+        getLatestEvents(transform(data))
+          .filter((event) => event?.venue)
+          .reduce((a, b) => {
+            if (isUpcoming(a)) {
+              if (!isUpcoming(b)) {
+                return a;
+              }
+              return a.time > b.time ? b : a;
+            } else if (isUpcoming(b)) {
+              return b;
+            } else {
+              return a.time < b.time ? b : a;
+            }
+          }),
+      ),
     [data],
   );
+  const markers = [marker];
   useEffect(() => {
     if (!map.current) return;
     if (!globalThis) return;
@@ -53,19 +68,14 @@ export const IndexPage = ({ data, url }: IndexPageProps) => {
           let title = marker.title
             ? `<div class="map-event--label">
               <div class="map-event--title">${marker.title}</div>
-              ${
-                marker.subtitle
-                  ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div>
-              ${!marker.isUpcoming ? `<div class="map-event--info">(on a break)</div>` : ""}</div>`
-                  : ""
-              }`
+              ${marker.subtitle ? `<div class="map-event--info">${marker.subtitlePrefix ? `<strong>${marker.subtitlePrefix}</strong> ` : ""}${marker.subtitle}</div></div>` : ""}`
             : "";
-          const html = `<img src="/images/marker/${marker.type}.svg" class="map-event--image " alt="">${title}`;
+          const html = `<img src="/images/marker/oktech.svg" class="map-event--image " alt="">${title}`;
           return L.marker([marker.lat, marker.lng], {
             icon: L.divIcon({
               iconAnchor: [37, 118],
               iconSize: [74, 120],
-              className: `owddm-map-marker${!marker.isUpcoming ? " inactive" : ""}`,
+              className: `owddm-map-marker`,
               html,
             }),
           }).on("click", () => {
