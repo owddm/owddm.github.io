@@ -8,7 +8,7 @@ export const SocialMedia = () => (
       </svg>
       <span className="sr-only">meetup</span>
     </a>
-    <a target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/k8xj8d75f6">
+    <a target="_blank" rel="noopener noreferrer" href="https://oktech.jp/discord">
       <svg fill="#7289da" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
         <rect height="512" rx="15%" width="512" />
         <path d="m346 392-21-25c41-11 57-39 57-39-52 49-194 51-249 0 0 0 14 26 56 39l-23 25c-70-1-97-48-97-48 0-104 46-187 46-187 47-33 90-33 90-33l3 4c-58 16-83 42-83 42 68-46 208-42 263 0 1-1-33-28-86-42l5-4s43 0 90 33c0 0 46 83 46 187 0 0-27 47-97 48z" fill="#fff" />
@@ -17,7 +17,7 @@ export const SocialMedia = () => (
       </svg>
       <span className="sr-only">discord</span>
     </a>
-    <a target="_blank" rel="noopener noreferrer" href="https://github.com/owddm/owddm.com">
+    <a target="_blank" rel="noopener noreferrer" href="https://github.com/owddm/owddm.github.io">
       <svg height="512px" version="1.1" viewBox="0 0 512 512" width="512px" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
         <g>
           <path
